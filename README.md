@@ -1,9 +1,28 @@
-# ProjectOneTeamWon
-Project 1!
+# What Todoo?
+UT Austin Coding Bootcamp | Project 1 \
+Project Team: Didi Ramsamooj, Efren Cavazos, Ezequiel Calderon \
+Project Launch - October 10, 2018
 
-We need to discuss as a group and confirm the project we are going to work on together.
-Let's discuss during lunch.
+## Project Description
+Events and attractions in your city of things to do indoor or outdoor. Search from events by date, ratings or popularity, and share an event with a friend for concerts, food, theatre, art exhibitions and more! So what todoo?!
 
-That sounds great.
+## Sketch of Final Product
 
-Test 
+## APIs to be Used
++ Ticketmaster API
+[https://developer.ticketmaster.com/](TicketMaster API)
+^ Rough Breakdown of Tasks
+
+# Motivation for its development
+
+
+# Design process
+
+
+# Technologies you used (briefly how they work)
+
+
+# Demo of its functionality
+
+
+# Directions for future development

@@ -17,10 +17,10 @@ Use Spotify music to control the hue of Philips Hue bulbs. With every oscilliati
 
 ## Rough Sketch of Final Product
 What Todoo?
-![Image of What Todoo](./assets/images/IMG_2295.JPG)
+![Image of What Todoo](IMG_2295.JPG)
 \
 Spotify Party Lights
-![Image of Spotify Party Lights](./assets/images/IMG_2296.JPG)
+![Image of Spotify Party Lights](IMG_2296.JPG)
 
 ## APIs to be Used
 ### 1) What Todoo?

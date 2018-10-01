@@ -3,6 +3,13 @@ UT Austin Coding Bootcamp \
 Project Team: Didi Ramsamooj, Efren Cavazos, Ezequiel Calderon \
 Project Launch - October 10, 2018
 
+<<<<<<< HEAD
+<!-- We need to discuss as a group and confirm the project we are going to work on together.
+Let's discuss during lunch.
+
+That sounds great.  -->
+
+=======
 ## Project Proposals
 We have two proposals: 
 + 1) Events curation guide (were told was too easy)
@@ -37,3 +44,4 @@ Spotify Party Lights
 + Determine scope of development
 + Research feasibility of using Philips Hue and Spotify
 + Begin working on features
+>>>>>>> 7726de57c3b46213043fa1f5a388787dbaa9f88d

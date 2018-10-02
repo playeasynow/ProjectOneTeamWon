@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Project 1 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Materialize css stylesheet -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/materialize.css" />
     <!-- our styles sheet -->
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
 </head>
@@ -17,41 +19,41 @@
 
 
     <!-- chat box  -->
-
-    
-        <div id="name_prompt_parent">
-            <div id="name_prompt">
-                <p class="title">Whats your name?</p>
-                <input type="text" id="name" class="form-control">
-                <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
-            </div>
+    <div id="name_prompt_parent">
+        <div id="name_prompt">
+            <p class="title">Whats your name?</p>
+            <input type="text" id="name" class="form-control">
+            <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
         </div>
-        <div id="chatroom">
-            <div id="messages">
-                <div id ="m">
-                    <p class = "name"></p>
-                    <p class = "message"></p>
-                    
-                </div>
+    </div>
+    <div id="chatroom">
+        <div id="messages">
+            <div id="m">
+                <p class="name"></p>
+                <p class="message"></p>
 
             </div>
-            <div id="input">
-                <textarea id ="msg" class ="form-control" id="message"></textarea>
-                <button id = "send_button" class=" submit btn btn-outline-dark">Send</button>
-            </div>
+
         </div>
-    
+        <div id="input">
+            <textarea id="msg" class="form-control" id="message"></textarea>
+            <button id="send_button" class=" submit btn btn-outline-dark">Send</button>
+        </div>
+    </div>
+
 
 
 
 
     <!-- Firebase -->
-     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
     <!-- jQuery -->
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <!-- trackingjs file -->
     <script src="./assets/javascript/node_modules/tracking/build/tracking-min.js"></script>
+    <!-- Materialize js file -->
+    <script src="./assets/javascript/materialize.min.js"></script>
     <!-- our js file -->
     <script src="./assets/javascript/app.js"></script>
 </body>

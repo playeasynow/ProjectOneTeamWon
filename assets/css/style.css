@@ -167,4 +167,7 @@ h6 {font-size:25px; line-height:30px;}
 .opacity9 {opacity:.9}
 
 
-
+/* Only necessary for window height sized blocks. */
+html, body, .block {
+  height: 100%;
+}

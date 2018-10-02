@@ -1,3 +1,53 @@
+$(document).ready(function () {
+  var config = {
+    apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
+    authDomain: "color-game-chat.firebaseapp.com",
+    databaseURL: "https://color-game-chat.firebaseio.com",
+    projectId: "color-game-chat",
+    storageBucket: "color-game-chat.appspot.com",
+    messagingSenderId: "440942527592"
+  };
+  firebase.initializeApp(config);
+  
+  
+  // new chat box
+  
+  $(document).ready(function () {
+  
+      var name = "";
+  
+      firebase.database().ref('chat/').on('child_added',
+      function(snapshot){
+          var data = "<div id ='m'><p class ='name'>" +
+          snapshot.child('name').val() + "</p><p class ='message'>" +
+          snapshot.child('message').val() +"</p><div>";
+  
+          $("#messages").html($("#messages").html()+ data);
+      });
+  
+  
+      $("#name_submit").on("click", function () {
+          name = $("#name").val();
+          // alert(name)
+          $("#name_prompt_parent").fadeOut();
+          
+      });
+  
+      $("#send_button").on('click', function(){
+          var mess = $("#msg").val();
+          // alert(mess);
+  
+          firebase.database().ref('chat/'+ Date.now()).set({
+              name: name,
+              message: mess
+  
+  
+          });
+      
+      });
+  
+  });
+
 // $(document).ready(function () {
 
 //   ticketmaster ajax call
@@ -44,3 +94,6 @@ colors.on('track', function(event) {
 tracking.track('#myVideo', colors, {camera: true});
 
 })
+
+//Chat box 
+

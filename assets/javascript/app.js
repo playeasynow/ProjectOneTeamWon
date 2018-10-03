@@ -64,14 +64,16 @@ $(document).ready(function () {
   // --- start unsplash api and button -----------------------------------------------------------------------------------------------------------------//
   $('button').on('click', function () {
     var x = $(this).data("splashy");
-    var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + x + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+    console.log (x);
+    var queryURL = "https://api.unsplash.com/search/photos?page=1&query="+x+"&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
 
     $.ajax({ url: queryURL, method: "GET" })
       .done(function (response) {
-        for (var i = 0; i < response.data.length; i++) {
+        console.log(response);
+        for (var i = 0; i < response.results.length; i++) {
           var splashyDiv = $('<div>');
           var splashyImage = $('<img>');
-          splashyImage.attr('src', response.data[i].images.profile_image.large);
+          splashyImage.attr('src', response.results[i].urls.small);
           splashyDiv.append(splashyImage);
           $('#unsplashGoHere').append(splashyDiv);
         }
@@ -146,3 +148,21 @@ $(document).ready(function () {
   });
 
 })
+
+
+// // HTML styles for Pushpin
+// $('.pushpin-demo-nav').each(function () {
+//   var $this = $(this);
+//   var $target = $('#' + $(this).attr('data-target'));
+//   $this.pushpin({
+//     top: $target.offset().top,
+//     bottom: $target.offset().top + $target.outerHeight() - $this.height()
+//   });
+// });
+
+// // menu bar style
+// $(document).ready(function(){
+//   $(".button-collapse").sideNav();
+//   $('.modal-trigger').leanModal();
+//   $('#push,secton').pushpin({ top:$('#push').height() });
+// });

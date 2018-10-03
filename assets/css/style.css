@@ -137,6 +137,15 @@ h6 {font-size:25px; line-height:30px;}
 .padding-75px-bottom {padding-bottom: 75px;}
 .padding-100px-bottom {padding-bottom: 100px;}
 
+/* padding top and bottom  */
+.padding-5px-tb {padding-top: 5px; padding-bottom: 5px;}
+.padding-10px-tb {padding-top: 10px; padding-bottom: 10px;}
+.padding-15px-tb {padding-top: 15px; padding-bottom: 15px;}
+.padding-20px-tb {padding-top: 20px; padding-bottom: 20px;}
+.padding-50px-tb {padding-top: 50px; padding-bottom: 50px;}
+.padding-75px-tb {padding-top: 75px; padding-bottom: 75px;}
+.padding-100px-tb {padding-top: 100px; padding-bottom: 100px;}
+
 /* no padding options */
 .no-padding {padding:0 !important}
 .no-padding-lr {padding-left: 0 !important; padding-right: 0 !important;}

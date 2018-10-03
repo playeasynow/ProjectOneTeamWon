@@ -13,45 +13,51 @@
 </head>
 
 <body>
-    <div id="nav">
-        <div class="navbar-fixed">
-            <!-- <nav class="nav-wrapper container">
-                <a href="#!" class="brand-logo">ColorFun</a>
-                <a href="#!" data-activates="mobile-demo" class="button-collapase"><i class="mdi-naviation-menu"></i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#" class="modal"</li>
-                </ul>
-            </nav> -->
-        </div>
-    </div>
-
-    <div class="divider container"></div>
-    <!-- video from camera will render on HTML -->
-    <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
-    <!-- chat box  -->
-    <div id="name_prompt_parent" class="container">
-        <div id="name_prompt">
-            <p class="title">Whats your name?</p>
-            <input type="text" id="name" class="form-control">
-            <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
-        </div>
-    </div>
-    <div id="chatroom" class="container">
-        <div id="messages">
-            <div id="m">
-                <p class="name"></p>
-                <p class="message"></p>
+        <div id="nav">
+                <div class="navbar-fixed">
+                    <nav class="orange">
+                        <div class="nav-wrapper container">
+                            <a href="#!" class="brand-logo">&nbsp;Color Fun</a>
+                            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                            <ul class="right hide-on-med-and-down">
+                                <li><a href="#modalLogin" class="modal-trigger"><i class="mdi-action-perm-identity"></i></a></li>
+                                <li><a href="#"><i class="mdi-navigation-refresh"></i></a></li>
+                                <li><a href="#"><i class="mdi-navigation-more-vert"></i></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+    <div class="section orange">
+        <div class="divider container"></div>
+        <!-- video from camera will render on HTML -->
+        <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
+        <!-- chat box  -->
+        <div id="name_prompt_parent" class="container">
+            <div id="name_prompt">
+                <p class="title">Whats your name?</p>
+                <input type="text" id="name" class="form-control">
+                <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
             </div>
         </div>
-        <div id="input">
-            <textarea id="msg" class="form-control" id="message"></textarea>
-            <button id="send_button" class=" submit btn btn-outline-dark">Send</button>
+        <div id="chatroom" class="container">
+            <div id="messages">
+                <div id="m">
+                    <p class="name"></p>
+                    <p class="message"></p>
+                </div>
+            </div>
+            <div id="input">
+                <textarea id="msg" class="form-control" id="message"></textarea>
+                <button id="send_button" class=" submit btn btn-outline-dark">Send</button>
+            </div>
         </div>
     </div>
 
-    <body><div id="blue" class="block blue">
-        <!-- <nav class="pushpin-demo-nav" data-target="blue"> -->
-          <!-- <div class="nav-wrapper light-blue">
+    <body>
+        <div id="blue" class="block blue">
+            <!-- <nav class="pushpin-demo-nav" data-target="blue"> -->
+            <!-- <div class="nav-wrapper light-blue">
             <div class="container">
               <a href="#" class="brand-logo">Blue</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -61,12 +67,12 @@
               </ul>
             </div>
           </div> -->
-        <!-- </nav> -->
-      </div>
-      
-      <div id="red" class="block red lighten-1">
-        <!-- <nav class="pushpin-demo-nav" data-target="red"> -->
-          <!-- <div class="nav-wrapper red">
+            <!-- </nav> -->
+        </div>
+
+        <div id="red" class="block red lighten-1">
+            <!-- <nav class="pushpin-demo-nav" data-target="red"> -->
+            <!-- <div class="nav-wrapper red">
             <div class="container">
               <a href="#" class="brand-logo">Red</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -76,12 +82,12 @@
               </ul>
             </div>
           </div> -->
-        <!-- </nav> -->
-      </div>
-      
-      <div id="green" class="block green lighten-1">
-        <!-- <nav class="pushpin-demo-nav" data-target="green"> -->
-          <!-- <div class="nav-wrapper green">
+            <!-- </nav> -->
+        </div>
+
+        <div id="green" class="block green lighten-1">
+            <!-- <nav class="pushpin-demo-nav" data-target="green"> -->
+            <!-- <div class="nav-wrapper green">
             <div class="container">
               <a href="#" class="brand-logo">Green</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -91,53 +97,62 @@
               </ul>
             </div>
           </div> -->
-        <!-- </nav> -->
-      </div>
-      <footer class="page-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col l4 s12">
-              <h5 class="white-text">Help Materialize Grow</h5>
-              <p class="grey-text text-lighten-4">We hope you have enjoyed using Materialize and if you feel like it has helped you out and want to support the team you can help us by donating or backing us on Patreon. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-              <a class="btn waves-effect waves-light red lighten-3" href="/support-us.html">Support Us</a>
-            </div>
-            <div class="col l4 s12">
-              <h5 class="white-text">Join the Discussion</h5>
-              <p class="grey-text text-lighten-4">We have a Gitter chat room set up where you can talk directly with us. Come in and discuss new features, future goals, general problems or questions, or anything else you can think of.</p>
-              <a class="btn waves-effect waves-light red lighten-3" target="_blank" href="https://gitter.im/Dogfalo/materialize">Chat</a>
-            </div>
-            <div class="col l4 s12" style="overflow: hidden;">
-              <h5 class="white-text">Connect</h5>
-              <iframe src="https://ghbtns.com/github-btn.html?user=dogfalo&repo=materialize&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-              <br>
-              <a href="https://twitter.com/MaterializeCSS" class="twitter-follow-button" data-show-count="true" data-size="large" data-dnt="true">Follow @MaterializeCSS</a>
-              <br>
-              <div class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/108619793845925798422" data-rel="publisher"></div>
-            </div>
-          </div>
+            <!-- </nav> -->
         </div>
-        <div class="footer-copyright">
-          <div class="container">
-          © 2014-2017 Materialize, All rights reserved.
-          <a class="grey-text text-lighten-4 right" href="https://github.com/Dogfalo/materialize/blob/master/LICENSE">MIT License</a>
-          </div>
-        </div>
-      </footer>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l4 s12">
+                        <h5 class="white-text">Help Materialize Grow</h5>
+                        <p class="grey-text text-lighten-4">We hope you have enjoyed using Materialize and if you feel
+                            like it has helped you out and want to support the team you can help us by donating or
+                            backing us on Patreon. Any amount would help support and continue development on this
+                            project and is greatly appreciated.</p>
+                        <a class="btn waves-effect waves-light red lighten-3" href="/support-us.html">Support Us</a>
+                    </div>
+                    <div class="col l4 s12">
+                        <h5 class="white-text">Join the Discussion</h5>
+                        <p class="grey-text text-lighten-4">We have a Gitter chat room set up where you can talk
+                            directly with us. Come in and discuss new features, future goals, general problems or
+                            questions, or anything else you can think of.</p>
+                        <a class="btn waves-effect waves-light red lighten-3" target="_blank" href="https://gitter.im/Dogfalo/materialize">Chat</a>
+                    </div>
+                    <div class="col l4 s12" style="overflow: hidden;">
+                        <h5 class="white-text">Connect</h5>
+                        <iframe src="https://ghbtns.com/github-btn.html?user=dogfalo&repo=materialize&type=watch&count=true&size=large"
+                            allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+                        <br>
+                        <a href="https://twitter.com/MaterializeCSS" class="twitter-follow-button" data-show-count="true"
+                            data-size="large" data-dnt="true">Follow @MaterializeCSS</a>
+                        <br>
+                        <div class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/108619793845925798422"
+                            data-rel="publisher"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2014-2017 Materialize, All rights reserved.
+                    <a class="grey-text text-lighten-4 right" href="https://github.com/Dogfalo/materialize/blob/master/LICENSE">MIT
+                        License</a>
+                </div>
+            </div>
+        </footer>
 
 
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
-    <!-- jQuery -->
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <!-- trackingjs file -->
-    <script src="./assets/javascript/node_modules/tracking/build/tracking-min.js"></script>
-    <!-- Materialize js file -->
-    <script src="./assets/javascript/materialize.min.js"></script>
-    <script src="./assets/javascript/init.js"></script>
-    <script src="./assets/javascript/prism.js"></script>
-    <!-- our js file -->
-    <script src="./assets/javascript/app.js"></script>
-</body>
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+        <!-- jQuery -->
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+        <!-- trackingjs file -->
+        <script src="./assets/javascript/node_modules/tracking/build/tracking-min.js"></script>
+        <!-- Materialize js file -->
+        <script src="./assets/javascript/materialize.min.js"></script>
+        <script src="./assets/javascript/init.js"></script>
+        <script src="./assets/javascript/prism.js"></script>
+        <!-- our js file -->
+        <script src="./assets/javascript/app.js"></script>
+    </body>
 
 </html>

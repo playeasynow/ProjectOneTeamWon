@@ -29,7 +29,6 @@ $(document).ready(function () {
     name = $("#name").val();
     // alert(name)
     $("#name_prompt_parent").fadeOut();
-
   });
 
   $("#send_button").on('click', function () {
@@ -39,12 +38,8 @@ $(document).ready(function () {
     firebase.database().ref('chat/' + Date.now()).set({
       name: name,
       message: mess
-
-
     });
-
   });
-
 
   // giphy ajax call
   // var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
@@ -79,22 +74,13 @@ $(document).ready(function () {
           splashyDiv.append(splashyImage);
           $('#unsplashGoHere').append(splashyDiv);
         }
-
-
       })
-
-
   })
-
-
 
   //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
   //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
 
   $.getJSON('');
-
-
-
 
   // tracking.js initial color tracker - tracking seen in console
   var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow']);
@@ -108,11 +94,7 @@ $(document).ready(function () {
       });
     }
   });
-
   tracking.track('#myVideo', colors, { camera: true });
-
-})
-
 
 // HTML styles for Pushpin
 $('.pushpin-demo-nav').each(function () {
@@ -124,8 +106,16 @@ $('.pushpin-demo-nav').each(function () {
   });
 });
 
+$(".button-collapse").sideNav();
+$('.modal-trigger').leanModal();
+$('#push,secton').pushpin({ top: $('#push').height() });
+
+})
+
+
 // menu bar style
-$(document).ready(function(){
-  $(".button-collapse").sideNav();
-  $('.modal-trigger').leanModal();
-  $('#push,secton').pushpin({ top:$('#push').height() });
+// $(document).ready(function () {
+
+
+
+// })

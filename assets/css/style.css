@@ -41,6 +41,7 @@ h6 {font-size:25px; line-height:30px;}
 .text-large {font-size:20px; line-height:30px;}
 .title-large {font-size:100px; line-height:95px;}
 
+
 /* font weight */
 .font-weight-400 {font-weight: 400;}
 .font-weight-500 {font-weight: 500;}
@@ -137,6 +138,15 @@ h6 {font-size:25px; line-height:30px;}
 .padding-75px-bottom {padding-bottom: 75px;}
 .padding-100px-bottom {padding-bottom: 100px;}
 
+/* padding top and bottom  */
+.padding-5px-tb {padding-top: 5px; padding-bottom: 5px;}
+.padding-10px-tb {padding-top: 10px; padding-bottom: 10px;}
+.padding-15px-tb {padding-top: 15px; padding-bottom: 15px;}
+.padding-20px-tb {padding-top: 20px; padding-bottom: 20px;}
+.padding-50px-tb {padding-top: 50px; padding-bottom: 50px;}
+.padding-75px-tb {padding-top: 75px; padding-bottom: 75px;}
+.padding-100px-tb {padding-top: 100px; padding-bottom: 100px;}
+
 /* no padding options */
 .no-padding {padding:0 !important}
 .no-padding-lr {padding-left: 0 !important; padding-right: 0 !important;}
@@ -171,3 +181,128 @@ h6 {font-size:25px; line-height:30px;}
 html, body, .block {
   height: 100%;
 }
+
+
+/* Menu styles */
+html, body {
+    height: 100%;
+}
+
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:992px) {
+
+}
+
+#push.pin-top {
+    position:relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+section.pin-top {
+    position: fixed;
+    width: 100%;
+    z-index:99;
+}
+
+section.pinned {
+    display:none;
+    z-index:1;
+}
+
+#push.pinned {
+    position: static;
+    width: 100%;
+    display:none;
+}
+
+section {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top:0;
+}
+
+#push {
+    position:relative;
+    height: 100%;
+}
+
+#main {
+    background-color:white;
+    position:relative;
+    z-index:990;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:992px) {
+
+}
+
+#push.pin-top {
+    position:relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+section.pin-top {
+    position: fixed;
+    width: 100%;
+    z-index:99;
+}
+
+section.pinned {
+    display:none;
+    z-index:1;
+}
+
+#push.pinned {
+    position: static;
+    width: 100%;
+    display:none;
+}
+
+section {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top:0;
+}
+
+#push {
+    position:relative;
+    height: 100%;
+}
+
+#main {
+    background-color:white;
+    position:relative;
+    z-index:990;
+}
+
+html, body, .block {
+    height: 100%;
+    background-color: #4da7ee;
+  }
+  nav ul li a:hover, nav ul li a.active {
+    background-color: rgba(0,0,0,.1);
+  }
+  footer {
+    padding-left: 0;
+  }

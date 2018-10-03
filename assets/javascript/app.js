@@ -123,3 +123,9 @@ $('.pushpin-demo-nav').each(function () {
     bottom: $target.offset().top + $target.outerHeight() - $this.height()
   });
 });
+
+// menu bar style
+$(document).ready(function(){
+  $(".button-collapse").sideNav();
+  $('.modal-trigger').leanModal();
+  $('#push,secton').pushpin({ top:$('#push').height() });

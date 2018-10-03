@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+  // --- firebase -----------------------------------------------------------------------------------------------------------------//
   // didi's firebase
   var config = {
     apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
@@ -11,7 +12,7 @@ $(document).ready(function () {
   };
   firebase.initializeApp(config);
 
-  // new chat box
+  // --- start chat box -----------------------------------------------------------------------------------------------------------------//
   var name = "";
 
   firebase.database().ref('chat/').on('child_added',
@@ -60,6 +61,7 @@ $(document).ready(function () {
   //     console.log(response);
   //   });
 
+  // --- start unsplash api and button -----------------------------------------------------------------------------------------------------------------//
   $('button').on('click', function () {
     var x = $(this).data("splashy");
     var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + x + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
@@ -81,29 +83,30 @@ $(document).ready(function () {
 
   $.getJSON('');
 
+  // --- start tracking.js -----------------------------------------------------------------------------------------------------------------//
   tracking.ColorTracker.registerColor('purple', function (r, g, b) {
     var dx = r - 120;
     var dy = g - 60;
     var dz = b - 210;
     if ((b - g) >= 100 && (r - g) >= 60) {
-        return true;
+      return true;
     }
     return dx * dx + dy * dy + dz * dz < 3500;
-});
+  });
 
-tracking.ColorTracker.registerColor('red', function (r, g, b) {
+  tracking.ColorTracker.registerColor('red', function (r, g, b) {
     if (r > 200 && g < 100 && b < 100) {
-        return true;
+      return true;
     }
     return false;
-});
+  });
 
-tracking.ColorTracker.registerColor('green', function(r, g, b) {
-  if (r < 50 && g > 200 && b < 50) {
-    return true;
-  }
-  return false;
-});
+  tracking.ColorTracker.registerColor('green', function (r, g, b) {
+    if (r < 50 && g > 200 && b < 50) {
+      return true;
+    }
+    return false;
+  });
 
 
   // tracking.js initial color tracker - tracking seen in console
@@ -118,32 +121,28 @@ tracking.ColorTracker.registerColor('green', function(r, g, b) {
 
         if (rect.color === 'red') {
           console.log("it's red!");
+          
         }
       });
     }
   });
   tracking.track('#myVideo', colors, { camera: true });
 
-// HTML styles for Pushpin
-$('.pushpin-demo-nav').each(function () {
-  var $this = $(this);
-  var $target = $('#' + $(this).attr('data-target'));
-  $this.pushpin({
-    top: $target.offset().top,
-    bottom: $target.offset().top + $target.outerHeight() - $this.height()
+  // --- start HTML styling -----------------------------------------------------------------------------------------------------------------//
+  // HTML styles for Pushpin
+  $('.pushpin-demo-nav').each(function () {
+    var $this = $(this);
+    var $target = $('#' + $(this).attr('data-target'));
+    $this.pushpin({
+      top: $target.offset().top,
+      bottom: $target.offset().top + $target.outerHeight() - $this.height()
+    });
   });
-});
 
-$(".button-collapse").sideNav();
-// $('.modal-trigger').leanModal();
-$('#push,secton').pushpin({ top: $('#push').height() });
+  $(".button-collapse").sideNav();
+  // $('.modal-trigger').leanModal();
+  $('#push,secton').pushpin({
+    top: $('#push').height()
+  });
 
 })
-
-
-// menu bar style
-// $(document).ready(function () {
-
-
-
-// })

@@ -98,9 +98,16 @@ tracking.ColorTracker.registerColor('red', function (r, g, b) {
     return false;
 });
 
+tracking.ColorTracker.registerColor('green', function(r, g, b) {
+  if (r < 50 && g > 200 && b < 50) {
+    return true;
+  }
+  return false;
+});
+
 
   // tracking.js initial color tracker - tracking seen in console
-  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple']);
+  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple', 'green']);
 
   colors.on('track', function (event) {
     if (event.data.length === 0) {

@@ -11,7 +11,7 @@ TBD
 
 ## Libraries and APIs to be Used
 ### Color Game
-+ [Unsplash API](https://unsplash.com/developers) \
++ [Unsplash API](https://unsplash.com/developers) 
 
 
 ## Rough Breakdown of Tasks

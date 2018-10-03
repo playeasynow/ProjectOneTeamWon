@@ -45,6 +45,7 @@ $(document).ready(function () {
 
   });
 
+
   // giphy ajax call
   // var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
 
@@ -111,3 +112,14 @@ $.getJSON('');
   tracking.track('#myVideo', colors, { camera: true });
 
 })
+
+
+// HTML styles for Pushpin
+$('.pushpin-demo-nav').each(function() {
+  var $this = $(this);
+  var $target = $('#' + $(this).attr('data-target'));
+  $this.pushpin({
+    top: $target.offset().top,
+    bottom: $target.offset().top + $target.outerHeight() - $this.height()
+  });
+});

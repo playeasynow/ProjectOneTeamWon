@@ -11,14 +11,13 @@ $(document).ready(function () {
   };
   firebase.initializeApp(config);
 
-
   // new chat box
   var name = "";
 
   firebase.database().ref('chat/').on('child_added',
     function (snapshot) {
-      var data = "<div id ='m'><p class ='name'>" +
-        snapshot.child('name').val() + "</p><p class ='message'>" +
+      var data = "<div id='m'><p class ='name'>" +
+        snapshot.child('name').val() + "</p><p class='message'>" +
         snapshot.child('message').val() + "</p><div>";
 
       $("#messages").html($("#messages").html() + data);
@@ -82,15 +81,37 @@ $(document).ready(function () {
 
   $.getJSON('');
 
+  tracking.ColorTracker.registerColor('purple', function (r, g, b) {
+    var dx = r - 120;
+    var dy = g - 60;
+    var dz = b - 210;
+    if ((b - g) >= 100 && (r - g) >= 60) {
+        return true;
+    }
+    return dx * dx + dy * dy + dz * dz < 3500;
+});
+
+tracking.ColorTracker.registerColor('red', function (r, g, b) {
+    if (r > 200 && g < 100 && b < 100) {
+        return true;
+    }
+    return false;
+});
+
+
   // tracking.js initial color tracker - tracking seen in console
-  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow']);
+  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple']);
 
   colors.on('track', function (event) {
     if (event.data.length === 0) {
-      // No colors were detected in this frame.
+      // no colors were detected in this frame
     } else {
       event.data.forEach(function (rect) {
         console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+
+        if (rect.color === 'red') {
+          console.log("it's red!");
+        }
       });
     }
   });
@@ -107,7 +128,7 @@ $('.pushpin-demo-nav').each(function () {
 });
 
 $(".button-collapse").sideNav();
-$('.modal-trigger').leanModal();
+// $('.modal-trigger').leanModal();
 $('#push,secton').pushpin({ top: $('#push').height() });
 
 })

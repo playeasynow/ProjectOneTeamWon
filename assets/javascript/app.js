@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  
+
   // didi's firebase
   var config = {
     apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
@@ -47,24 +47,53 @@ $(document).ready(function () {
 
 
   // giphy ajax call
-  var queryURL = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+  // var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
 
-  $.ajax({ url: queryURL, method: 'GET' })
-    .done(function (response) {
-      console.log(response);
+  // $.ajax({ url: queryURL2, method: 'GET' })
+  //   .done(function (response) {
+  //     console.log(response);
 
-    });
+  //   });
 
   // unsplash ajax call
-  var queryURL2 = "https://api.unsplash.com/photos/?client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+  // var queryURL = "https://api.unsplash.com/search/photos?page=1&query=yellow&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
 
-  $.ajax({
-    url: queryURL2,
-    method: 'GET'
+  // $.ajax({
+  //   url: queryURL,
+  //   method: 'GET'
+  // })
+  //   .done(function (response) {
+  //     console.log(response);
+  //   });
+
+  $('button').on('click', function () {
+    var x = $(this).data("splashy");
+    var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + x + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+
+    $.ajax({ url: queryURL, method: "GET" })
+      .done(function (response) {
+        for (var i = 0; i < response.data.length; i++) {
+          var splashyDiv = $('<div>');
+          var splashyImage = $('<img>');
+          splashyImage.attr('src', response.data[i].images.profile_image.large);
+          splashyDiv.append(splashyImage);
+          $('#unsplashGoHere').append(splashyDiv);
+        }
+
+
+      })
+
+
   })
-    .done(function (response) {
-      console.log(response);
-    });
+
+
+
+  //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
+  //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
+
+  $.getJSON('');
+
+
 
 
   // tracking.js initial color tracker - tracking seen in console
@@ -86,7 +115,7 @@ $(document).ready(function () {
 
 
 // HTML styles for Pushpin
-$('.pushpin-demo-nav').each(function() {
+$('.pushpin-demo-nav').each(function () {
   var $this = $(this);
   var $target = $('#' + $(this).attr('data-target'));
   $this.pushpin({

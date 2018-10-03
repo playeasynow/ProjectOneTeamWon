@@ -13,44 +13,69 @@
 </head>
 
 <body>
-    
+
 
     <div class="divider container"></div>
-  <div class="section materialize-red">
-    <!-- video from camera will render on HTML -->
-    <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
+    <!-- <div class="section materialize-red"> -->
+        <!-- video from camera will render on HTML -->
+        <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
 
-    <!-- chat box  -->
-    <div id="name_prompt_parent" class="container">
-        <div id="name_prompt">
-            <p class="title">Whats your name?</p>
-            <input type="text" id="name" class="form-control">
-            <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
-        </div>
-    </div>
-    <div id="chatroom" class="container">
-        <div id="messages">
-            <div id="m">
-                <p class="name"></p>
-                <p class="message"></p>
+
+
+        <!-- chat box  -->
+        <div id="name_prompt_parent" class="container">
+            <div id="name_prompt">
+                <p class="title">Whats your name?</p>
+                <input type="text" id="name" class="form-control">
+                <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
             </div>
         </div>
-        <div id="input">
-            <textarea id="msg" class="form-control" id="message"></textarea>
-            <button id="send_button" class=" submit btn btn-outline-dark">Send</button>
+        <div id="chatroom" class="container">
+            <div id="messages">
+                <div id="m">
+                    <p class="name"></p>
+                    <p class="message"></p>
+                </div>
+            </div>
+            <div id="input">
+                <textarea id="msg" class="form-control" id="message"></textarea>
+                <button id="send_button" class=" submit btn btn-outline-dark">Send</button>
+            </div>
         </div>
     </div>
-  </div>
-  <div class="divider container"></div>
-  <div class="section purple">
-    <h5>Section 2</h5>
-    <p>Stuff</p>
-  </div>
-  <div class="divider"></div>
-  <div class="section indigo">
-    <h5>Section 3</h5>
-    <p>Stuff</p>
-  </div>
+
+
+
+
+
+
+
+
+    <!-- //colors for the page? -->
+    <div class="divider container"></div>
+    <!-- <div class="section purple"> -->
+        <h5>Section 2</h5>
+        <p>Sample buttons for colors</p>
+        <!-- Color button samples just testing out the pulse -->
+
+
+        <button data-splashy="Red" a class="btn-floating btn-large #ff5252 red accent-2 pulse"><i class="material-icons">Red</i></a>
+            <button data-splashy="Orange" a class="btn-floating btn-large #ffb74d orange lighten-2 pulse"><i class="material-icons">ORG</i></a>
+                <button data-splashy="Yellow" a class="btn-floating btn-large #fff9c4 #ffd600 yellow accent-4 pulse"><i class="material-icons">YLW</i></a>
+                    <button data-splashy="Green" a class="btn-floating btn-large #00796b teal darken-2 pulse"><i class="material-icons">GRN</i></a>
+                    <button data-splashy="Blue" a class="btn-floating btn-large #42a5f5 blue lighten-1 pulse"><i class="material-icons">BLU</i></a>
+                        <button data-splashy="indigo" a class="btn-floating btn-large #3f51b5 indigo pulse"><i class="material-icons">IND</i></a>
+                            <button data-splashy="Purple" a class="btn-floating btn-large #b388ff deep-purple accent-1 pulse"><i class="material-icons">PUR</i></a>
+
+
+                    <!-- Unsplash pictures generate in this div  -->
+                    <div id="unsplashGoHere"></div>
+    </div>
+    <div class="divider"></div>
+    <!-- <div class="section indigo"> -->
+        <h5>Section 3</h5>
+        <p>Stuff</p>
+    </div>
 
 
 

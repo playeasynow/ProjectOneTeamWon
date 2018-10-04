@@ -101,14 +101,15 @@ $(document).ready(function () {
   var colorCounter = 0;
   var correctTally = 0;
   var timeOutTally = 0;
-  var trackingJSColor = colorArray[colorCounter];
-  var unsplashColor = unsplashArray[colorCounter];
 
   var colorArray = ["magenta", "yellow", "green", "red", "purple", "cyan"];
   var unsplashArray = ["pink", "yellow", "green", "red", "purple", "blue"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "loser", "thumbs down", "crying adult"];
 
+  var trackingJSColor = colorArray[colorCounter];
+  var unsplashColor = unsplashArray[colorCounter];
+  
   // click on start game to enable camera and timer
   $("body").on("click", "#enable-camera", function () {
     // starts camera

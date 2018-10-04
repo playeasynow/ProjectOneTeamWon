@@ -10,11 +10,10 @@
     <!-- our styles sheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Material Design Bootstrap -->
     <link href="./assets/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="./assets/css/style.min.css" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
 </head>
 
@@ -298,46 +297,17 @@
     <!--/.Footer-->
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script>
-        // Inner links
-        if ($('#navbarSupportedContent').length > 0 || $('.navbar-scroll-top').length > 0 || $('.nav-top-scroll').length > 0) {
-            $('.inner-link').smoothScroll({
-                speed: 900,
-                offset: 0
-            });
-        } else {
-            $('.inner-link').smoothScroll({
-                speed: 900,
-                offset: -59
-            });
-        }
-
-        $('.section-link').smoothScroll({
-            speed: 900,
-            offset: 1
-        });
-
-        $(".nav-item li").on("click", function () {
-            $(".nav-item li").removeClass("active");
-            $(this).addClass("active");
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <!-- trackingjs file -->
     <script src="./assets/javascript/node_modules/tracking/build/tracking-min.js"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="./assets/javascript/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="./assets/javascript/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="./assets/javascript/mdb.min.js"></script>
-    <!-- Initializations -->
-    <script type="text/javascript">
-        // Animations initialization
-        new WOW().init();
-    </script>
+    <!-- Smooth Scroll -->
+    <script type="text/javascript" src="./assets/javascript/jquery.smooth-scroll.js"></script>
     <!-- our js file -->
     <script src="./assets/javascript/app.js"></script>
 </body>

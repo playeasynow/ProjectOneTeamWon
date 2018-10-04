@@ -6,15 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Project 1 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- prism stylesheet -->
-    <link href="./assets/css/prism.css" rel="stylesheet">
-    <!-- Materialize css stylesheet -->
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/materialize.css" />
     <!-- our styles sheet -->
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
 </head>
 
 <body>
+<<<<<<< HEAD
     <!-- Blue section -->
     <div id="blue" class="block blue">
             <nav class="pushpin-demo-nav" data-target="blue">
@@ -80,44 +77,28 @@
                 </div>
             </nav>
         </div>
+=======
+>>>>>>> c13e484c0e7dcdb87887cc03ba7039a4e8f4fa7b
 
-        <!-- Green section -->
-        <div id="green" class="block green lighten-1">
-            <nav class="pushpin-demo-nav" data-target="green">
-                <div class="nav-wrapper green">
-                    <div class="container">
-                        <a href="#" class="brand-logo">Color Fun</a>
+    <!-- Unsplash pictures generate in this div  -->
+    <div id="unsplash-bg"></div>
 
-                        <!-- video from camera will render on HTML -->
-                        <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
+    <!-- video from camera will render on HTML -->
+    <div class="container" id="camera-box">
+        <div id="timer"></div>
+        <button type="button" id="enable-camera">Start Game</button>
+        <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
+    </div>
 
-                        <!-- chat box  -->
-                        <div id="name_prompt_parent" class="container">
-                            <div id="name_prompt">
-                                <p class="title">Whats your name?</p>
-                                <input type="text" id="name" class="form-control">
-                                <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
-                            </div>
-                        </div>
-                        <!-- Chat room container -->
-                        <div id="chatroom" class="container">
-                            <div id="messages">
-                                <div id="m">
-                                    <p class="name"></p>
-                                    <p class="message"></p>
-                                </div>
-                            </div>
-                            <!-- Input form -->
-                            <div id="input">
-                                <textarea id="msg" class="form-control" id="message"></textarea>
-                                <button id="send_button" class=" submit btn btn-outline-dark">Send</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+    <!-- chat box  -->
+    <div id="name_prompt_parent" class="container">
+        <div id="name_prompt">
+            <p class="title">Whats your name?</p>
+            <input type="text" id="name" class="form-control">
+            <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
         </div>
     </div>
+<<<<<<< HEAD
     <footer class="page-footer green">
         <div class="container">
             <div class="row">
@@ -134,35 +115,33 @@
                         directly with us. Come in and discuss new features, future goals, general problems or
                         questions, or anything else you can think of.</p>
                 </div>
+=======
+    <!-- Chat room container -->
+    <div id="chatroom" class="container">
+        <div id="messages">
+            <div id="m">
+                <p class="name"></p>
+                <p class="message"></p>
+>>>>>>> c13e484c0e7dcdb87887cc03ba7039a4e8f4fa7b
             </div>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2018 Color Fun, All rights reserved.
-            </div>
+        <!-- Input form -->
+        <div id="input">
+            <textarea id="msg" class="form-control" id="message"></textarea>
+            <button id="send_button" class=" submit btn btn-outline-dark">Send</button>
         </div>
-    </footer>
+    </div>
 
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
     <!-- jQuery -->
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <!-- trackingjs file -->
     <script src="./assets/javascript/node_modules/tracking/build/tracking-min.js"></script>
-    <!-- Materialize js file -->
-    <script src="./assets/javascript/materialize.min.js"></script>
-    <script src="./assets/javascript/init.js"></script>
-    <script src="./assets/javascript/prism.js"></script>
     <!-- our js file -->
     <script src="./assets/javascript/app.js"></script>
 </body>
 
 </html>
-
-
- 
-
-
-    

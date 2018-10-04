@@ -93,7 +93,7 @@ $(document).ready(function () {
   //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
   //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
 
-  $.getJSON('');
+  // $.getJSON('');
 
 
 

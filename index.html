@@ -13,17 +13,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Material Design Bootstrap -->
     <link href="./assets/css/mdb.min.css" rel="stylesheet">
+    <!-- font-awesome icon -->
+    <link rel="stylesheet" href="./assets/css/font-awesome.min.css" />
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
     <!-- Your custom styles (optional) -->
+    <link href="./assets/css/scroll.css" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body data-hijacking="off" data-animation="none">
 
-    <!-- Navbar -->
+    <!-- Start navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-        <div class="container">
-
-            <!-- Brand -->
+        <div class="container nav-header-container">
+            
+            <!-- start logo -->
             <a class="navbar-brand" href="index.html">
                 <strong>COLOR FUN</strong>
             </a>
@@ -58,17 +64,48 @@
                         <a class="nav-link" href="#yellow" title="Yellow" class="inner-link">Yellow</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#show" title="Show" class="inner-link">Show</a>
+                        <a class="nav-link" href="#unsplash-bg" title="unsplash-bg" class="inner-link">Show</a>
                     </li>
                 </ul>
+                <nav>
+                        <ul class="cd-vertical-nav">
+                            <li><a href="#0" class="cd-prev inactive">Next</a></li>
+                            <li><a href="#0" class="cd-next">Prev</a></li>
+                        </ul>
+                    </nav> <!-- .cd-vertical-nav -->
 
             </div>
 
         </div>
     </nav>
     <!-- Navbar -->
+
+    
+        <section class="cd-section">
+            <div>
+                <h2>Section 2</h2>
+            </div>
+        </section>
+    
+        <section class="cd-section">
+            <div>
+                <h2>Section 3</h2>
+            </div>
+        </section>
+    
+        <section class="cd-section">
+            <div>
+                <h2>Section 4</h2>
+            </div>
+        </section>
+    
+        <section class="cd-section">
+            <div>
+                <h2>Section 5</h2>
+            </div>
+        </section>
     <!-- Full Page Intro -->
-    <div class="view full-page-intro" style="background-image: url('./assets/images/sample.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div id="home" class="cd-section visible" data-stellar-background-ratio="0.5" style="background-image: url('./assets/images/sample.jpg'); background-repeat: no-repeat; background-size: cover;">
 
         <!-- Mask & flexbox options-->
         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
@@ -110,7 +147,7 @@
         <!-- Mask & flexbox options-->
     </div>
     <!-- Full Page Orange Section -->
-    <div id="orange" class="view full-page-intro bg-orange">
+    <div id="orange" class="view full-page-intro bg-orange" data-stellar-background-ratio="0.5" >
         <!-- Content -->
         <div class="container">
             <!--Grid row-->
@@ -308,7 +345,11 @@
     <script type="text/javascript" src="./assets/javascript/mdb.min.js"></script>
     <!-- Smooth Scroll -->
     <script type="text/javascript" src="./assets/javascript/jquery.smooth-scroll.js"></script>
+    <!-- Page Scroll -->
+    <script src="./assets/javascript/velocity.min.js"></script>
+    <script src="./assets/javascriptvelocity.ui.min.js"></script>
     <!-- our js file -->
+    <script src="./assets/javascript/main.js"></script>
     <script src="./assets/javascript/app.js"></script>
 </body>
 

@@ -147,7 +147,7 @@ $(document).ready(function () {
     });
   }
 
-  // generateColor();
+  generateColor();
 
   // function to ask camera to find unsplash color and look for match
   function matchColor() {

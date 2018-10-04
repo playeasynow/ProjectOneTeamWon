@@ -131,10 +131,18 @@ $(document).ready(function () {
         url: queryURL,
         method: "GET"
       })
-        .then(function (response) {
-          console.log(response);
-        })
-    }
+  }
+
+  // click on start game to enable camera and timer
+  $("body").on("click", "#enable-camera", function () {
+    // starts camera
+    tracking.track('#myVideo', colors, { camera: true });
+    // hides button
+    $("#enable-camera").fadeOut();
+    // starts and displays timer
+    timerWrapper();
+    matchColor();
+  })
 
     // click on start game to enable camera and timer
     $("body").on("click", "#enable-camera", function () {

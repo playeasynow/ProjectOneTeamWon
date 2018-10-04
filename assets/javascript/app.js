@@ -41,28 +41,17 @@ $(document).ready(function () {
     });
   });
 
-  // giphy ajax call
-  // var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+  // --- giphy ajax call -----------------------------------------------------------------------------------------------------------------//
+  var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
 
-  // $.ajax({ url: queryURL2, method: 'GET' })
-  //   .done(function (response) {
-  //     console.log(response);
+  $.ajax({ url: queryURL2, method: 'GET' })
+    .done(function (response) {
+      console.log(response);
 
-  //   });
-
-  // unsplash ajax call
-  // var queryURL = "https://api.unsplash.com/search/photos?page=1&query=yellow&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
-
-  // $.ajax({
-  //   url: queryURL,
-  //   method: 'GET'
-  // })
-  //   .done(function (response) {
-  //     console.log(response);
-  //   });
+    });
 
   // --- start unsplash api and button -----------------------------------------------------------------------------------------------------------------//
-  $('button').on('click', function () {
+  $('hello').on('click', function () {
     var x = $(this).data("splashy");
     console.log (x);
     var queryURL = "https://api.unsplash.com/search/photos?page=1&query="+x+"&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
@@ -108,7 +97,6 @@ $(document).ready(function () {
     return false;
   });
 
-
   // tracking.js initial color tracker - tracking seen in console
   var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple', 'green']);
 
@@ -128,39 +116,4 @@ $(document).ready(function () {
   });
   tracking.track('#myVideo', colors, { camera: true });
 
-  // --- start HTML styling -----------------------------------------------------------------------------------------------------------------//
-  // HTML styles for Pushpin
-  $('.pushpin-demo-nav').each(function () {
-    var $this = $(this);
-    var $target = $('#' + $(this).attr('data-target'));
-    $this.pushpin({
-      top: $target.offset().top,
-      bottom: $target.offset().top + $target.outerHeight() - $this.height()
-    });
-  });
-
-  $(".button-collapse").sideNav();
-  // $('.modal-trigger').leanModal();
-  $('#push,secton').pushpin({
-    top: $('#push').height()
-  });
-
 })
-
-
-// // HTML styles for Pushpin
-// $('.pushpin-demo-nav').each(function () {
-//   var $this = $(this);
-//   var $target = $('#' + $(this).attr('data-target'));
-//   $this.pushpin({
-//     top: $target.offset().top,
-//     bottom: $target.offset().top + $target.outerHeight() - $this.height()
-//   });
-// });
-
-// // menu bar style
-// $(document).ready(function(){
-//   $(".button-collapse").sideNav();
-//   $('.modal-trigger').leanModal();
-//   $('#push,secton').pushpin({ top:$('#push').height() });
-// });

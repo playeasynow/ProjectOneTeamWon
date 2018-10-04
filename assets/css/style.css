@@ -310,9 +310,7 @@ Down section
 ====================================*/
 .down-section {position: absolute; width: 100%; bottom:50px; left: 0; right: 0}
 
-
 header nav .nav-header-container {display: table-cell; vertical-align: middle; position: relative;}
-
 
 /* Card body */
 .card {
@@ -349,3 +347,19 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
 .btn.btn-extra-large {font-size:15px; padding: 12px 40px 13px;  line-height: 25px}
 .btn-dual .btn {margin: 0 10px; }
 .btn i {margin-left: 6px; vertical-align: middle; position: relative; top:-1px}
+
+/* Camera Settings */
+#camera-box {
+  padding: 0px;
+  width: 400px;
+  height: 300px;
+}
+
+/* Container */
+.container-lr {
+  width: 100%;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-right: auto;
+  margin-left: auto;
+}

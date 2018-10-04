@@ -41,33 +41,10 @@ $(document).ready(function () {
     });
   });
 
-  // --- giphy ajax call -----------------------------------------------------------------------------------------------------------------//
-  var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
-
-  $.ajax({ url: queryURL2, method: 'GET' })
-    .done(function (response) {
-      console.log(response);
-
-    });
-
-  // --- start unsplash api background -----------------------------------------------------------------------------------------------------------------//
-
-
-
-  var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + "office" + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
-
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-    .then(function (response) {
-      console.log(response);
-    })
-
   //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
   //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
 
-  // --- start tracking.js -----------------------------------------------------------------------------------------------------------------//
+  // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
   tracking.ColorTracker.registerColor('purple', function (r, g, b) {
     var dx = r - 120;
     var dy = g - 60;
@@ -101,14 +78,50 @@ $(document).ready(function () {
   var colorCounter = 0;
   var correctTally = 0;
   var timeOutTally = 0;
-  var trackingJSColor = colorArray[colorCounter];
-  var unsplashColor = unsplashArray[colorCounter];
 
   var colorArray = ["magenta", "yellow", "green", "red", "purple", "cyan"];
   var unsplashArray = ["pink", "yellow", "green", "red", "purple", "blue"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
-  var wrongGifsArray = ["try again", "crying baby", "sad", "loser", "thumbs down", "crying adult"];
+  var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down", "crying adult"];
 
+  var trackingJSColor = colorArray[colorCounter];
+  var unsplashColor = unsplashArray[colorCounter];
+
+  //  giphy ajax call
+  function getCorrectGif() {
+    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+
+    $.ajax({ url: queryURL2, method: 'GET' })
+      .done(function (response) {
+        console.log(response);
+        // Display response.url on HTML
+      });
+  }
+
+  function getWrongGif() {
+    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+
+    $.ajax({ url: queryURL2, method: 'GET' })
+      .done(function (response) {
+        console.log(response);
+        wrongGifsArray[colorCounter];
+      });
+  }
+
+  // --- start unsplash api background -----------------------------------------------------------------------------------------------------------------//
+  function generateUnsplashImg() {
+
+    var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+  }
+  
   // click on start game to enable camera and timer
   $("body").on("click", "#enable-camera", function () {
     // starts camera
@@ -129,9 +142,12 @@ $(document).ready(function () {
   function generateColor() {
     $("#unsplash-bg").changeBackgroundImage(function () {
       // run the unsplash API and get image
-      // use unspashArray
+      // use unsplashArray
+      // display on HTML
     });
   }
+
+  // generateColor();
 
   // function to ask camera to find unsplash color and look for match
   function matchColor() {
@@ -171,6 +187,8 @@ $(document).ready(function () {
   // display winning GIF, hold screen for 3 seconds
   function generateWin() {
     correctTally++;
+    console.log(correctTally);
+    getCorrectGif();
     // call right GIF function
     // display right GIF on HTML
     setTimeout(wait, 3000);  //  3 second wait

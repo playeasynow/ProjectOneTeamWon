@@ -16,16 +16,16 @@ Main Components
   }
 }
 
-.cd-section {
+/* .cd-section {
   height: 100vh;
-}
+} */
 .cd-section h2 {
   line-height: 100vh;
   text-align: center;
   font-size: 2.4rem;
 }
 .cd-section:first-of-type > div {
-  background-color: #2b334f;
+  background-color: #000;
 }
 .cd-section:first-of-type > div::before {
   /* alert -> all scrolling effects are not visible on small devices */

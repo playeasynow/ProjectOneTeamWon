@@ -182,19 +182,15 @@ html, body, .block {
   height: 100%;
 }
 
-
 /* Menu styles */
 html, body {
     height: 100%;
 }
 
-
 @media (min-width:992px) {
-
 }
 
 @media (max-width:992px) {
-
 }
 
 #push.pin-top {
@@ -306,3 +302,5 @@ html, body, .block {
   footer {
     padding-left: 0;
   }
+
+  

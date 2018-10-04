@@ -38,7 +38,7 @@
                 <ul class="navbar-nav mr-auto">
                 </ul>
                 <!-- Right -->
-                <ul class="navbar-nav mr-auto navbar-top navbar-scroll-top">
+                <ul class="navbar-nav navbar-top navbar-scroll-top">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Home
                             <span class="sr-only">(current)</span>
@@ -54,15 +54,15 @@
                         <a class="nav-link" href="#yellow" title="Yellow" class="inner-link">Yellow</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#show" title="Show" class="inner-link">Show</a>
+                        <a class="nav-link" href="#unsplash-bg" title="Show" class="inner-link">Show</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Full Page Intro -->
-    <div class="view full-page-intro" style="background-image: url('./assets/images/sample.jpg'); background-repeat: no-repeat; background-size: cover;">
+<!--------------------------------------------- Start Full Page Intro --------------------------------------------->
+    <div class="view full-page-intro" ">
         <!-- Mask & flexbox options-->
         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
             <!-- Content -->
@@ -186,8 +186,8 @@
                                 <!-- Form -->
                                 <form name="" class="margin">
                                     <!-- video from camera will render on HTML -->
-                                    <div class="container" id="camera-box">
-                                        <div id="timer"></div>
+                                    <div class="container bg-transparent" id="camera-box">
+                                        <div id="timer" class="text-white text-medium"></div>
                                         <button type="button" id="enable-camera">Start Game</button>
                                         <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
                                     </div>

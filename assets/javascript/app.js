@@ -50,24 +50,42 @@ $(document).ready(function () {
 
     });
 
-  // --- start unsplash api and button -----------------------------------------------------------------------------------------------------------------//
-  $('hello').on('click', function () {
-    var x = $(this).data("splashy");
-    console.log (x);
-    var queryURL = "https://api.unsplash.com/search/photos?page=1&query="+x+"&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+  // --- start unsplash api background -----------------------------------------------------------------------------------------------------------------//
 
-    $.ajax({ url: queryURL, method: "GET" })
-      .done(function (response) {
-        console.log(response);
-        for (var i = 0; i < response.results.length; i++) {
-          var splashyDiv = $('<div>');
-          var splashyImage = $('<img>');
-          splashyImage.attr('src', response.results[i].urls.small);
-          splashyDiv.append(splashyImage);
-          $('#unsplashGoHere').append(splashyDiv);
-        }
-      })
-  })
+  colorArray = ["magenta", "yellow", "green", "red", "purple", "cyan"];
+  unsplashArray = ["pink", "yellow", "green", "red", "purple", "blue"];
+  correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
+  wrongGifsArray = ["try again", "crying baby", "sad", "loser", "thumbs down", "crying adult"];
+
+
+
+  // click on enable camera button to
+    // enable camera
+    // start timer
+  // find RANDOM i through math.Random 
+  // tell tracking.js to look for colorArray[i]
+  // search for unsplashArray[i] on unsplash and display on #unsplash-bg
+  // IF 30 seconds left
+    // IF colorArray[i] === true
+        // then display correctGifsArray[i] in modal
+        // wait 3 seconds and then go to next position in colorArray
+      // ELSE
+        // then display wrongGifsArray[i] in modal
+        // wait 3 seconds and then go to next position in colorArray
+    // ELSE if time runs out
+      // then display wrongGifsArray[i] in modal
+      // wait 3 seconds and then go to next position in colorArray
+
+
+
+  var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + "office" + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+
+  $.ajax({ 
+    url: queryURL, 
+    method: "GET" })
+    .then(function (response) {
+      console.log(response);
+    })
 
   //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
   //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
@@ -109,7 +127,7 @@ $(document).ready(function () {
 
         if (rect.color === 'red') {
           console.log("it's red!");
-          
+
         }
       });
     }

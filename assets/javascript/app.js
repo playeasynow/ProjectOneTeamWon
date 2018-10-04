@@ -41,18 +41,6 @@ $(document).ready(function () {
     });
   });
 
-
-  // --- start unsplash api background -----------------------------------------------------------------------------------------------------------------//
-  var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
-
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-    .then(function (response) {
-      console.log(response);
-    })
-
   //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
   //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
 
@@ -98,7 +86,7 @@ $(document).ready(function () {
 
   var trackingJSColor = colorArray[colorCounter];
   var unsplashColor = unsplashArray[colorCounter];
-  
+
   //  giphy ajax call
   function getCorrectGif() {
     var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
@@ -119,6 +107,21 @@ $(document).ready(function () {
         wrongGifsArray[colorCounter];
       });
   }
+
+  // --- start unsplash api background -----------------------------------------------------------------------------------------------------------------//
+  function generateUnsplashImg() {
+
+    var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+  }
+  
   // click on start game to enable camera and timer
   $("body").on("click", "#enable-camera", function () {
     // starts camera

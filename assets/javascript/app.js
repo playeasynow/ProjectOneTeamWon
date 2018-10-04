@@ -121,7 +121,7 @@ $(document).ready(function () {
         console.log(response);
       })
   }
-  
+
   // click on start game to enable camera and timer
   $("body").on("click", "#enable-camera", function () {
     // starts camera

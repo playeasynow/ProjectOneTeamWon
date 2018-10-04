@@ -1,145 +1,343 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Project 1 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Project One</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- our styles sheet -->
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="./assets/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="./assets/css/style.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-<<<<<<< HEAD
-    <!-- Blue section -->
-    <div id="blue" class="block blue">
-            <nav class="pushpin-demo-nav" data-target="blue">
-                <div class="nav-wrapper light-blue">
-                    <div class="container">
-                        <a href="#" class="brand-logo">Color Fun</a>
-                    </div>
-                </div>
-                <div class="padding-100px-top"></div>
-                <div class="container padding-100px-top">
-                    <h1 class="title-large ">Hello! <br/><strong>Welcome</strong> to Color Fun.</span></h1>
-                </div>
-            </nav>
-        </div>
-    <!-- Red section -->
-    <div id="red" class="block red lighten-1">
-        <nav class="pushpin-demo-nav" data-target="red">
-            <div class="nav-wrapper red">
-                <div class="container">
-                    <a href="#" class="brand-logo">Color Fun</a>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <!-- Orange section -->
-    <div id="orange" class="block orange lighten-1">
-            <nav class="pushpin-demo-nav" data-target="orange">
-                <div class="nav-wrapper orange">
-                    <div class="container">
-                        <a href="#" class="brand-logo">Color Fun</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    <!-- Purple section -->
-    <div id="purple" class="block purple lighten-1">
-            <nav class="pushpin-demo-nav" data-target="purple">
-                <div class="nav-wrapper purple">
-                    <div class="container">
-                        <a href="#" class="brand-logo">Color Fun</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    <!-- Indigo section -->
-    <div id="indigo" class="block indigo lighten-1">
-            <nav class="pushpin-demo-nav" data-target="indigo">
-                <div class="nav-wrapper indigo">
-                    <div class="container">
-                        <a href="#" class="brand-logo">Color Fun</a>
-                    </div>
-                </div>
-                    <div class="container padding-50px-top">
-                        <button data-splashy="Red" a class="btn-floating btn-large #ff5252 red accent-2 pulse"><i class="material-icons">Red</i></a>
-                        <button data-splashy="Orange" a class="btn-floating btn-large #ffb74d orange lighten-2 pulse"><i class="material-icons">ORG</i></a>
-                        <button data-splashy="Yellow" a class="btn-floating btn-large #fff9c4 #ffd600 yellow accent-4 pulse"><i class="material-icons">YLW</i></a>
-                        <button data-splashy="Green" a class="btn-floating btn-large #00796b teal darken-2 pulse"><i class="material-icons">GRN</i></a>
-                        <button data-splashy="Blue" a class="btn-floating btn-large #42a5f5 blue lighten-1 pulse"><i class="material-icons">BLU</i></a>
-                        <button data-splashy="indigo" a class="btn-floating btn-large #3f51b5 indigo pulse"><i class="material-icons">IND</i></a>
-                        <button data-splashy="Purple" a class="btn-floating btn-large #b388ff deep-purple accent-1 pulse"><i class="material-icons">PUR</i></a>
-                        <!-- Unsplash pictures generate in this div  -->
-                        <div id="unsplashGoHere"></div>
-                </div>
-            </nav>
-        </div>
-=======
->>>>>>> c13e484c0e7dcdb87887cc03ba7039a4e8f4fa7b
 
-    <!-- Unsplash pictures generate in this div  -->
-    <div id="unsplash-bg"></div>
-
-    <!-- video from camera will render on HTML -->
-    <div class="container" id="camera-box">
-        <div id="timer"></div>
-        <button type="button" id="enable-camera">Start Game</button>
-        <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
-    </div>
-
-    <!-- chat box  -->
-    <div id="name_prompt_parent" class="container">
-        <div id="name_prompt">
-            <p class="title">Whats your name?</p>
-            <input type="text" id="name" class="form-control">
-            <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
-        </div>
-    </div>
-<<<<<<< HEAD
-    <footer class="page-footer green">
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
         <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Help Materialize Grow</h5>
-                    <p class="grey-text text-lighten-4">We hope you have enjoyed using Materialize and if you feel
-                        like it has helped you out and want to support the team you can help us by donating or
-                        backing us on Patreon. Any amount would help support and continue development on this
-                        project and is greatly appreciated.</p>
-                </div>
-                <div class="col l6 s12">
-                    <h5 class="white-text">Join the Discussion</h5>
-                    <p class="grey-text text-lighten-4">We have a Gitter chat room set up where you can talk
-                        directly with us. Come in and discuss new features, future goals, general problems or
-                        questions, or anything else you can think of.</p>
-                </div>
-=======
-    <!-- Chat room container -->
-    <div id="chatroom" class="container">
-        <div id="messages">
-            <div id="m">
-                <p class="name"></p>
-                <p class="message"></p>
->>>>>>> c13e484c0e7dcdb87887cc03ba7039a4e8f4fa7b
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="index.html">
+                <strong>COLOR FUN</strong>
+            </a>
+
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <!-- Left -->
+                <ul class="navbar-nav mr-auto">
+                </ul>
+
+                <!-- Right -->
+                <ul class="navbar-nav mr-auto navbar-top navbar-scroll-top">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#orange" title="Orange" class="inner-link">Orange</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#teal" title="Teal" class="inner-link">Teal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#yellow" title="Yellow" class="inner-link">Yellow</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#show" title="Show" class="inner-link">Show</a>
+                    </li>
+                </ul>
+
             </div>
+
         </div>
-        <!-- Input form -->
-        <div id="input">
-            <textarea id="msg" class="form-control" id="message"></textarea>
-            <button id="send_button" class=" submit btn btn-outline-dark">Send</button>
+    </nav>
+    <!-- Navbar -->
+    <!-- Full Page Intro -->
+    <div class="view full-page-intro" style="background-image: url('./assets/images/sample.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="container">
+
+                <!--Grid row-->
+                <div class="row wow fadeIn">
+
+                    <!--Grid column-->
+                    <div class="col-md-6 mb-4 white-text text-center text-md-left">
+
+                        <h1 class="display-4 font-weight-bold">WELCOME</h1>
+
+                        <hr class="hr-light">
+
+                        <p>
+                            <strong>Best & free guide of responsive web design</strong>
+                        </p>
+
+                        <p class="mb-4 d-none d-md-block">
+                            <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users.
+                                Video and
+                                written versions
+                                available. Create your own, stunning website.</strong>
+                        </p>
+
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+            </div>
+            <!-- Content -->
+
+        </div>
+        <!-- Mask & flexbox options-->
+    </div>
+    <!-- Full Page Orange Section -->
+    <div id="orange" class="view full-page-intro bg-orange">
+        <!-- Content -->
+        <div class="container">
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 white-text text-center text-md-left padding-100px-top">
+
+                    <h1 class="display-4 font-weight-bold">Section Orange</h1>
+
+                    <hr class="hr-light">
+
+                    <p>
+                        <strong>Best & free guide of responsive web design</strong>
+                    </p>
+
+                    <p class="mb-4 d-none d-md-block">
+                        <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video
+                            and
+                            written versions
+                            available. Create your own, stunning website.</strong>
+                    </p>
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
         </div>
     </div>
+    <!-- Close Full Page Orange Section -->
+    <!-- Full Page Teal Section -->
+    <div id="teal" class="view full-page-intro bg-teal">
+        <!-- Content -->
+        <div class="container">
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 white-text text-center text-md-left padding-100px-top">
+
+                    <h1 class="display-4 font-weight-bold">Section Teal</h1>
+
+                    <hr class="hr-light">
+
+                    <p>
+                        <strong>Best & free guide of responsive web design</strong>
+                    </p>
+
+                    <p class="mb-4 d-none d-md-block">
+                        <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video
+                            and
+                            written versions
+                            available. Create your own, stunning website.</strong>
+                    </p>
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+        </div>
+    </div>
+    <!-- Close Full Page Teal Section -->
+    <!-- Full Page Yellow Section -->
+    <div id="yellow" class="view full-page-intro bg-yellow">
+        <!-- Content -->
+        <div class="container">
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 white-text text-center text-md-left padding-100px-top">
+
+                    <h1 class="display-4 font-weight-bold">Section Teal</h1>
+
+                    <hr class="hr-light">
+
+                    <p>
+                        <strong>Best & free guide of responsive web design</strong>
+                    </p>
+
+                    <p class="mb-4 d-none d-md-block">
+                        <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video
+                            and
+                            written versions
+                            available. Create your own, stunning website.</strong>
+                    </p>
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+        </div>
+    </div>
+    <!-- Close Full Page Yellow Section -->
+    <!-- Full Page Intro -->
+    <!-- Unsplash pictures generate in this div  -->
+    <div id="unsplash-bg" class="view full-page-intro" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="container">
+
+                <!--Grid row-->
+                <div class="row wow fadeIn">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
 
 
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6 col-xl-5 mb-5">
+
+                        <!--Card-->
+                        <div class="card">
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!-- Form -->
+                                <form name="" class="margin">
+                                    <!-- video from camera will render on HTML -->
+                                    <div class="container" id="camera-box">
+                                        <div id="timer"></div>
+                                        <button type="button" id="enable-camera">Start Game</button>
+                                        <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
+                                    </div>
+
+                                    <div class="md-form">
+                                        <!-- chat box  -->
+                                        <div id="name_prompt_parent" class="container">
+                                            <div id="name_prompt">
+                                                <p class="title">Whats your name?</p>
+                                                <input type="text" id="name" class="form-control">
+                                                <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
+                                            </div>
+                                        </div>
+                                        <!-- Chat room container -->
+                                        <div id="chatroom" class="container">
+                                            <div id="messages">
+                                                <div id="m">
+                                                    <p class="name"></p>
+                                                    <p class="message"></p>
+                                                </div>
+                                            </div>
+                                            <!-- Input form -->
+                                            <div id="input">
+                                                <textarea id="msg" class="form-control" id="message"></textarea>
+                                                <button id="send_button" class=" submit btn btn-outline-dark">Send</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                                <!-- Form -->
+                            </div>
+                        </div>
+                        <!--/.Card-->
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Content -->
+        </div>
+        <!-- Mask & flexbox options-->
+    </div>
+    <!--Footer-->
+    <footer class="page-footer text-center font-small wow fadeIn">
+        <!--Copyright-->
+        <div class="footer-copyright py-3">
+            © 2018 Copyright:
+            <a href="index.html" target="_blank"> COLOR FUN </a>
+        </div>
+        <!--/.Copyright-->
+    </footer>
+    <!--/.Footer-->
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script>
+        // Inner links
+        if ($('#navbarSupportedContent').length > 0 || $('.navbar-scroll-top').length > 0 || $('.nav-top-scroll').length > 0) {
+            $('.inner-link').smoothScroll({
+                speed: 900,
+                offset: 0
+            });
+        } else {
+            $('.inner-link').smoothScroll({
+                speed: 900,
+                offset: -59
+            });
+        }
+
+        $('.section-link').smoothScroll({
+            speed: 900,
+            offset: 1
+        });
+
+        $(".nav-item li").on("click", function () {
+            $(".nav-item li").removeClass("active");
+            $(this).addClass("active");
+        });
+    </script>
     <!-- trackingjs file -->
     <script src="./assets/javascript/node_modules/tracking/build/tracking-min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="./assets/javascript/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="./assets/javascript/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="./assets/javascript/mdb.min.js"></script>
+    <!-- Initializations -->
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+    </script>
     <!-- our js file -->
     <script src="./assets/javascript/app.js"></script>
 </body>

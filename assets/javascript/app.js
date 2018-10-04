@@ -229,3 +229,30 @@ $(document).ready(function () {
   // wait 3 seconds and then go to next position in colorArray
 
 })
+
+
+// Inner links 
+if ($('#navbarSupportedContent').length > 0 || $('.navbar-scroll-top').length > 0 || $('.nav-top-scroll').length > 0) {
+  $('.inner-link').smoothScroll({
+      speed: 900,
+      offset: 0
+  });
+} else {
+  $('.inner-link').smoothScroll({
+      speed: 900,
+      offset: -59
+  });
+}
+
+$('.section-link').smoothScroll({
+  speed: 900,
+  offset: 1
+});
+
+$(".nav-item li").on("click", function () {
+  $(".nav-item li").removeClass("active");
+  $(this).addClass("active");
+});
+
+ // Animations initialization
+//  new WOW().init();

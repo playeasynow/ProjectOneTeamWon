@@ -1,0 +1,101 @@
+/* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
+html,
+body,
+.view {
+  height: 100%; }
+
+@media (max-width: 740px) {
+  .full-page-intro {
+    height: 1000px; } }
+
+/* Half Page Carousel itself*/
+.carousel {
+  height: 50%; }
+  .carousel .carousel-inner {
+    height: 100%; }
+    .carousel .carousel-inner .carousel-item,
+    .carousel .carousel-inner .active {
+      height: 100%; }
+
+/* Adjustment for mobile devices*/
+@media (max-width: 776px) {
+  .carousel {
+    height: 100%; } }
+
+/* Navbar animation */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.top-nav-collapse {
+  background-color: #1C2331; }
+
+/* Adding color to the Navbar on mobile */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #1C2331; } }
+
+/* Footer color for sake of consistency with Navbar */
+.page-footer {
+  background-color: #1C2331; }
+
+
+  html,
+    body,
+    header,
+    .view {
+      height: 100%;
+    }
+
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .view {
+        height: 1000px;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .view {
+        height: 650px;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+      .navbar:not(.top-nav-collapse) {
+        background: #1C2331 !important;
+      }
+    }
+
+/* background colors */
+.bg-transparent {background-color: transparent;}
+.bg-white {background-color: #fff;}
+.bg-black {background-color: #000;}
+.bg-charcoal-gray {background-color: #0e0f10;}
+.bg-extra-dark-gray {background-color: #1c1c1c;}
+.bg-dark-gray {background-color: #757575;}
+.bg-extra-medium-gray {background-color: #939393;}
+.bg-medium-gray {background-color: #dbdbdb;}
+.bg-light-gray {background-color: #f7f7f7;}
+.bg-orange {background-color: #f05444;}
+.bg-teal {background-color:#4aaaa5;}  
+.bg-yellow {background-color: #e1ca1c;}
+
+/* padding top */
+.padding-5px-top {padding-top: 5px;}
+.padding-10px-top {padding-top: 10px;}
+.padding-15px-top {padding-top: 15px;}
+.padding-20px-top {padding-top: 20px;}
+.padding-50px-top {padding-top: 50px;}
+.padding-75px-top {padding-top: 75px;}
+.padding-100px-top {padding-top: 100px;}
+
+#unsplash-bg {
+    width: 100%;
+    height: 100%;
+}

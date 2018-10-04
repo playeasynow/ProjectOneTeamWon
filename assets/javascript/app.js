@@ -52,37 +52,14 @@ $(document).ready(function () {
 
   // --- start unsplash api background -----------------------------------------------------------------------------------------------------------------//
 
-  colorArray = ["magenta", "yellow", "green", "red", "purple", "cyan"];
-  unsplashArray = ["pink", "yellow", "green", "red", "purple", "blue"];
-  correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
-  wrongGifsArray = ["try again", "crying baby", "sad", "loser", "thumbs down", "crying adult"];
-
-
-
-  // click on enable camera button to
-    // enable camera
-    // start timer
-  // find RANDOM i through math.Random 
-  // tell tracking.js to look for colorArray[i]
-  // search for unsplashArray[i] on unsplash and display on #unsplash-bg
-  // IF 30 seconds left
-    // IF colorArray[i] === true
-        // then display correctGifsArray[i] in modal
-        // wait 3 seconds and then go to next position in colorArray
-      // ELSE
-        // then display wrongGifsArray[i] in modal
-        // wait 3 seconds and then go to next position in colorArray
-    // ELSE if time runs out
-      // then display wrongGifsArray[i] in modal
-      // wait 3 seconds and then go to next position in colorArray
-
 
 
   var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + "office" + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
 
-  $.ajax({ 
-    url: queryURL, 
-    method: "GET" })
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  })
     .then(function (response) {
       console.log(response);
     })
@@ -118,20 +95,137 @@ $(document).ready(function () {
   // tracking.js initial color tracker - tracking seen in console
   var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple', 'green']);
 
-  colors.on('track', function (event) {
-    if (event.data.length === 0) {
-      // no colors were detected in this frame
-    } else {
-      event.data.forEach(function (rect) {
-        console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+  // --- start game sequence -----------------------------------------------------------------------------------------------------------------//
+  var theTimer;
+  var counter = 30;
+  var colorCounter = 0;
+  var correctTally = 0;
+  var timeOutTally = 0;
+  var trackingJSColor = colorArray[colorCounter];
+  var unsplashColor = unsplashArray[colorCounter];
 
-        if (rect.color === 'red') {
-          console.log("it's red!");
+  colorArray = ["magenta", "yellow", "green", "red", "purple", "cyan"];
+  unsplashArray = ["pink", "yellow", "green", "red", "purple", "blue"];
+  correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
+  wrongGifsArray = ["try again", "crying baby", "sad", "loser", "thumbs down", "crying adult"];
 
-        }
-      });
-    }
+  // click on start game to enable camera and timer
+  $("body").on("click", "#enable-camera", function () {
+    // starts camera
+    tracking.track('#myVideo', colors, { camera: true });
+    // hides button
+    $("#enable-camera").fadeOut();
+    // starts and displays timer
+    timerWrapper();
+    matchColor();
+  })
+
+  // trigger functions by clicking reset button
+  $("body").on("click", ".reset-button", function (event) {
+    resetGame();
   });
-  tracking.track('#myVideo', colors, { camera: true });
+
+  // function to generate the color to find
+  function generateColor() {
+    $("#unsplash-bg").changeBackgroundImage(function () {
+      // run the unsplash API and get image
+      // use unspashArray
+    });
+  }
+
+  // function to ask camera to find unsplash color and look for match
+  function matchColor() {
+    // tracking.js on track matching function
+    colors.on('track', function (event) {
+      if (event.data.length === 0) {
+        // no colors were detected in this frame
+      } else {
+        event.data.forEach(function (rect) {
+          console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+
+          // if camera finds matching color, generate win
+          if (rect.color === trackingJSColor) {
+            clearInterval(theTimer);
+            generateWin();
+          }
+        });
+      }
+    });
+  }
+
+  // function to set timer to 30 seconds. If timer runs out, generate timeout loss
+  function timerWrapper() {
+    theTimer = setInterval(thirtySeconds, 1000);
+    function thirtySeconds() {
+      if (counter === 0) {
+        clearInterval(theTimer);
+        timeOutLoss();
+      }
+      if (counter > 0) {
+        counter--;
+      }
+      $("#timer").html("<span class='timer'>" + counter + "</span>");
+    }
+  }
+
+  // display winning GIF, hold screen for 3 seconds
+  function generateWin() {
+    correctTally++;
+    // call right GIF function
+    // display right GIF on HTML
+    setTimeout(wait, 3000);  //  3 second wait
+  }
+
+  // display losing GIF, hold screen for 3 seconds
+  function timeOutLoss() {
+    timeOutTally++;
+    // call wrong GIF function
+    // display wrong GIF on HTML
+    setTimeout(wait, 3000);  //  3 second wait
+  }
+
+  // function that moves the game forward to the next colors, calls unsplash API
+  function wait() {
+    if (colorCounter < 4) {
+      colorCounter++;
+      generateColor();
+      counter = 30;
+      timerWrapper();
+    }
+    else {
+      finalScreen();
+    }
+  }
+
+  // replace gameHTML with new HTML element containing all-done text and reset button
+  function finalScreen() {
+    // hold winning GIF or display new GIF to say you went through all colors
+    // create reset button
+    // display on HTML
+  }
+
+  // reset the counters and start over game
+  function resetGame() {
+    colorCounter = 0;
+    correctTally = 0;
+    timeOutTally = 0;
+    counter = 30;
+    generateColor();
+    timerWrapper();
+  }
+
+  // find RANDOM i through math.Random 
+  // tell tracking.js to look for colorArray[i]
+  // search for unsplashArray[i] on unsplash and display on #unsplash-bg
+  // IF 30 seconds left
+  // IF colorArray[i] === true
+  // then display correctGifsArray[i] in modal
+  // wait 3 seconds and then go to next position in colorArray
+  // ELSE
+  // then display wrongGifsArray[i] in modal
+  // wait 3 seconds and then go to next position in colorArray
+  // ELSE if time runs out
+  // then display wrongGifsArray[i] in modal
+  // wait 3 seconds and then go to next position in colorArray
 
 })

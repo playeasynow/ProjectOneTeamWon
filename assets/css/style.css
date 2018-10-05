@@ -21,7 +21,7 @@ h3 {font-size:28px; line-height:24px;}
 h4 {font-size:40px; line-height:46px;}
 h5 {font-size:32px; line-height:40px;}
 h6 {font-size:25px; line-height:30px;}
-=======
+
 /* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
 html,
 body,
@@ -120,14 +120,12 @@ body,
 .text-light-gray {color:#d6d5d5}
 .text-very-light-gray {color:#ededed}
 .text-deep-pink {color:#ff214f}
-<<<<<<< HEAD
->>>>>>> ce048baecba8e7c5c6d8d18f45681277ba9e3d13
-=======
+
+
 .text-orange {color:#f05444;}
 .text-yellow {color:#e1ca1c;}
 .text-teal {color:#4aaaa5;}
 .text-indigo {color: #4da7ee;}
->>>>>>> 6e4e4976e93e1717dfd645a13ac2fda4c4b16d5b
 
 /* background colors */
 .bg-transparent {background-color: transparent;}
@@ -399,8 +397,6 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   margin-right: auto;
   margin-left: auto;
 }
-<<<<<<< HEAD
-=======
 /* Fullscreen video and image background */
 .fullscreen-bg-video {
   position: absolute;
@@ -547,4 +543,3 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
         width: 100%;
     }
   }
->>>>>>> 6e4e4976e93e1717dfd645a13ac2fda4c4b16d5b

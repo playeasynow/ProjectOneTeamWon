@@ -81,7 +81,7 @@ body,
 .text-small {font-size:12px; line-height:20px}
 .text-medium {font-size:24px; line-height:23px}
 .text-large {font-size:18px; line-height:26px}
-.text-extra-large {font-size: 20px; line-height:26px}
+.text-extra-large {font-size: 30px; line-height:26px}
 .title-large {font-size: 100px; line-height:95px}
 .title-extra-large {font-size: 130px; line-height:120px}
 
@@ -96,6 +96,10 @@ body,
 .text-light-gray {color:#d6d5d5}
 .text-very-light-gray {color:#ededed}
 .text-deep-pink {color:#ff214f}
+.text-orange {color:#f05444;}
+.text-yellow {color:#e1ca1c;}
+.text-teal {color:#4aaaa5;}
+.text-indigo {color: #4da7ee;}
 
 /* background colors */
 .bg-transparent {background-color: transparent;}
@@ -366,4 +370,22 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   padding-left: 0px !important;
   margin-right: auto;
   margin-left: auto;
+}
+/* Fullscreen video and image background */
+.fullscreen-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+}
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
 }

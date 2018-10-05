@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+<<<<<<< HEAD
   // --- firebase -----------------------------------------------------------------------------------------------------------------//
   // didi's firebase
   var config = {
@@ -79,6 +80,8 @@ $(document).ready(function () {
 =======
   // --- start tracking.js -----------------------------------------------------------------------------------------------------------------//
 =======
+=======
+>>>>>>> 6e4e4976e93e1717dfd645a13ac2fda4c4b16d5b
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
 >>>>>>> ce048baecba8e7c5c6d8d18f45681277ba9e3d13
   tracking.ColorTracker.registerColor('purple', function (r, g, b) {
@@ -117,51 +120,14 @@ $(document).ready(function () {
   var timeOutTally = 0;
 
   var colorArray = ["magenta", "yellow", "green", "red", "purple", "cyan"];
-  var unsplashArray = ["pink", "yellow", "green", "red", "purple", "blue"];
+  var unsplashArray = ["purple", "yellow", "green", "red", "purple", "blue"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down", "crying adult"];
 
   var trackingJSColor = colorArray[colorCounter];
   var unsplashColor = unsplashArray[colorCounter];
 
-  // giphy ajax call for correct gifs
-  function getCorrectGif() {
-    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
-
-    $.ajax({ url: queryURL2, method: 'GET' })
-      .done(function (response) {
-        console.log(response);
-        // Display response.url on HTML
-      });
-  }
-
-  // giphy ajax call for wrong gifs
-  function getWrongGif() {
-    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
-
-    $.ajax({ url: queryURL2, method: 'GET' })
-      .done(function (response) {
-        console.log(response);
-        wrongGifsArray[colorCounter];
-      });
-  }
-
-  //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
-  //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
-
-  // start unsplash api background 
-  function generateUnsplashImg() {
-
-    var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
-
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
-      .then(function (response) {
-        console.log(response);
-      })
-  }
+  // --- start JS event listeners ----------------------------------------------//
 
   // click on start game to enable camera and timer
   $("body").on("click", "#enable-camera", function () {
@@ -171,45 +137,18 @@ $(document).ready(function () {
     $("#enable-camera").fadeOut();
     // starts and displays timer
     timerWrapper();
+    // starts trackingjs matching color function
     matchColor();
   })
 
-  // trigger functions by clicking reset button
+  // trigger functions by clicking reset button - DOES NOT EXIST YET
   $("body").on("click", ".reset-button", function (event) {
     resetGame();
   });
 
-  // function to generate the color to find
-  function generateColor() {
-    $("#unsplash-bg").changeBackgroundImage(function () {
-      // run the unsplash API and get image
-      // use unsplashArray
-      // display on HTML
-    });
-  }
+  // --- start JS functions ----------------------------------------------//
 
-  // generateColor();
-
-  // function to ask camera to find unsplash color and look for match
-  function matchColor() {
-    // tracking.js on track matching function
-    colors.on('track', function (event) {
-      if (event.data.length === 0) {
-        // no colors were detected in this frame
-      } else {
-        event.data.forEach(function (rect) {
-          console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
-
-          // if camera finds matching color, generate win
-          if (rect.color === trackingJSColor) {
-            clearInterval(theTimer);
-            generateWin();
-          }
-        });
-      }
-    });
-  }
-
+  // --- MOST IMPORTANT - timer and match color--------------------------//
   // function to set timer to 30 seconds. If timer runs out, generate timeout loss
   function timerWrapper() {
     theTimer = setInterval(thirtySeconds, 1000);
@@ -225,28 +164,154 @@ $(document).ready(function () {
     }
   }
 
+  // function to ask camera to find unsplash color and look for match
+  function matchColor() {
+    // tracking.js on track matching function
+    colors.on('track', function (event) {
+      if (event.data.length === 0) {
+        // no colors were detected in this frame
+      } else {
+        console.log(event.data.length);
+        console.log(event.data[0].color);
+
+        function findColor() {
+          if (event.data[0].color = trackingJSColor) {
+            clearInterval(theTimer);
+            generateWin();
+          }
+        }
+
+        findColor();
+        // event.data[0].forEach(function (rect) {
+        //   console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+
+        //   // if camera finds matching color, generate win
+        //   if (rect.color === trackingJSColor) {
+        //     clearInterval(theTimer);
+        //     generateWin();
+        //     throw BreakException;
+        //   }
+        // });
+      }
+    });
+  }
+
+  // start first unsplash api background 
+  function generateUnsplash() {
+    var queryURL = "https://api.unsplash.com/search/photos?page=1&per_page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+    $.ajax({ url: queryURL, method: "GET" })
+      .done(function (response) {
+        // let image = $('<img>');
+        // image.attr('src', img.results[0].urls.regular);
+        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
+      })
+  }
+
+  generateUnsplash();
+
+  // --- WIN or TIMEOUT functions ----------------------------------------------//
   // display winning GIF, hold screen for 3 seconds
   function generateWin() {
     correctTally++;
     console.log(correctTally);
     getCorrectGif();
-    // call right GIF function
-    // display right GIF on HTML
-    setTimeout(wait, 3000);  //  3 second wait
+
+    var modal = document.getElementById('myModal');
+    var img = document.getElementById('myImg');
+    var img2 = document.getElementById('myImg2');
+    var img3 = document.getElementById('myImg3');
+    var img4 = document.getElementById('myImg4');
+    var modalImg = document.getElementById("img01");
+    var modalImg2 = document.getElementById("img02");
+    var modalImg3 = document.getElementById("img03");
+    var modalImg4 = document.getElementById("img04");
+    var captionText = document.getElementById("caption");
+
+
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    modalImg2.src = img2.src;
+    modalImg3.src = img3.src;
+    modalImg4.src = img4.src;
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+    // setTimeout(wait, 3000);  // 3 second wait
   }
 
   // display losing GIF, hold screen for 3 seconds
   function timeOutLoss() {
     timeOutTally++;
-    // call wrong GIF function
-    // display wrong GIF on HTML
-    setTimeout(wait, 3000);  //  3 second wait
+    console.log(timeOutTally);
+    getWrongGif();
+    // setTimeout(wait, 3000);  // 3 second wait
   }
+
+  // --- API CALL functions ----------------------------------------------//
+  // giphy ajax call for correct gifs
+  function getCorrectGif() {
+    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+
+    $.ajax({ url: queryURL2, method: 'GET' })
+      .done(function (response) {
+        var correctDiv = $('<div>');
+        var correctImage = $('<img>');
+        correctImage.attr('src', response.data[colorCounter].images.fixed_height.url);
+        correctDiv.append(correctImage);
+        $("#giphyImage").html(correctDiv);
+        setTimeout(wait, 3000);
+      });
+  }
+
+  // giphy ajax call wrong giphy
+  function getWrongGif() {
+    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + wrongGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+
+    $.ajax({ url: queryURL2, method: 'GET' })
+      .done(function (response) {
+        var wrongDiv = $('<div>');
+        var wrongImage = $('<img>');
+        wrongImage.attr('src', response.data[colorCounter].images.fixed_height.url);
+        wrongDiv.append(wrongImage);
+        $("#gif-display").append(wrongDiv);
+      });
+  }
+
+  //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
+  //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
+
+  // start unsplash api background 
+  function generateUnsplashImg(cb) {
+    var queryURL = "https://api.unsplash.com/search/photos?page=1&per_page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+    $.ajax({ url: queryURL, method: "GET" })
+      .done(function (response) {
+        cb(response);
+      })
+  }
+
+  // function to generate the color to find
+  function generateColor() {
+
+    generateUnsplashImg(function (img) {
+      $('#unsplash-bg').attr('style', "background-image: url('" + img.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
+    });
+
+    $("#gif-display").empty();
+
+  }
+
+  // generateColor();
 
   // function that moves the game forward to the next colors, calls unsplash API
   function wait() {
     if (colorCounter < 4) {
       colorCounter++;
+      console.log(colorCounter);
       generateColor();
       counter = 30;
       timerWrapper();
@@ -290,7 +355,7 @@ $(document).ready(function () {
 
 
 
-// closing tags of (document).ready below
+  // closing tags of (document).ready below
 });
 
 
@@ -319,3 +384,43 @@ $(".nav-item li").on("click", function () {
 
  // Animations initialization
 //  new WOW().init();
+
+  // --- start didi's firebase -----------------------------------------------------------------------------------------------------------------//
+  // var config = {
+  //   apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
+  //   authDomain: "color-game-chat.firebaseapp.com",
+  //   databaseURL: "https://color-game-chat.firebaseio.com",
+  //   projectId: "color-game-chat",
+  //   storageBucket: "color-game-chat.appspot.com",
+  //   messagingSenderId: "440942527592"
+  // };
+  // firebase.initializeApp(config);
+
+  // --- start chat box -----------------------------------------------------------------------------------------------------------------//
+  // var name = "";
+
+  // firebase.database().ref('chat/').on('child_added',
+    // function (snapshot) {
+      // var data = "<div id='m'><p class ='name'>" +
+      //   snapshot.child('name').val() + "</p><p class='message'>" +
+      //   snapshot.child('message').val() + "</p><div>";
+
+      // $("#messages").html($("#messages").html() + data);
+    // });
+
+
+  // $("#name_submit").on("click", function () {
+  //   name = $("#name").val();
+  //   // alert(name)
+  //   $("#name_prompt_parent").fadeOut();
+  // });
+
+  // $("#send_button").on('click', function () {
+  //   var mess = $("#msg").val();
+    // alert(mess);
+
+    // firebase.database().ref('chat/' + Date.now()).set({
+      // name: name,
+      // message: mess
+    // });
+  // });

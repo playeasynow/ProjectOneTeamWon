@@ -96,12 +96,16 @@ body,
       }
     }
 
+.alt-font {
+  font-family: 'Permanent Marker', cursive;
+}
+
 /* text size */
 .text-extra-small {font-size:11px; line-height:14px}
 .text-small {font-size:12px; line-height:20px}
 .text-medium {font-size:24px; line-height:23px}
 .text-large {font-size:18px; line-height:26px}
-.text-extra-large {font-size: 20px; line-height:26px}
+.text-extra-large {font-size: 30px; line-height:26px}
 .title-large {font-size: 100px; line-height:95px}
 .title-extra-large {font-size: 130px; line-height:120px}
 
@@ -116,7 +120,14 @@ body,
 .text-light-gray {color:#d6d5d5}
 .text-very-light-gray {color:#ededed}
 .text-deep-pink {color:#ff214f}
+<<<<<<< HEAD
 >>>>>>> ce048baecba8e7c5c6d8d18f45681277ba9e3d13
+=======
+.text-orange {color:#f05444;}
+.text-yellow {color:#e1ca1c;}
+.text-teal {color:#4aaaa5;}
+.text-indigo {color: #4da7ee;}
+>>>>>>> 6e4e4976e93e1717dfd645a13ac2fda4c4b16d5b
 
 /* background colors */
 .bg-transparent {background-color: transparent;}
@@ -388,3 +399,152 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   margin-right: auto;
   margin-left: auto;
 }
+<<<<<<< HEAD
+=======
+/* Fullscreen video and image background */
+.fullscreen-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+}
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+#navbarFixed {
+    z-index: 1;
+}
+
+/* modal */
+#myModal {
+    z-index: 2;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.733); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.726); /* Black w/ opacity */
+  }
+  
+#giphyImage {
+    position: relative;
+    bottom: 500px;
+    left: 675px;
+}
+
+  #img01 {
+    
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+   
+  }
+  
+  #img02 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    margin-left: 900px;
+   
+  }
+  
+  #img03 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+  }
+  #img04 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    margin-left: 400px;
+  }
+  
+  /* Modal Content (image) */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border-width:50px;  
+    border-style:hidden;
+   
+  }
+  
+  /* Caption of Modal Image */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  
+  /* Add Animation */
+  .modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+  }
+>>>>>>> 6e4e4976e93e1717dfd645a13ac2fda4c4b16d5b

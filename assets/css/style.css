@@ -72,6 +72,10 @@ body,
       }
     }
 
+.alt-font {
+  font-family: 'Permanent Marker', cursive;
+}
+
 /* text size */
 .text-extra-small {font-size:11px; line-height:14px}
 .text-small {font-size:12px; line-height:20px}

@@ -103,7 +103,7 @@ $(document).ready(function () {
   });
 
   // --- start JS functions ----------------------------------------------//
-
+  // --- MOST IMPORTANT - timer and match color--------------------------//
   // function to set timer to 30 seconds. If timer runs out, generate timeout loss
   function timerWrapper() {
     theTimer = setInterval(thirtySeconds, 1000);
@@ -126,27 +126,28 @@ $(document).ready(function () {
       if (event.data.length === 0) {
         // no colors were detected in this frame
       } else {
+        console.log(event.data.length);
         event.data.forEach(function (rect) {
           console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
 
           // if camera finds matching color, generate win
           if (rect.color === trackingJSColor) {
-            console.log("Color  Matched");
             clearInterval(theTimer);
             generateWin();
-            throw BreakException;
+            // throw BreakException;
           }
         });
       }
     });
   }
 
+  // --- WIN or TIMEOUT functions ----------------------------------------------//
   // display winning GIF, hold screen for 3 seconds
   function generateWin() {
     correctTally++;
     console.log(correctTally);
     getCorrectGif();
-    // setTimeout(wait, 3000);  //  3 second wait
+    // setTimeout(wait, 3000);  // 3 second wait
   }
 
   // display losing GIF, hold screen for 3 seconds
@@ -154,42 +155,36 @@ $(document).ready(function () {
     timeOutTally++;
     console.log(timeOutTally);
     getWrongGif();
-    setTimeout(wait, 3000);  //  3 second wait
+    // setTimeout(wait, 3000);  // 3 second wait
   }
 
+  // --- API CALL functions ----------------------------------------------//
   // giphy ajax call for correct gifs
   function getCorrectGif() {
     var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
 
     $.ajax({ url: queryURL2, method: 'GET' })
       .done(function (response) {
-        console.log("---------- gif ---------------------");
-        // correctGifsArray[colorCounter];
-        // for (var i = 0; i < response.data.length; i++) {}
-        var CorrectDiv = $('<div>');
-        var CorrectImage = $('<img>');
-        CorrectImage.attr('src', response.data[0].images.fixed_height.url);
-        CorrectDiv.append(CorrectImage);
-        $('#gif-display').append(CorrectDiv);
-        // 
+        var correctDiv = $('<div>');
+        var correctImage = $('<img>');
+        correctImage.attr('src', response.data[colorCounter].images.fixed_height.url);
+        correctDiv.append(correctImage);
+        $("#gif-display").html(correctDiv);
         setTimeout(wait, 3000);
       });
   }
 
-  //  giphy ajax call wrong giphy
+  // giphy ajax call wrong giphy
   function getWrongGif() {
     var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + wrongGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
 
     $.ajax({ url: queryURL2, method: 'GET' })
       .done(function (response) {
-        console.log(response);
-        wrongGifsArray[colorCounter];
-        // for (var i = 0; i < response.data.length; i++) {}
         var wrongDiv = $('<div>');
         var wrongImage = $('<img>');
-        wrongImage.attr('src', response.data[i].images.fixed_height.url);
+        wrongImage.attr('src', response.data[colorCounter].images.fixed_height.url);
         wrongDiv.append(wrongImage);
-        $('#wrongGif').append(wrongDiv);
+        $("#gif-display").append(wrongDiv);
       });
   }
 
@@ -206,23 +201,24 @@ $(document).ready(function () {
       method: "GET"
     })
       .then(function (response) {
-          cb(response);
+        cb(response);
       })
   }
 
   // function to generate the color to find
   function generateColor() {
 
-    generateUnsplashImg(function(img){
-      console.log(img.results[0].urls.regular, "---------image -------------");
-        let image = $('<img>');
-        image.attr('src', img.results[0].urls.regular);
-        $('#unsplash-display').append(image);
+    generateUnsplashImg(function (img) {
+      let image = $('<img>');
+      image.attr('src', img.results[0].urls.regular);
+      $('#unsplash-display').html(image);
     });
+
+    $("#gif-display").empty();
 
   }
 
-  generateColor();
+  // generateColor();
 
   // function that moves the game forward to the next colors, calls unsplash API
   function wait() {

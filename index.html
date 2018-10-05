@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Project One</title>
+    <title>Color Fun</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,7 +19,8 @@
 </head>
 
 <body>
-    <!-- Navbar -->
+<!--------------------------------------------- Start Navigation --------------------------------------------->
+    <!-- Start navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
         <div class="container">
             <!-- Brand -->
@@ -37,7 +38,7 @@
                 <ul class="navbar-nav mr-auto">
                 </ul>
                 <!-- Right -->
-                <ul class="navbar-nav mr-auto navbar-top navbar-scroll-top">
+                <ul class="navbar-nav navbar-top navbar-scroll-top">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Home
                             <span class="sr-only">(current)</span>
@@ -53,15 +54,15 @@
                         <a class="nav-link" href="#yellow" title="Yellow" class="inner-link">Yellow</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#show" title="Show" class="inner-link">Show</a>
+                        <a class="nav-link" href="#unsplash-bg" title="Show" class="inner-link">Show</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Full Page Intro -->
-    <div class="view full-page-intro" style="background-image: url('./assets/images/sample.jpg'); background-repeat: no-repeat; background-size: cover;">
+<!--------------------------------------------- Start Full Page Intro --------------------------------------------->
+    <div class="view full-page-intro" ">
         <!-- Mask & flexbox options-->
         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
             <!-- Content -->
@@ -87,7 +88,7 @@
         </div>
     </div>
 
-    <!-- Full Page Orange Section -->
+ <!----------------------------------------- Start Full Page Orange Section ------------------------------------------>
     <div id="orange" class="view full-page-intro bg-orange">
         <!-- Content -->
         <div class="container">
@@ -110,32 +111,35 @@
             </div>
         </div>
     </div>
+<!----------------------------------------- Close Full Page Orange Section ------------------------------------------>
 
-    <!-- Full Page Teal Section -->
-    <div id="teal" class="view full-page-intro bg-teal">
-        <!-- Content -->
-        <div class="container">
-            <!--Grid row-->
-            <div class="row wow fadeIn">
-                <!--Grid column-->
-                <div class="col-md-6 mb-4 white-text text-center text-md-left padding-100px-top">
-                    <h1 class="display-4 font-weight-bold">Section Teal</h1>
-                    <hr class="hr-light">
-                    <p>
-                        <strong>Best & free guide of responsive web design</strong>
-                    </p>
-                    <p class="mb-4 d-none d-md-block">
-                        <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video
-                            and
-                            written versions
-                            available. Create your own, stunning website.</strong>
-                    </p>
-                </div>
+<!----------------------------------------- Start Full Page Teal Section ------------------------------------------>
+<div id="teal" class="view full-page-intro bg-teal">
+    <!-- Content -->
+    <div class="container">
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+            <!--Grid column-->
+            <div class="col-md-6 mb-4 white-text text-center text-md-left padding-100px-top">
+                <h1 class="display-4 font-weight-bold">Section Teal</h1>
+                <hr class="hr-light">
+                <p>
+                    <strong>Best & free guide of responsive web design</strong>
+                </p>
+                <p class="mb-4 d-none d-md-block">
+                    <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video
+                        and
+                        written versions
+                        available. Create your own, stunning website.</strong>
+                </p>
             </div>
         </div>
     </div>
+</div>
+<!----------------------------------------- Close Full Page Teal Section ------------------------------------------>
 
-    <!-- Full Page Yellow Section -->
+
+<!----------------------------------------- Full Page Yellow Section ------------------------------------------>
     <div id="yellow" class="view full-page-intro bg-yellow">
         <!-- Content -->
         <div class="container">
@@ -155,23 +159,26 @@
                             available. Create your own, stunning website.</strong>
                     </p>
                 </div>
+                <!--Grid column-->
             </div>
         </div>
     </div>
+<!----------------------------------------- Close Full Page Yellow Section ------------------------------------------>
 
-    <!-- Full Page Game Section -->
+
+<!----------------------------------------- Full Page Intro ------------------------------------------>
     <!-- Unsplash pictures generate in this div  -->
     <div id="unsplash-bg" class="view full-page-intro" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg'); background-repeat: no-repeat; background-size: cover;">
         <!-- Mask & flexbox options-->
         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
             <!-- Content -->
-            <div class="container">
+            <div class="container-lr">
                 <!--Grid row-->
                 <div class="row wow fadeIn">
                     <!--Grid column-->
-                    <div class="col-md-6"></div>
+                    <div class="col-md-8"></div>
                     <!--Grid column-->
-                    <div class="col-md-6 col-xl-5 mb-5">
+                    <div class="col-md-4">
                         <!--Card-->
                         <div class="card">
                             <!--Card content-->
@@ -179,18 +186,18 @@
                                 <!-- Form -->
                                 <form name="" class="margin">
                                     <!-- video from camera will render on HTML -->
-                                    <div class="container" id="camera-box">
-                                        <div id="timer"></div>
-                                        <button type="button" id="enable-camera">Start Game</button>
+                                    <div class="container bg-transparent padding-15px-right padding-10px-tb" id="camera-box">
+                                        <div class="text-white text-medium padding-10px-bottom">Your time: <span id="timer"></span></div>
+                                        <button type="button" id="enable-camera" class="btn btn-deep-pink btn-small text-white">Start Game</button>
                                         <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
                                     </div>
                                     <div class="md-form">
                                         <!-- chat box  -->
                                         <div id="name_prompt_parent" class="container">
                                             <div id="name_prompt">
-                                                <p class="title">Whats your name?</p>
+                                                <p class="title padding-20px-top text-medium ">Whats your name?</p>
                                                 <input type="text" id="name" class="form-control">
-                                                <button id="name_submit" class=" submit btn btn-outline-dark">Submit</button>
+                                                <button id="name_submit" class=" submit btn btn-deep-pink btn-small text-white">Submit</button>
                                             </div>
                                         </div>
                                         <!-- Chat room container -->
@@ -204,7 +211,7 @@
                                             <!-- Input form -->
                                             <div id="input">
                                                 <textarea id="msg" class="form-control" id="message"></textarea>
-                                                <button id="send_button" class=" submit btn btn-outline-dark">Send</button>
+                                                <button id="send_button" class=" submit btn btn-deep-pink btn-small text-white">Send</button>
                                             </div>
                                         </div>
                                     </div>

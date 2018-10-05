@@ -41,9 +41,6 @@ $(document).ready(function () {
     });
   });
 
-  //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
-  //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
-
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
   tracking.ColorTracker.registerColor('purple', function (r, g, b) {
     var dx = r - 120;
@@ -87,7 +84,7 @@ $(document).ready(function () {
   var trackingJSColor = colorArray[colorCounter];
   var unsplashColor = unsplashArray[colorCounter];
 
-  //  giphy ajax call
+  // giphy ajax call for correct gifs
   function getCorrectGif() {
     var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
 
@@ -98,6 +95,7 @@ $(document).ready(function () {
       });
   }
 
+  // giphy ajax call for wrong gifs
   function getWrongGif() {
     var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
 
@@ -108,7 +106,10 @@ $(document).ready(function () {
       });
   }
 
-  // --- start unsplash api background -----------------------------------------------------------------------------------------------------------------//
+  //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
+  //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
+
+  // start unsplash api background 
   function generateUnsplashImg() {
 
     var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
@@ -246,19 +247,23 @@ $(document).ready(function () {
   // then display wrongGifsArray[i] in modal
   // wait 3 seconds and then go to next position in colorArray
 
-})
+
+
+
+// closing tags of (document).ready below
+});
 
 
 // Inner links 
 if ($('#navbarSupportedContent').length > 0 || $('.navbar-scroll-top').length > 0 || $('.nav-top-scroll').length > 0) {
   $('.inner-link').smoothScroll({
-      speed: 900,
-      offset: 0
+    speed: 900,
+    offset: 0
   });
 } else {
   $('.inner-link').smoothScroll({
-      speed: 900,
-      offset: -59
+    speed: 900,
+    offset: -59
   });
 }
 

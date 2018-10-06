@@ -1,3 +1,7 @@
+// Table of Contents
+// 1 Tracking JS new colors
+
+
 $(document).ready(function () {
 
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//

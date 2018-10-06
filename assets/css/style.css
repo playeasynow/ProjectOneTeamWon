@@ -541,3 +541,14 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   margin-left: auto;
   margin-right: auto;
 }
+
+#timer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.timer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

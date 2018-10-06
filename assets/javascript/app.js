@@ -35,13 +35,10 @@ $(document).ready(function () {
   var correctTally = 0;
   var timeOutTally = 0;
 
-  var colorArray = ["magenta", "yellow", "green", "red", "purple", "cyan"];
-  var unsplashArray = ["purple", "yellow", "green", "red", "purple", "blue"];
+  var colorArray = ["magenta", "cyan", "yellow", "green", "red", "purple"];
+  var unsplashArray = ["purple", "blue", "yellow", "green", "red", "purple"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down", "crying adult"];
-
-  var trackingJSColor = colorArray[colorCounter];
-  var unsplashColor = unsplashArray[colorCounter];
 
   // --- start JS event listeners ----------------------------------------------//
 
@@ -63,7 +60,6 @@ $(document).ready(function () {
   });
 
   // --- start JS functions ----------------------------------------------//
-
   // --- MOST IMPORTANT - timer and match color--------------------------//
   // function to set timer to 30 seconds. If timer runs out, generate timeout loss
   function timerWrapper() {
@@ -87,27 +83,55 @@ $(document).ready(function () {
       if (event.data.length === 0) {
         // no colors were detected in this frame
       } else {
-        console.log(event.data.length);
-        console.log(event.data[0].color);
+        // do {
+        //   console.log("Color  Matched");
+        //   clearInterval(theTimer);
+        //   generateWin();
+        // } while (event.data[0].color = colorArray[colorCounter]);
 
-        function findColor() {
-          if (event.data[0].color = trackingJSColor) {
-            clearInterval(theTimer);
-            generateWin();
-          }
-        }
-
-        findColor();
-        // event.data[0].forEach(function (rect) {
+        // event.data.forEach(function (rect) {
         //   console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
-
         //   // if camera finds matching color, generate win
-        //   if (rect.color === trackingJSColor) {
+        //   if (rect.color === colorArray[colorCounter]) {
+        //     console.log("Color  Matched");
         //     clearInterval(theTimer);
         //     generateWin();
         //     throw BreakException;
         //   }
         // });
+        if (event.data[0].color = colorArray[colorCounter]) {
+          switch (colorArray[colorCounter]) {
+            case "magenta":
+              clearInterval(theTimer);
+              generateWin();
+              colorCounter++
+              break;
+            case "cyan":
+              clearInterval(theTimer);
+              generateWin();
+              colorCounter++
+              break;
+            case "yellow":
+              clearInterval(theTimer);
+              generateWin();
+              colorCounter++
+              break;
+            case "green":
+              clearInterval(theTimer);
+              generateWin();
+              colorCounter++
+              break;
+            case "red":
+              clearInterval(theTimer);
+              generateWin();
+              colorCounter++
+              break;
+            case "purple":
+              clearInterval(theTimer);
+              generateWin();
+              colorCounter++
+          }
+        }
       }
     });
   }
@@ -117,8 +141,6 @@ $(document).ready(function () {
     var queryURL = "https://api.unsplash.com/search/photos?page=1&per_page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
     $.ajax({ url: queryURL, method: "GET" })
       .done(function (response) {
-        // let image = $('<img>');
-        // image.attr('src', img.results[0].urls.regular);
         $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
       })
   }
@@ -163,15 +185,13 @@ $(document).ready(function () {
   // display losing GIF, hold screen for 3 seconds
   function timeOutLoss() {
     timeOutTally++;
-    console.log(timeOutTally);
     getWrongGif();
-    // setTimeout(wait, 3000);  // 3 second wait
   }
 
   // --- API CALL functions ----------------------------------------------//
   // giphy ajax call for correct gifs
   function getCorrectGif() {
-    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=5&rating";
 
     $.ajax({ url: queryURL2, method: 'GET' })
       .done(function (response) {
@@ -180,6 +200,8 @@ $(document).ready(function () {
         correctImage.attr('src', response.data[colorCounter].images.fixed_height.url);
         correctDiv.append(correctImage);
         $("#giphyImage").html(correctDiv);
+
+        // continue to next color
         setTimeout(wait, 3000);
       });
   }
@@ -195,6 +217,9 @@ $(document).ready(function () {
         wrongImage.attr('src', response.data[colorCounter].images.fixed_height.url);
         wrongDiv.append(wrongImage);
         $("#gif-display").append(wrongDiv);
+
+        // continue to next color
+        setTimeout(wait, 3000);  // 3 second wait
       });
   }
 
@@ -218,7 +243,6 @@ $(document).ready(function () {
     });
 
     $("#gif-display").empty();
-
   }
 
   // generateColor();
@@ -226,14 +250,15 @@ $(document).ready(function () {
   // function that moves the game forward to the next colors, calls unsplash API
   function wait() {
     if (colorCounter < 4) {
-      colorCounter++;
+      // colorCounter++;
       console.log(colorCounter);
       generateColor();
+      matchColor();
       counter = 30;
       timerWrapper();
     }
     else {
-      finalScreen();
+      resetGame();
     }
   }
 
@@ -251,6 +276,7 @@ $(document).ready(function () {
     timeOutTally = 0;
     counter = 30;
     generateColor();
+    matchColor()
     timerWrapper();
   }
 

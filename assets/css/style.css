@@ -581,3 +581,8 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   width: 31px;
   display: block;
 }
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}

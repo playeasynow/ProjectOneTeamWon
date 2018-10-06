@@ -19,7 +19,7 @@ $(document).ready(function () {
   });
 
   tracking.ColorTracker.registerColor('green', function (r, g, b) {
-    if (r < 50 && g > 200 && b < 50) {
+    if (r < 25 && g > 128 && b < 73) {
       return true;
     }
     return false;
@@ -54,9 +54,14 @@ $(document).ready(function () {
     matchColor();
   })
 
-  // trigger functions by clicking reset button - DOES NOT EXIST YET
-  $("body").on("click", ".reset-button", function (event) {
+  // trigger functions by clicking reset button
+  $("body").on("click", "#reset-game", function () {
     resetGame();
+  });
+
+  // trigger functions by clicking pause button
+  $("body").on("click", "#pause-game", function () {
+    pauseGame();
   });
 
   // --- start JS functions ----------------------------------------------//
@@ -89,14 +94,22 @@ $(document).ready(function () {
         //   generateWin();
         // } while (event.data[0].color = colorArray[colorCounter]);
 
+        // if (event.data[0] === colorArray[colorCounter]) {
+        //   console.log("Color  Matched");
+        //   clearInterval(theTimer);
+        //   generateWin();
+        // }
+        
+
         event.data.forEach(function (rect) {
           console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
           // if camera finds matching color, generate win
-          if (rect.color === colorArray[colorCounter]) {
+          if (rect.color === "magenta") {
             console.log("Color  Matched");
             clearInterval(theTimer);
             generateWin();
-            throw BreakException;
+            colors.stop();
+            //throw new Error('test');
           }
         });
         // if (event.data[0].color = colorArray[colorCounter]) {
@@ -249,12 +262,11 @@ $(document).ready(function () {
         $("#giphyImage").append(wrongDiv);
 
         // continue to next color
+      }).then(function() {
         setTimeout(wait, 3000);  // 3 second wait
-      });
+        
+      })
   }
-
-  //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
-  //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
 
   // start unsplash api background 
   function generateUnsplashImg(cb) {
@@ -291,13 +303,6 @@ $(document).ready(function () {
     }
   }
 
-  // replace gameHTML with new HTML element containing all-done text and reset button
-  function finalScreen() {
-    // hold winning GIF or display new GIF to say you went through all colors
-    // create reset button
-    // display on HTML
-  }
-
   // reset the counters and start over game
   function resetGame() {
     colorCounter = 0;
@@ -307,6 +312,10 @@ $(document).ready(function () {
     generateColor();
     matchColor()
     timerWrapper();
+  }
+
+  function pauseGame() {
+    //
   }
 
   // find RANDOM i through math.Random 

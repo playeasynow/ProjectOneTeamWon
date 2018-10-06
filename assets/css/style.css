@@ -528,3 +528,9 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     border-radius: .25rem;
     z-index: 10;
 }
+
+/* Play button */
+.play-btn {
+  display: inline-block;
+  background-image: url("../images/play-btn.png");
+}

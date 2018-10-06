@@ -89,49 +89,49 @@ $(document).ready(function () {
         //   generateWin();
         // } while (event.data[0].color = colorArray[colorCounter]);
 
-        // event.data.forEach(function (rect) {
-        //   console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
-        //   // if camera finds matching color, generate win
-        //   if (rect.color === colorArray[colorCounter]) {
-        //     console.log("Color  Matched");
-        //     clearInterval(theTimer);
-        //     generateWin();
-        //     throw BreakException;
-        //   }
-        // });
-        if (event.data[0].color = colorArray[colorCounter]) {
-          switch (colorArray[colorCounter]) {
-            case "magenta":
-              clearInterval(theTimer);
-              generateWin();
-              colorCounter++
-              break;
-            case "cyan":
-              clearInterval(theTimer);
-              generateWin();
-              colorCounter++
-              break;
-            case "yellow":
-              clearInterval(theTimer);
-              generateWin();
-              colorCounter++
-              break;
-            case "green":
-              clearInterval(theTimer);
-              generateWin();
-              colorCounter++
-              break;
-            case "red":
-              clearInterval(theTimer);
-              generateWin();
-              colorCounter++
-              break;
-            case "purple":
-              clearInterval(theTimer);
-              generateWin();
-              colorCounter++
+        event.data.forEach(function (rect) {
+          console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+          // if camera finds matching color, generate win
+          if (rect.color === colorArray[colorCounter]) {
+            console.log("Color  Matched");
+            clearInterval(theTimer);
+            generateWin();
+            throw BreakException;
           }
-        }
+        });
+        // if (event.data[0].color = colorArray[colorCounter]) {
+        //   switch (colorArray[colorCounter]) {
+        //     case "magenta":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       // colorCounter++
+        //       break;
+        //     case "cyan":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       colorCounter++
+        //       break;
+        //     case "yellow":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       colorCounter++
+        //       break;
+        //     case "green":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       colorCounter++
+        //       break;
+        //     case "red":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       colorCounter++
+        //       break;
+        //     case "purple":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       colorCounter++
+        //   }
+        // }
       }
     });
   }
@@ -172,6 +172,7 @@ $(document).ready(function () {
     modalImg3.src = img3.src;
     modalImg4.src = img4.src;
 
+
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
@@ -185,7 +186,36 @@ $(document).ready(function () {
   // display losing GIF, hold screen for 3 seconds
   function timeOutLoss() {
     timeOutTally++;
+    console.log(timeOutTally);
     getWrongGif();
+
+    var modal = document.getElementById('myModal');
+    var img = document.getElementById('myImg');
+    var img2 = document.getElementById('myImg2');
+    var img3 = document.getElementById('myImg3');
+    var img4 = document.getElementById('myImg4');
+    var modalImg = document.getElementById("img01");
+    var modalImg2 = document.getElementById("img02");
+    var modalImg3 = document.getElementById("img03");
+    var modalImg4 = document.getElementById("img04");
+    var captionText = document.getElementById("caption");
+
+
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    modalImg2.src = img2.src;
+    modalImg3.src = img3.src;
+    modalImg4.src = img4.src;
+
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
   }
 
   // --- API CALL functions ----------------------------------------------//
@@ -208,7 +238,7 @@ $(document).ready(function () {
 
   // giphy ajax call wrong giphy
   function getWrongGif() {
-    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + wrongGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + wrongGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=5&rating";
 
     $.ajax({ url: queryURL2, method: 'GET' })
       .done(function (response) {
@@ -216,7 +246,7 @@ $(document).ready(function () {
         var wrongImage = $('<img>');
         wrongImage.attr('src', response.data[colorCounter].images.fixed_height.url);
         wrongDiv.append(wrongImage);
-        $("#gif-display").append(wrongDiv);
+        $("#giphyImage").append(wrongDiv);
 
         // continue to next color
         setTimeout(wait, 3000);  // 3 second wait
@@ -237,7 +267,6 @@ $(document).ready(function () {
 
   // function to generate the color to find
   function generateColor() {
-
     generateUnsplashImg(function (img) {
       $('#unsplash-bg').attr('style', "background-image: url('" + img.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
     });
@@ -245,19 +274,19 @@ $(document).ready(function () {
     $("#gif-display").empty();
   }
 
-  // generateColor();
-
   // function that moves the game forward to the next colors, calls unsplash API
   function wait() {
     if (colorCounter < 4) {
-      // colorCounter++;
+      colorCounter++;
       console.log(colorCounter);
       generateColor();
       matchColor();
+      $("#myModal").hide();
       counter = 30;
       timerWrapper();
     }
     else {
+      $("#myModal").hide();
       resetGame();
     }
   }

@@ -19,7 +19,7 @@
   firebase.database().ref('chat/').on('child_added',
     function (snapshot) {
       var data = "<div id='m'><p class ='name'>" +
-        snapshot.child('name').val() + "</p><p class='message'>" +
+        snapshot.child('name').val() + "</p><p class='message'>Hi: " +
         snapshot.child('message').val() + "</p><div>";
 
       $("#messages").html($("#messages").html() + data);

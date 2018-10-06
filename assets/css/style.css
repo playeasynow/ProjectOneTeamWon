@@ -37,7 +37,7 @@ body,
 /* Footer color for sake of consistency with Navbar */
 .page-footer {
   background-color: #1C2331; 
-pos}
+}
 
 
   html,
@@ -85,6 +85,7 @@ pos}
 .text-extra-large {font-size: 30px; line-height:26px}
 .title-large {font-size: 100px; line-height:95px}
 .title-extra-large {font-size: 130px; line-height:120px}
+.title-large-timer {font-size: 300px;}
 
 /* text color */
 .text-white {color:#FFF}
@@ -308,6 +309,16 @@ pos}
 .margin-75px-tb {margin-top:75px; margin-bottom:75px;}
 .margin-100px-tb {margin-top:100px; margin-bottom:100px;}
 
+/* Opacity */
+.opacity1 {opacity:.1}
+.opacity2 {opacity:.2}
+.opacity3 {opacity:.3}
+.opacity4 {opacity:.4}
+.opacity5 {opacity:.5}
+.opacity6 {opacity:.6}
+.opacity7 {opacity:.7}
+.opacity8 {opacity:.8}
+.opacity9 {opacity:.9}
 
 #unsplash-bg {
     width: 100%;
@@ -391,14 +402,14 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   z-index: -100;
 }
 
-#navbarFixed {
+/* #navbarFixed {
     z-index: 1;
-}
+} */
 
 /* modal */
-#myModal {
+/* #myModal {
     z-index: 2;
-}
+} */
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -421,7 +432,6 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
 }
 
   #img01 {
-    
     position: center;
     repeat: no-repeat;
     size: cover;
@@ -495,7 +505,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   }
   
   /* The Close Button */
-  .close {
+  /* .close {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -503,14 +513,14 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
-  }
+  } */
   
-  .close:hover,
+  /* .close:hover,
   .close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
-  }
+  } */
   
   /* 100% Image Width on Smaller Screens */
   @media only screen and (max-width: 700px){
@@ -543,12 +553,31 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
 }
 
 #timer {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
+  top: auto;
+  left: 30%;
 }
-.timer {
+
+.pause-btn {
+  background-image: url("../images/pause_button.png");
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 31px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.play {
+  background-image: url("../images/play-button.png");
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 31px;
+  display: block;
+}
+
+.reset-btn {
+  background-image: url("../images/reset_button.png");
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 31px;
+  display: block;
 }

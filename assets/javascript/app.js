@@ -141,7 +141,6 @@ $(document).ready(function () {
     var modalImg2 = document.getElementById("img02");
     var modalImg3 = document.getElementById("img03");
     var modalImg4 = document.getElementById("img04");
-    var captionText = document.getElementById("caption");
 
 
     modal.style.display = "block";

@@ -1,3 +1,7 @@
+// Table of Contents
+// 1 Tracking JS new colors
+
+
 $(document).ready(function () {
 
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
@@ -404,3 +408,20 @@ $(".nav-item li").on("click", function () {
       // message: mess
     // });
   // });
+
+  // Instructions pullout tab ------------------------------------------------------------ //
+  $(function(){
+    $('.slide-out-div').tabSlideOut({
+        tabHandle: '.handle',                     //class of the element that will become your tab
+        pathToTabImage: './assets/images/plus-icon.png', //path to the image for the tab //Optionally can be set using css
+        imageHeight: '135px',                     //height of tab image           //Optionally can be set using css
+        imageWidth: '25px',                       //width of tab image            //Optionally can be set using css
+        tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
+        speed: 300,                               //speed of animation
+        action: 'click',                          //options: 'click' or 'hover', action to trigger animation
+        topPos: '200px',                          //position from the top/ use if tabLocation is left or right
+        leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
+        fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+    });
+
+});

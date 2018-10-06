@@ -36,7 +36,8 @@ body,
 
 /* Footer color for sake of consistency with Navbar */
 .page-footer {
-  background-color: #1C2331; }
+  background-color: #1C2331; 
+pos}
 
 
   html,
@@ -517,3 +518,26 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
         width: 100%;
     }
   }
+
+  /* Instructions slide out panel */
+  .slide-out-div {
+    padding: 20px;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.5)!important; 
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    z-index: 10;
+}
+
+/* Play button */
+
+.play-btn {
+  background-image: url("../images/play-btn.png");
+  background-repeat: no-repeat;
+  height: 99px;
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

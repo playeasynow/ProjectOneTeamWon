@@ -79,6 +79,7 @@ $(document).ready(function () {
   var colorCounter = 0;
   var correctTally = 0;
   var timeOutTally = 0;
+  
 
   var colorArray = ["magenta", "cyan", "yellow", "green", "red", "purple"];
   var unsplashArray = ["purple", "blue", "yellow", "green", "red", "purple"];
@@ -86,7 +87,7 @@ $(document).ready(function () {
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down", "crying adult"];
 
   // --- start JS event listeners ----------------------------------------------//
-
+  
   // click on start game to enable camera and timer
   $("body").on("click", "#enable-camera", function () {
     // starts camera
@@ -204,11 +205,21 @@ $(document).ready(function () {
     var img2 = document.getElementById('myImg2');
     var img3 = document.getElementById('myImg3');
     var img4 = document.getElementById('myImg4');
+
+    // var img5 = document.getElementById('myImg5')
+    // var img6 = document.getElementById('myImg6')
+    // var img7 = document.getElementById('myImg7')
+    // var img8 = document.getElementById('myImg8')
+
     var modalImg = document.getElementById("img01");
     var modalImg2 = document.getElementById("img02");
     var modalImg3 = document.getElementById("img03");
     var modalImg4 = document.getElementById("img04");
-    var captionText = document.getElementById("caption");
+
+    // var modalImg5 = document.getElementById("img05");
+    // var modalImg6 = document.getElementById("img06");
+    // var modalImg7 = document.getElementById("img07");
+    // var modalImg8 = document.getElementById("img08");
 
 
     modal.style.display = "block";
@@ -216,6 +227,13 @@ $(document).ready(function () {
     modalImg2.src = img2.src;
     modalImg3.src = img3.src;
     modalImg4.src = img4.src;
+
+
+    // modal.style.display = "block";
+    // modalImg5.src = img5.src;
+    // modalImg6.src = img6.src;
+    // modalImg7.src = img7.src;
+    // modalImg8.src = img.src;
 
 
     // Get the <span> element that closes the modal
@@ -236,21 +254,38 @@ $(document).ready(function () {
 
     var modal = document.getElementById('myModal');
     var img = document.getElementById('myImg');
-    var img2 = document.getElementById('myImg2');
-    var img3 = document.getElementById('myImg3');
-    var img4 = document.getElementById('myImg4');
+    // var img2 = document.getElementById('myImg2');
+    // var img3 = document.getElementById('myImg3');
+    // var img4 = document.getElementById('myImg4');
+
+    var img5 = document.getElementById('myImg5')
+    var img6 = document.getElementById('myImg6')
+    var img7 = document.getElementById('myImg7')
+    var img8 = document.getElementById('myImg8')
+
     var modalImg = document.getElementById("img01");
-    var modalImg2 = document.getElementById("img02");
-    var modalImg3 = document.getElementById("img03");
-    var modalImg4 = document.getElementById("img04");
-    var captionText = document.getElementById("caption");
+    // var modalImg2 = document.getElementById("img02");
+    // var modalImg3 = document.getElementById("img03");
+    // var modalImg4 = document.getElementById("img04");
+
+    var modalImg5 = document.getElementById("img05");
+    var modalImg6 = document.getElementById("img06");
+    var modalImg7 = document.getElementById("img07");
+    var modalImg8 = document.getElementById("img08");
 
 
     modal.style.display = "block";
     modalImg.src = img.src;
-    modalImg2.src = img2.src;
-    modalImg3.src = img3.src;
-    modalImg4.src = img4.src;
+    // modalImg2.src = img2.src;
+    // modalImg3.src = img3.src;
+    // modalImg4.src = img4.src;
+
+
+    modal.style.display = "block";
+    modalImg5.src = img5.src;
+    modalImg6.src = img6.src;
+    modalImg7.src = img7.src;
+    modalImg8.src = img.src;
 
 
     // Get the <span> element that closes the modal

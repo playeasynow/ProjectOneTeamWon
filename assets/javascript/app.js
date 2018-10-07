@@ -147,7 +147,7 @@ $(document).ready(function () {
 
       if (event.data.length === 0) {
         // no colors were detected in this frame
-      } else if (colorID % 25 === 0) {
+      } else if (colorID % 50 === 0) {
 
         if (event.data[0].color = colorArray[colorCounter]) {
           generateWin();
@@ -278,7 +278,7 @@ $(document).ready(function () {
         correctDiv.append(correctImage);
         $("#giphyImage").html(correctDiv);
       }).then(function () {
-        setTimeout(wait, 5000);  // 3 second wait
+        setTimeout(wait, 5000);  // 5 second wait
       })
   }
 
@@ -294,7 +294,7 @@ $(document).ready(function () {
         wrongDiv.append(wrongImage);
         $("#giphyImage").html(wrongDiv);
       }).then(function () {
-        setTimeout(wait, 5000);  // 3 second wait
+        setTimeout(wait, 5000);  // 5 second wait
       })
   }
 

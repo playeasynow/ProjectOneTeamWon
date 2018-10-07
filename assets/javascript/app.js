@@ -1,6 +1,3 @@
-// Table of Contents
-// 1 Tracking JS new colors
-
 $(document).ready(function () {
 
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
@@ -21,15 +18,15 @@ $(document).ready(function () {
     return false;
   });
 
-  tracking.ColorTracker.registerColor('green', function (r, g, b) {
-    if (r < 25 && g > 128 && b < 73) {
-      return true;
-    }
-    return false;
-  });
+  // tracking.ColorTracker.registerColor('green', function (r, g, b) {
+  //   if (r < 25 && g > 128 && b < 73) {
+  //     return true;
+  //   }
+  //   return false;
+  // });
 
   // tracking.js initial color tracker - tracking seen in console
-  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple', 'green']);
+  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple']);
 
   // --- start game sequence -----------------------------------------------------------------------------------------------------------------//
   var theTimer;
@@ -38,23 +35,10 @@ $(document).ready(function () {
   var correctTally = 0;
   var timeOutTally = 0;
 
-  var colorArray = ["magenta", "cyan", "yellow", "green", "red", "purple"];
-  var unsplashArray = ["purple", "blue", "yellow", "green", "red", "purple"];
+  var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
+  var unsplashArray = ["purple", "blue", "yellow", "red", "purple"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down", "crying adult"];
-
-  // var video = document.getElementById('video');
-  // var canvas = document.getElementById("canvas");
-  // var context = canvas.getContext('2d');
-  // var name;
-  // var file;
-  // context.drawImage(video, 0, 0, 320, 240);
-
-  // canvas.toBlob(function (blob) {
-  //   name = Date.now() + '.png';
-  //   file = new File([blob], name, { type: 'image/png' });
-  //   console.log(file);
-  // });
 
   // --- start JS event listeners ----------------------------------------------//
   // start first unsplash api background 
@@ -90,7 +74,6 @@ $(document).ready(function () {
   });
 
   // --- start JS functions ----------------------------------------------//
-  // --- MOST IMPORTANT - timer and match color--------------------------//
   // function to set timer to 30 seconds. If timer runs out, generate timeout loss
   function timerWrapper() {
     theTimer = setInterval(thirtySeconds, 1000);
@@ -110,14 +93,10 @@ $(document).ready(function () {
 
   // function to ask camera to find unsplash color and look for match
   function matchColor() {
-    
+
     // tracking.js on track matching function
     colors.on('track', function (event) {
       colorID++;
-
-      // var videoSrc = $("#video").attr("src");
-      // console.log(videoSrc);
-      // $("#video").attr('src', '"' + videoSrc + '"');
 
       if (event.data.length === 0) {
         // no colors were detected in this frame
@@ -126,77 +105,8 @@ $(document).ready(function () {
         if (event.data[0].color = colorArray[colorCounter]) {
           generateWin();
           clearInterval(theTimer);
-
-          // var video = document.getElementById('video');
-          // var canvas = document.getElementById("canvas");
-          // var context = canvas.getContext('2d');
-          // var name;
-          // var file;
-          // context.drawImage(video, 0, 0, 320, 240);
-
-          // canvas.toBlob(function (blob) {
-          //   name = Date.now() + '.png';
-          //   file = new File([blob], name, { type: 'image/png' });
-          //   console.log(file);
-          // });
-          // generateWin();
-          // tracking.ColorTracker.prototype.getColors();
         }
-
-        // event.data.forEach(function (rect) {
-        //   console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
-
-
-        // if camera finds matching color, generate win
-        // if (rect.color === colorArray[colorCounter]) {
-        //   console.log("Color  Matched");
-        //   clearInterval(theTimer);
-        //   generateWin();
-        //   // tracking.TrackerTask.prototype.stop();
-        //   return;
-        // tracking.stop()
-        //throw new Error('test');
-        //console.log(window.stream.getTracks()[0]);
-        // } else if (rect.color === "cyan") {
-        //   console.log("Color  Matched");
-        //   clearInterval(theTimer);
-        //   generateWin();
       }
-      // });
-      // if (event.data[0].color = colorArray[colorCounter]) {
-      //   switch (colorArray[colorCounter]) {
-      //     case "magenta":
-      //       clearInterval(theTimer);
-      //       generateWin();
-      //       // colorCounter++
-      //       break;
-      //     case "cyan":
-      //       clearInterval(theTimer);
-      //       generateWin();
-      //       colorCounter++
-      //       break;
-      //     case "yellow":
-      //       clearInterval(theTimer);
-      //       generateWin();
-      //       colorCounter++
-      //       break;
-      //     case "green":
-      //       clearInterval(theTimer);
-      //       generateWin();
-      //       colorCounter++
-      //       break;
-      //     case "red":
-      //       clearInterval(theTimer);
-      //       generateWin();
-      //       colorCounter++
-      //       break;
-      //     case "purple":
-      //       clearInterval(theTimer);
-      //       generateWin();
-      //       colorCounter++
-      //   }
-      // }
-      // }
     });
   }
 
@@ -227,7 +137,6 @@ $(document).ready(function () {
     modalImg3.src = img3.src;
     modalImg4.src = img4.src;
 
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
@@ -240,9 +149,11 @@ $(document).ready(function () {
 
   // display losing GIF, hold screen for 3 seconds
   function timeOutLoss() {
+    colorID = 0;
     timeOutTally++;
     console.log(timeOutTally);
     getWrongGif();
+    $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
 
     var modal = document.getElementById('myModal');
     var img = document.getElementById('myImg');
@@ -261,7 +172,6 @@ $(document).ready(function () {
     modalImg2.src = img2.src;
     modalImg3.src = img3.src;
     modalImg4.src = img4.src;
-
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -285,11 +195,8 @@ $(document).ready(function () {
         correctImage.attr('src', response.data[colorCounter].images.fixed_height.url);
         correctDiv.append(correctImage);
         $("#giphyImage").html(correctDiv);
-
-        // continue to next color
-        // setTimeout(wait, 3000);
       }).then(function () {
-        setTimeout(wait, 3000);  // 3 second wait
+        setTimeout(wait, 5000);  // 3 second wait
       })
   }
 
@@ -304,11 +211,8 @@ $(document).ready(function () {
         wrongImage.attr('src', response.data[colorCounter].images.fixed_height.url);
         wrongDiv.append(wrongImage);
         $("#giphyImage").html(wrongDiv);
-
-        // continue to next color
       }).then(function () {
-        setTimeout(wait, 3000);  // 3 second wait
-
+        setTimeout(wait, 5000);  // 3 second wait
       })
   }
 
@@ -334,7 +238,7 @@ $(document).ready(function () {
       colorCounter++;
       console.log(colorCounter);
       generateColor();
-      matchColor();
+      // matchColor();
       $("#myModal").hide();
       counter = 30;
       timerWrapper();
@@ -343,6 +247,7 @@ $(document).ready(function () {
     }
     else {
       $("#myModal").hide();
+      $(".canvas").fadeOut();
       resetGame();
     }
   }
@@ -354,7 +259,7 @@ $(document).ready(function () {
     timeOutTally = 0;
     counter = 30;
     generateColor();
-    matchColor()
+    // matchColor()
     timerWrapper();
   }
 

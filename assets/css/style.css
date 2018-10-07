@@ -73,12 +73,12 @@ body,
       }
     }
 
-#canvas {
+.canvas {
     position:absolute;
     background-color:#dadada;
-    z-index:300000;
-    bottom:10px;
-    left:10px;
+    z-index:1;
+    top: 95px;
+    left: 70px;
     text-align:center;
 }
 

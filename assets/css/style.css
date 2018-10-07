@@ -73,6 +73,15 @@ body,
       }
     }
 
+.canvas {
+    position:absolute;
+    background-color:#dadada;
+    z-index:1;
+    top: 95px;
+    left: 70px;
+    text-align:center;
+}
+
 .alt-font {
   font-family: 'Permanent Marker', cursive;
 }

@@ -63,15 +63,15 @@ $(document).ready(function () {
     return false;
   });
 
-  tracking.ColorTracker.registerColor('green', function (r, g, b) {
-    if (r < 50 && g > 200 && b < 50) {
-      return true;
-    }
-    return false;
-  });
+  // tracking.ColorTracker.registerColor('green', function (r, g, b) {
+  //   if (r < 25 && g > 128 && b < 73) {
+  //     return true;
+  //   }
+  //   return false;
+  // });
 
   // tracking.js initial color tracker - tracking seen in console
-  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple', 'green']);
+  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple']);
 
   // --- start game sequence -----------------------------------------------------------------------------------------------------------------//
   var theTimer;
@@ -81,17 +81,27 @@ $(document).ready(function () {
   var timeOutTally = 0;
   
 
-  var colorArray = ["magenta", "cyan", "yellow", "green", "red", "purple"];
-  var unsplashArray = ["purple", "blue", "yellow", "green", "red", "purple"];
+  var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
+  var unsplashArray = ["purple", "blue", "yellow", "red", "purple"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down", "crying adult"];
 
   // --- start JS event listeners ----------------------------------------------//
+  // start first unsplash api background 
+  function generateUnsplash() {
+    var queryURL = "https://api.unsplash.com/search/photos?page=1&per_page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+    $.ajax({ url: queryURL, method: "GET" })
+      .done(function (response) {
+        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
+      })
+  }
+  generateUnsplash();
+
   
   // click on start game to enable camera and timer
-  $("body").on("click", "#enable-camera", function () {
+  $("body").on("click touch", "#enable-camera", function () {
     // starts camera
-    tracking.track('#myVideo', colors, { camera: true });
+    tracking.track('#video', colors, { camera: true });
     // hides button
     $("#enable-camera").fadeOut();
     // starts and displays timer
@@ -100,13 +110,17 @@ $(document).ready(function () {
     matchColor();
   })
 
-  // trigger functions by clicking reset button - DOES NOT EXIST YET
-  $("body").on("click", ".reset-button", function (event) {
+  // trigger functions by clicking reset button
+  $("body").on("click touch", "#reset-game", function () {
     resetGame();
   });
 
+  // trigger functions by clicking pause button
+  $("body").on("click touch", "#pause-game", function () {
+    pauseGame();
+  });
+
   // --- start JS functions ----------------------------------------------//
-  // --- MOST IMPORTANT - timer and match color--------------------------//
   // function to set timer to 30 seconds. If timer runs out, generate timeout loss
   function timerWrapper() {
     theTimer = setInterval(thirtySeconds, 1000);
@@ -122,83 +136,35 @@ $(document).ready(function () {
     }
   }
 
+  var colorID = 0;
+
   // function to ask camera to find unsplash color and look for match
   function matchColor() {
+
     // tracking.js on track matching function
     colors.on('track', function (event) {
+      colorID++;
+
       if (event.data.length === 0) {
         // no colors were detected in this frame
-      } else {
-        // do {
-        //   console.log("Color  Matched");
-        //   clearInterval(theTimer);
-        //   generateWin();
-        // } while (event.data[0].color = colorArray[colorCounter]);
+      } else if (colorID % 25 === 0) {
 
-        event.data.forEach(function (rect) {
-          console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
-          // if camera finds matching color, generate win
-          if (rect.color === colorArray[colorCounter]) {
-            console.log("Color  Matched");
-            clearInterval(theTimer);
-            generateWin();
-            throw BreakException;
-          }
-        });
-        // if (event.data[0].color = colorArray[colorCounter]) {
-        //   switch (colorArray[colorCounter]) {
-        //     case "magenta":
-        //       clearInterval(theTimer);
-        //       generateWin();
-        //       // colorCounter++
-        //       break;
-        //     case "cyan":
-        //       clearInterval(theTimer);
-        //       generateWin();
-        //       colorCounter++
-        //       break;
-        //     case "yellow":
-        //       clearInterval(theTimer);
-        //       generateWin();
-        //       colorCounter++
-        //       break;
-        //     case "green":
-        //       clearInterval(theTimer);
-        //       generateWin();
-        //       colorCounter++
-        //       break;
-        //     case "red":
-        //       clearInterval(theTimer);
-        //       generateWin();
-        //       colorCounter++
-        //       break;
-        //     case "purple":
-        //       clearInterval(theTimer);
-        //       generateWin();
-        //       colorCounter++
-        //   }
-        // }
+        if (event.data[0].color = colorArray[colorCounter]) {
+          generateWin();
+          clearInterval(theTimer);
+        }
       }
     });
   }
 
-  // start first unsplash api background 
-  function generateUnsplash() {
-    var queryURL = "https://api.unsplash.com/search/photos?page=1&per_page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
-    $.ajax({ url: queryURL, method: "GET" })
-      .done(function (response) {
-        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
-      })
-  }
-
-  generateUnsplash();
-
   // --- WIN or TIMEOUT functions ----------------------------------------------//
   // display winning GIF, hold screen for 3 seconds
   function generateWin() {
+    colorID = 0;
     correctTally++;
     console.log(correctTally);
     getCorrectGif();
+    $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
 
     var modal = document.getElementById('myModal');
     var img = document.getElementById('myImg');
@@ -248,9 +214,11 @@ $(document).ready(function () {
 
   // display losing GIF, hold screen for 3 seconds
   function timeOutLoss() {
+    colorID = 0;
     timeOutTally++;
     console.log(timeOutTally);
     getWrongGif();
+    $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
 
     var modal = document.getElementById('myModal');
     var img = document.getElementById('myImg');
@@ -287,7 +255,6 @@ $(document).ready(function () {
     modalImg7.src = img7.src;
     modalImg8.src = img.src;
 
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
@@ -310,10 +277,9 @@ $(document).ready(function () {
         correctImage.attr('src', response.data[colorCounter].images.fixed_height.url);
         correctDiv.append(correctImage);
         $("#giphyImage").html(correctDiv);
-
-        // continue to next color
-        setTimeout(wait, 3000);
-      });
+      }).then(function () {
+        setTimeout(wait, 5000);  // 3 second wait
+      })
   }
 
   // giphy ajax call wrong giphy
@@ -326,15 +292,11 @@ $(document).ready(function () {
         var wrongImage = $('<img>');
         wrongImage.attr('src', response.data[colorCounter].images.fixed_height.url);
         wrongDiv.append(wrongImage);
-        $("#giphyImage").append(wrongDiv);
-
-        // continue to next color
-        setTimeout(wait, 3000);  // 3 second wait
-      });
+        $("#giphyImage").html(wrongDiv);
+      }).then(function () {
+        setTimeout(wait, 5000);  // 3 second wait
+      })
   }
-
-  //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
-  //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
 
   // start unsplash api background 
   function generateUnsplashImg(cb) {
@@ -350,8 +312,6 @@ $(document).ready(function () {
     generateUnsplashImg(function (img) {
       $('#unsplash-bg').attr('style', "background-image: url('" + img.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
     });
-
-    $("#gif-display").empty();
   }
 
   // function that moves the game forward to the next colors, calls unsplash API
@@ -360,22 +320,18 @@ $(document).ready(function () {
       colorCounter++;
       console.log(colorCounter);
       generateColor();
-      matchColor();
+      // matchColor();
       $("#myModal").hide();
       counter = 30;
       timerWrapper();
+      $(".canvas").fadeOut();
+
     }
     else {
       $("#myModal").hide();
+      $(".canvas").fadeOut();
       resetGame();
     }
-  }
-
-  // replace gameHTML with new HTML element containing all-done text and reset button
-  function finalScreen() {
-    // hold winning GIF or display new GIF to say you went through all colors
-    // create reset button
-    // display on HTML
   }
 
   // reset the counters and start over game
@@ -385,26 +341,13 @@ $(document).ready(function () {
     timeOutTally = 0;
     counter = 30;
     generateColor();
-    matchColor()
+    // matchColor()
     timerWrapper();
   }
 
-  // find RANDOM i through math.Random 
-  // tell tracking.js to look for colorArray[i]
-  // search for unsplashArray[i] on unsplash and display on #unsplash-bg
-  // IF 30 seconds left
-  // IF colorArray[i] === true
-  // then display correctGifsArray[i] in modal
-  // wait 3 seconds and then go to next position in colorArray
-  // ELSE
-  // then display wrongGifsArray[i] in modal
-  // wait 3 seconds and then go to next position in colorArray
-  // ELSE if time runs out
-  // then display wrongGifsArray[i] in modal
-  // wait 3 seconds and then go to next position in colorArray
-
-
-
+  function pauseGame() {
+    //
+  }
 
   // closing tags of (document).ready below
 });
@@ -433,62 +376,19 @@ $(".nav-item li").on("click", function () {
   $(this).addClass("active");
 });
 
- // Animations initialization
-//  new WOW().init();
-
-  // --- start didi's firebase -----------------------------------------------------------------------------------------------------------------//
-  // var config = {
-  //   apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
-  //   authDomain: "color-game-chat.firebaseapp.com",
-  //   databaseURL: "https://color-game-chat.firebaseio.com",
-  //   projectId: "color-game-chat",
-  //   storageBucket: "color-game-chat.appspot.com",
-  //   messagingSenderId: "440942527592"
-  // };
-  // firebase.initializeApp(config);
-
-  // --- start chat box -----------------------------------------------------------------------------------------------------------------//
-  // var name = "";
-
-  // firebase.database().ref('chat/').on('child_added',
-    // function (snapshot) {
-      // var data = "<div id='m'><p class ='name'>" +
-      //   snapshot.child('name').val() + "</p><p class='message'>" +
-      //   snapshot.child('message').val() + "</p><div>";
-
-      // $("#messages").html($("#messages").html() + data);
-    // });
-
-
-  // $("#name_submit").on("click", function () {
-  //   name = $("#name").val();
-  //   // alert(name)
-  //   $("#name_prompt_parent").fadeOut();
-  // });
-
-  // $("#send_button").on('click', function () {
-  //   var mess = $("#msg").val();
-    // alert(mess);
-
-    // firebase.database().ref('chat/' + Date.now()).set({
-      // name: name,
-      // message: mess
-    // });
-  // });
-
-  // Instructions pullout tab ------------------------------------------------------------ //
-  $(function(){
-    $('.slide-out-div').tabSlideOut({
-        tabHandle: '.handle',                     //class of the element that will become your tab
-        pathToTabImage: './assets/images/plus-icon.png', //path to the image for the tab //Optionally can be set using css
-        imageHeight: '135px',                     //height of tab image           //Optionally can be set using css
-        imageWidth: '25px',                       //width of tab image            //Optionally can be set using css
-        tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
-        speed: 300,                               //speed of animation
-        action: 'click',                          //options: 'click' or 'hover', action to trigger animation
-        topPos: '200px',                          //position from the top/ use if tabLocation is left or right
-        leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
-        fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
-    });
+// Instructions pullout tab ------------------------------------------------------------ //
+$(function () {
+  $('.slide-out-div').tabSlideOut({
+    tabHandle: '.handle',                     //class of the element that will become your tab
+    pathToTabImage: './assets/images/plus-icon.png', //path to the image for the tab //Optionally can be set using css
+    imageHeight: '135px',                     //height of tab image           //Optionally can be set using css
+    imageWidth: '25px',                       //width of tab image            //Optionally can be set using css
+    tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
+    speed: 300,                               //speed of animation
+    action: 'click',                          //options: 'click' or 'hover', action to trigger animation
+    topPos: '200px',                          //position from the top/ use if tabLocation is left or right
+    leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
+    fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+  });
 
 });

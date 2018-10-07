@@ -27,13 +27,13 @@
 
 
   $("#name_submit").on("click", function () {
-    name = $("#name").val();
+    name = $("#name").val().trim("");
     // alert(name)
     $("#name_prompt_parent").fadeOut();
   });
 
   $("#send_button").on('click', function () {
-    var mess = $("#msg").val();
+    var mess = $("#msg").val().trim("");
     // alert(mess);
 
     firebase.database().ref('chat/' + Date.now()).set({
@@ -168,26 +168,12 @@ $(document).ready(function () {
 
     var modal = document.getElementById('myModal');
 
-    // var img = $("#myImg").attr("src");
-    // var img2 = document.getElementById('myImg2');
-    // var img3 = document.getElementById('myImg3');
-    // var img4 = document.getElementById('myImg4');
-
-    // var modalImg = document.getElementById("img01");
-    // var modalImg2 = document.getElementById("img02");
-    // var modalImg3 = document.getElementById("img03");
-    // var modalImg4 = document.getElementById("img04");
-
     modal.style.display = "block";
-    // modalImg.src = img.src;
-    // modalImg2.src = img2.src;
-    // modalImg3.src = img3.src;
-    // modalImg4.src = img4.src;
 
     $("#img01").attr("src", "https://clip2art.com/images/splatter-clipart-cartoon-14.png");
-    $("#img01").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
-    $("#img01").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
-    $("#img01").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
+    $("#img02").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
+    $("#img03").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
+    $("#img04").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
 
   }
 

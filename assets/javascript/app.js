@@ -27,13 +27,13 @@
 
 
   $("#name_submit").on("click", function () {
-    name = $("#name").val();
+    name = $("#name").val().trim("");
     // alert(name)
     $("#name_prompt_parent").fadeOut();
   });
 
   $("#send_button").on('click', function () {
-    var mess = $("#msg").val();
+    var mess = $("#msg").val().trim("");
     // alert(mess);
 
     firebase.database().ref('chat/' + Date.now()).set({
@@ -75,7 +75,7 @@ $(document).ready(function () {
 
   // --- start game sequence -----------------------------------------------------------------------------------------------------------------//
   var theTimer;
-  var counter = 30;
+  var counter = 10;
   var colorCounter = 0;
   var correctTally = 0;
   var timeOutTally = 0;
@@ -147,7 +147,7 @@ $(document).ready(function () {
 
       if (event.data.length === 0) {
         // no colors were detected in this frame
-      } else if (colorID % 25 === 0) {
+      } else if (colorID % 50 === 0) {
 
         if (event.data[0].color = colorArray[colorCounter]) {
           generateWin();
@@ -167,49 +167,14 @@ $(document).ready(function () {
     // $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
 
     var modal = document.getElementById('myModal');
-    var img = document.getElementById('myImg');
-    var img2 = document.getElementById('myImg2');
-    var img3 = document.getElementById('myImg3');
-    var img4 = document.getElementById('myImg4');
-
-    // var img5 = document.getElementById('myImg5')
-    // var img6 = document.getElementById('myImg6')
-    // var img7 = document.getElementById('myImg7')
-    // var img8 = document.getElementById('myImg8')
-
-    var modalImg = document.getElementById("img01");
-    var modalImg2 = document.getElementById("img02");
-    var modalImg3 = document.getElementById("img03");
-    var modalImg4 = document.getElementById("img04");
-
-    // var modalImg5 = document.getElementById("img05");
-    // var modalImg6 = document.getElementById("img06");
-    // var modalImg7 = document.getElementById("img07");
-    // var modalImg8 = document.getElementById("img08");
-
 
     modal.style.display = "block";
-    modalImg.src = img.src;
-    modalImg2.src = img2.src;
-    modalImg3.src = img3.src;
-    modalImg4.src = img4.src;
 
+    $("#img01").attr("src", "https://clip2art.com/images/splatter-clipart-cartoon-14.png");
+    $("#img02").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
+    $("#img03").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
+    $("#img04").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
 
-    // modal.style.display = "block";
-    // modalImg5.src = img5.src;
-    // modalImg6.src = img6.src;
-    // modalImg7.src = img7.src;
-    // modalImg8.src = img.src;
-
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-    // setTimeout(wait, 3000);  // 3 second wait
   }
 
   // display losing GIF, hold screen for 3 seconds
@@ -221,48 +186,22 @@ $(document).ready(function () {
     // $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
 
     var modal = document.getElementById('myModal');
-    var img = document.getElementById('myImg');
-    // var img2 = document.getElementById('myImg2');
-    // var img3 = document.getElementById('myImg3');
-    // var img4 = document.getElementById('myImg4');
 
     var img5 = document.getElementById('myImg5')
     var img6 = document.getElementById('myImg6')
     var img7 = document.getElementById('myImg7')
     var img8 = document.getElementById('myImg8')
 
-    var modalImg = document.getElementById("img01");
-    // var modalImg2 = document.getElementById("img02");
-    // var modalImg3 = document.getElementById("img03");
-    // var modalImg4 = document.getElementById("img04");
-
     var modalImg5 = document.getElementById("img05");
     var modalImg6 = document.getElementById("img06");
     var modalImg7 = document.getElementById("img07");
     var modalImg8 = document.getElementById("img08");
 
-
-    modal.style.display = "block";
-    modalImg.src = img.src;
-    // modalImg2.src = img2.src;
-    // modalImg3.src = img3.src;
-    // modalImg4.src = img4.src;
-
-
     modal.style.display = "block";
     modalImg5.src = img5.src;
     modalImg6.src = img6.src;
     modalImg7.src = img7.src;
-    modalImg8.src = img.src;
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-
+    modalImg8.src = img8.src;
   }
 
   // --- API CALL functions ----------------------------------------------//
@@ -278,7 +217,7 @@ $(document).ready(function () {
         correctDiv.append(correctImage);
         $("#giphyImage").html(correctDiv);
       }).then(function () {
-        setTimeout(wait, 5000);  // 3 second wait
+        setTimeout(wait, 5000);  // 5 second wait
       })
   }
 
@@ -294,7 +233,7 @@ $(document).ready(function () {
         wrongDiv.append(wrongImage);
         $("#giphyImage").html(wrongDiv);
       }).then(function () {
-        setTimeout(wait, 5000);  // 3 second wait
+        setTimeout(wait, 5000);  // 5 second wait
       })
   }
 
@@ -322,7 +261,7 @@ $(document).ready(function () {
       generateColor();
       // matchColor();
       $("#myModal").hide();
-      counter = 30;
+      counter = 10;
       timerWrapper();
       // $(".canvas").fadeOut();
 
@@ -339,7 +278,7 @@ $(document).ready(function () {
     colorCounter = 0;
     correctTally = 0;
     timeOutTally = 0;
-    counter = 30;
+    counter = 10;
     generateColor();
     // matchColor()
     timerWrapper();

@@ -164,7 +164,7 @@ $(document).ready(function () {
     correctTally++;
     console.log(correctTally);
     getCorrectGif();
-    $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
+    // $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
 
     var modal = document.getElementById('myModal');
     var img = document.getElementById('myImg');
@@ -218,7 +218,7 @@ $(document).ready(function () {
     timeOutTally++;
     console.log(timeOutTally);
     getWrongGif();
-    $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
+    // $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
 
     var modal = document.getElementById('myModal');
     var img = document.getElementById('myImg');
@@ -324,12 +324,12 @@ $(document).ready(function () {
       $("#myModal").hide();
       counter = 30;
       timerWrapper();
-      $(".canvas").fadeOut();
+      // $(".canvas").fadeOut();
 
     }
     else {
       $("#myModal").hide();
-      $(".canvas").fadeOut();
+      // $(".canvas").fadeOut();
       resetGame();
     }
   }

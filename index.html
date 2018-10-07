@@ -21,7 +21,6 @@
 </head>
 
 <body>
-    <!-------------------------------------------- Start Navigation --------------------------------------------->
     <!-- Start navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="navbarFixed">
         <div class="container">
@@ -43,13 +42,13 @@
                 <ul class="navbar-nav mr-auto">
                     <!-- Chat room container -->
                     <div id="chatroom" class="container text-white alt-font text-medium">
-                        <div id="messages">
-                            <p>Hi:<span class="message"></span> </p>
-                            <div id="m"></div>
-                            <!-- <p class="name"></p> -->
-                            <p></p>
-                        </div>
-                    </div>
+                            <div id="messages">
+                                <span class="message"></span>
+                                <div id="m"></div>
+                                    <!-- <p class="name"></p> -->
+                                    <p ></p>
+                                </div>
+                            </div>
                 </ul>
                 <!-- Right -->
                 <ul class="navbar-nav navbar-top navbar-scroll-top">
@@ -59,15 +58,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span class="play"></span>
+                        <a id="enable-camera" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span class="play"></span>
                             Play </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span class="pause-btn"></span>
+                        <a id="pause-game" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span class="pause-btn"></span>
                             Pause </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span class="reset-btn"></span>
+                        <a id="myVideo" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span class="reset-btn"></span>
                             Reset </a>
                     </li>
                 </ul>
@@ -75,7 +74,7 @@
         </div>
     </nav>
 
-    <!--------------------------------------------- Start Landing Page --------------------------------------------->
+    <!-- Start Landing Page -->
     <div class="view full-page-intro" style="background-image: url(./assets/images/painthands.jpg); background-repeat: no-repeat; background-size: cover;">
         <!-- Mask & flexbox options-->
         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
@@ -90,8 +89,9 @@
                             <div class="row justify-content-md-center">
                                 <div class="col-md-auto margin-50px-tb">
                                     <div id="input">
-                                        <input id="msg" class="form-control" id="message" />
-                                        <button id="send_button" class=" submit btn btn-deep-pink btn-small text-white">Send</button>
+                                        <input id="msg" class="form-control" id="message"/>
+                                        <button id="send_button" class=" submit btn btn-deep-pink btn-small text-white">Send<a href="#" onclick="return false;" onmousedown="autoScrollTo('#unsplash-bg');"></a></button>
+                                        
                                     </div>
                                     <!-- <input class="form-control form-control-lg col-auto" type="text" placeholder="What's your name?"> -->
                                 </div>
@@ -104,10 +104,10 @@
             </div>
         </div>
     </div>
-    <!----------------------------------------- End Landing Page ------------------------------------------>
+    <!-- End Landing Page -->
 
 
-    <!----------------------------------------- Full Page Intro ------------------------------------------>
+    <!-- Full Page Intro -->
     <!-- Unsplash pictures generate in this div  -->
     <div id="unsplash-bg" class="view full-page-intro">
         <!-- Mask & flexbox options-->
@@ -126,47 +126,49 @@
                         <strong>Step 1</strong>
                     </p>
                     <p class="mb-4 d-none d-md-block text-white">
-                        <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video
-                            and
-                            written versions
-                            available. Create your own, stunning website.</strong>
+                        <strong>It's a color matching game. The objective of the game is to match the color of the image that displays on the screen.
+                            find an object with the same color of the image and place it infront of the camera.
+                        </strong>
                     </p>
                     <p class="mb-4 d-none d-md-block text-white">
                         <p class="text-white">
                             <strong>Step 2</strong>
                         </p>
                         <p class="mb-4 d-none d-md-block text-white">
-                            <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users.
-                                Video
-                                and
-                                written versions
-                                available. Create your own, stunning website.</strong>
+                            <strong>Click the play button to start the camera and timer. You have 30 seconds for each image.</strong>
                         </p>
+                    <p class="mb-4 d-none d-md-block text-white">
+                            <p class="text-white">
+                                <strong>Step 3</strong>
+                            </p>
+                            <p class="mb-4 d-none d-md-block text-white">
+                                <strong>Enjoy the game!</strong>
+                            </p>
                 </div>
                 <!--Grid row-->
                 <div class="row wow fadeIn">
                     <!--Grid column-->
                     <div class="col-md-8">
                         <!-- The Splat in HTML Beginning Test ----->
-                        <!-- <img class="d-none" id="myImg" src="https://clip2art.com/images/splatter-clipart-cartoon-14.png"
-                            alt="Winner" style="width:100%;max-width:300px">
+                        <img class="d-none" id="myImg" src="https://clip2art.com/images/splatter-clipart-cartoon-14.png"
+                            alt="Winner" style="width:90%;max-width:300px">
                         <img class="d-none" id="myImg2" src="http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png"
-                            alt="Winner" style="width:100%;max-width:300px">
+                            alt="Winner" style="width:90%;max-width:300px">
                         <img class="d-none" id="myImg3" src="https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png"
-                            alt="Winner" style="width:100%;max-width:300px">
+                            alt="Winner" style="width:90%;max-width:300px">
                         <img class="d-none" id="myImg4" src="http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg"
-                            alt="Winner" style="width:100%;max-width:300px"> -->
+                            alt="Winner" style="width:90%;max-width:300px">
 
                         <!-- The Splat in TimeOut HTML Beginning Test ----->
-                        <!-- <img class="d-none" id="myImg5" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
-                            alt="loser" style="width:100%;max-width:300px">
-                        <img class="d-none" id="myImg6" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
-                            alt="loser" style="width:100%;max-width:300px">
-                        <img class="d-none" id="myImg7" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
-                            alt="loser" style="width:100%;max-width:300px">
-                        <img class="d-none" id="myImg8" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
-                            alt="loser" style="width:100%;max-width:300px"> -->
-
+                            <img class="d-none" id="myImg5" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
+                            alt="Winner" style="width:90%;max-width:300px">
+                        <img class="d-none"  id="myImg6" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
+                            alt="Winner" style="width:90%;max-width:300px">
+                        <img class="d-none"  id="myImg7" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
+                            alt="Winner" style="width:90%;max-width:300px">
+                        <img class="d-none"  id="myImg8" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
+                            alt="Winner" style="width:90%;max-width:300px">
+                        
                         <!-- The Modal -->
 
                         <div id="myModal" class="modal">
@@ -191,7 +193,7 @@
                             <!--Card content-->
                             <div class="card-body">
                                 <!-- Form -->
-                                <!-- <form name="" class="margin"> -->
+                                <form name="" class="margin">
                                 <!-- video from camera will render on HTML -->
                                 <div class="container bg-transparent padding-15px-right padding-10px-tb" id="camera-box">
                                     <div class="text-white text-medium padding-10px-bottom alt-font"></div>
@@ -233,14 +235,14 @@
     </div>
     </div>
 
-    <!----------------------------------------- Footer ------------------------------------------>
-    <footer class="page-footer text-center font-small wow fadeIn">
-        <!--Copyright-->
-        <div class="footer-copyright py-3">
-            © 2018 Copyright:
-            <a href="index.html" target="_blank"> COLOR FUN </a>
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer class="page-footer text-center font-small wow fadeIn">
+            <!--Copyright-->
+            <div class="footer-copyright py-3">
+                © 2018 Copyright:
+                <a href="index.html" target="_blank"> COLOR FUN </a>
+            </div>
+        </footer>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>

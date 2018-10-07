@@ -513,8 +513,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     height: 100%;
     background-color: rgba(0, 0, 0, 0);
     border-width:50px;  
-    border-style:hidden;
-   
+    border-style: none;
   }
   
   /* Caption of Modal Image */

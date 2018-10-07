@@ -36,7 +36,8 @@ body,
 
 /* Footer color for sake of consistency with Navbar */
 .page-footer {
-  background-color: #1C2331; }
+  background-color: #1C2331; 
+pos}
 
 
   html,
@@ -419,7 +420,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     left: 675px;
     
 }
-
+ /* Win Giphy */
   #img01 {
     
     position: center;
@@ -531,11 +532,19 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
 }
 
 /* Play button */
+
 .play-btn {
-  display: inline-block;
   background-image: url("../images/play-btn.png");
+  background-repeat: no-repeat;
+  height: 99px;
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+
+/* Giphys  */
 img {
   height: 168px;
   width: 200px;

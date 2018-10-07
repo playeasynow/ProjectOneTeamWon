@@ -1,3 +1,7 @@
+// Table of Contents
+// 1 Tracking JS new colors
+
+
 $(document).ready(function () {
 
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
@@ -35,13 +39,10 @@ $(document).ready(function () {
   var correctTally = 0;
   var timeOutTally = 0;
 
-  var colorArray = ["magenta", "yellow", "green", "red", "purple", "cyan"];
-  var unsplashArray = ["purple", "yellow", "green", "red", "purple", "blue"];
+  var colorArray = ["magenta", "cyan", "yellow", "green", "red", "purple"];
+  var unsplashArray = ["purple", "blue", "yellow", "green", "red", "purple"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down", "crying adult"];
-
-  var trackingJSColor = colorArray[colorCounter];
-  var unsplashColor = unsplashArray[colorCounter];
 
   // --- start JS event listeners ----------------------------------------------//
 
@@ -63,7 +64,6 @@ $(document).ready(function () {
   });
 
   // --- start JS functions ----------------------------------------------//
-
   // --- MOST IMPORTANT - timer and match color--------------------------//
   // function to set timer to 30 seconds. If timer runs out, generate timeout loss
   function timerWrapper() {
@@ -87,27 +87,55 @@ $(document).ready(function () {
       if (event.data.length === 0) {
         // no colors were detected in this frame
       } else {
-        console.log(event.data.length);
-        console.log(event.data[0].color);
+        // do {
+        //   console.log("Color  Matched");
+        //   clearInterval(theTimer);
+        //   generateWin();
+        // } while (event.data[0].color = colorArray[colorCounter]);
 
-        function findColor() {
-          if (event.data[0].color = trackingJSColor) {
+        event.data.forEach(function (rect) {
+          console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+          // if camera finds matching color, generate win
+          if (rect.color === colorArray[colorCounter]) {
+            console.log("Color  Matched");
             clearInterval(theTimer);
             generateWin();
+            throw BreakException;
           }
-        }
-
-        findColor();
-        // event.data[0].forEach(function (rect) {
-        //   console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
-
-        //   // if camera finds matching color, generate win
-        //   if (rect.color === trackingJSColor) {
-        //     clearInterval(theTimer);
-        //     generateWin();
-        //     throw BreakException;
+        });
+        // if (event.data[0].color = colorArray[colorCounter]) {
+        //   switch (colorArray[colorCounter]) {
+        //     case "magenta":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       // colorCounter++
+        //       break;
+        //     case "cyan":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       colorCounter++
+        //       break;
+        //     case "yellow":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       colorCounter++
+        //       break;
+        //     case "green":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       colorCounter++
+        //       break;
+        //     case "red":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       colorCounter++
+        //       break;
+        //     case "purple":
+        //       clearInterval(theTimer);
+        //       generateWin();
+        //       colorCounter++
         //   }
-        // });
+        // }
       }
     });
   }
@@ -117,8 +145,6 @@ $(document).ready(function () {
     var queryURL = "https://api.unsplash.com/search/photos?page=1&per_page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
     $.ajax({ url: queryURL, method: "GET" })
       .done(function (response) {
-        // let image = $('<img>');
-        // image.attr('src', img.results[0].urls.regular);
         $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
       })
   }
@@ -137,10 +163,21 @@ $(document).ready(function () {
     var img2 = document.getElementById('myImg2');
     var img3 = document.getElementById('myImg3');
     var img4 = document.getElementById('myImg4');
+
+    var img5 = document.getElementById('myImg5')
+    var img6 = document.getElementById('myImg6')
+    var img7 = document.getElementById('myImg7')
+    var img8 = document.getElementById('myImg8')
+
     var modalImg = document.getElementById("img01");
     var modalImg2 = document.getElementById("img02");
     var modalImg3 = document.getElementById("img03");
     var modalImg4 = document.getElementById("img04");
+
+    var modalImg5 = document.getElementById("img05");
+    var modalImg6 = document.getElementById("img06");
+    var modalImg7 = document.getElementById("img07");
+    var modalImg8 = document.getElementById("img08");
 
 
     modal.style.display = "block";
@@ -148,6 +185,14 @@ $(document).ready(function () {
     modalImg2.src = img2.src;
     modalImg3.src = img3.src;
     modalImg4.src = img4.src;
+
+
+    modal.style.display = "block";
+    modalImg5.src = img5.src;
+    modalImg6.src = img6.src;
+    modalImg7.src = img7.src;
+    modalImg8.src = img.src;
+
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -164,13 +209,40 @@ $(document).ready(function () {
     timeOutTally++;
     console.log(timeOutTally);
     getWrongGif();
-    // setTimeout(wait, 3000);  // 3 second wait
+
+    var modal = document.getElementById('myModal');
+    var img = document.getElementById('myImg');
+    var img2 = document.getElementById('myImg2');
+    var img3 = document.getElementById('myImg3');
+    var img4 = document.getElementById('myImg4');
+    var modalImg = document.getElementById("img01");
+    var modalImg2 = document.getElementById("img02");
+    var modalImg3 = document.getElementById("img03");
+    var modalImg4 = document.getElementById("img04");
+    var captionText = document.getElementById("caption");
+
+
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    modalImg2.src = img2.src;
+    modalImg3.src = img3.src;
+    modalImg4.src = img4.src;
+
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
   }
 
   // --- API CALL functions ----------------------------------------------//
   // giphy ajax call for correct gifs
   function getCorrectGif() {
-    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=5&rating";
 
     $.ajax({ url: queryURL2, method: 'GET' })
       .done(function (response) {
@@ -179,13 +251,15 @@ $(document).ready(function () {
         correctImage.attr('src', response.data[colorCounter].images.fixed_height.url);
         correctDiv.append(correctImage);
         $("#giphyImage").html(correctDiv);
+
+        // continue to next color
         setTimeout(wait, 3000);
       });
   }
 
   // giphy ajax call wrong giphy
   function getWrongGif() {
-    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + wrongGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + wrongGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=5&rating";
 
     $.ajax({ url: queryURL2, method: 'GET' })
       .done(function (response) {
@@ -193,7 +267,10 @@ $(document).ready(function () {
         var wrongImage = $('<img>');
         wrongImage.attr('src', response.data[colorCounter].images.fixed_height.url);
         wrongDiv.append(wrongImage);
-        $("#gif-display").append(wrongDiv);
+        $("#giphyImage").append(wrongDiv);
+
+        // continue to next color
+        setTimeout(wait, 3000);  // 3 second wait
       });
   }
 
@@ -211,16 +288,12 @@ $(document).ready(function () {
 
   // function to generate the color to find
   function generateColor() {
-
     generateUnsplashImg(function (img) {
       $('#unsplash-bg').attr('style', "background-image: url('" + img.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
     });
 
     $("#gif-display").empty();
-
   }
-
-  // generateColor();
 
   // function that moves the game forward to the next colors, calls unsplash API
   function wait() {
@@ -228,11 +301,14 @@ $(document).ready(function () {
       colorCounter++;
       console.log(colorCounter);
       generateColor();
+      matchColor();
+      $("#myModal").hide();
       counter = 30;
       timerWrapper();
     }
     else {
-      finalScreen();
+      $("#myModal").hide();
+      resetGame();
     }
   }
 
@@ -250,6 +326,7 @@ $(document).ready(function () {
     timeOutTally = 0;
     counter = 30;
     generateColor();
+    matchColor()
     timerWrapper();
   }
 

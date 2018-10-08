@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -42,13 +45,13 @@
                 <ul class="navbar-nav mr-auto">
                     <!-- Chat room container -->
                     <div id="chatroom" class="container text-white alt-font text-medium">
-                            <div id="messages">
-                                <span class="message"></span>
-                                <div id="m"></div>
-                                    <!-- <p class="name"></p> -->
-                                    <p ></p>
-                                </div>
-                            </div>
+                        <div id="messages">
+                            <span class="message"></span>
+                            <div id="m"></div>
+                            <!-- <p class="name"></p> -->
+                            <p></p>
+                        </div>
+                    </div>
                 </ul>
                 <!-- Right -->
                 <ul class="navbar-nav navbar-top navbar-scroll-top">
@@ -58,15 +61,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a id="enable-camera" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span class="play"></span>
-                            Play </a>
+                        <a id="enable-camera" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span
+                                class="play animated infinite pulse"> <p id="playBtnAnimate">Play</p></span>
+                             </a>
                     </li>
-                    <li class="nav-item">
-                        <a id="pause-game" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span class="pause-btn"></span>
+                    <li class="nav-item" id="pauseBtnAnimate">
+                        <a id="pause-game" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span
+                                class="pause-btn"></span>
                             Pause </a>
                     </li>
                     <li class="nav-item">
-                        <a id="reset-game" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span class="reset-btn"></span>
+                        <a id="reset-game" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span
+                                class="reset-btn"></span>
                             Reset </a>
                     </li>
                 </ul>
@@ -84,14 +90,16 @@
                 <div class="row wow fadeIn">
                     <!--Grid column-->
                     <div class="col-md-12 mb-4 white-text text-center text-md-left">
-                        <h1 id ="name_display" class="name_display display-4 font-weight-bold alt-font text-center title-extra-large">Your Name?</h1>
+                        <h1 id="name_display" class="name_display display-4 font-weight-bold alt-font text-center title-extra-large animated pulse">Your
+                            Name?</h1>
                         <div class="container">
                             <div class="row justify-content-md-center">
                                 <div class="col-md-auto margin-50px-tb">
                                     <div id="input">
-                                        <input id="msg" class="form-control" id="message"/>
-                                        <button id="send_button" class=" submit btn btn-deep-pink btn-small text-white show-btns" href="#unsplash-bg" >Send</button>
-                                        
+                                        <input id="msg" class="form-control animated pulse" id="message" />
+                                        <button id="send_button" class="submit btn btn-deep-pink btn-small text-white show-btns animated pulse"
+                                            href="#unsplash-bg">Send</button>
+
                                     </div>
                                     <!-- <input class="form-control form-control-lg col-auto" type="text" placeholder="What's your name?"> -->
                                 </div>
@@ -122,23 +130,25 @@
                     <a class="handle" href="#">Content</a>
                     <h3 class="alt-font text-white">Instructions</h3>
                     <hr class="hr-light">
-                    <p class="text-white">
+                    <p class="text-white font-weight-bold">
                         <strong>Step 1</strong>
                     </p>
                     <p class="mb-4 d-none d-md-block text-white">
-                        <strong>It's a color matching game. The objective of the game is to match the color of the image that displays on the screen.
-                            find an object with the same color of the image and place it infront of the camera.
+                        <strong>It's a color matching game. The objective of the game is to match the color of the
+                            image that displays on the screen.
+                            find an object with the same color of the image and place it infront of the camera!
                         </strong>
                     </p>
                     <p class="mb-4 d-none d-md-block text-white">
-                        <p class="text-white">
+                        <p class="text-white font-weight-bold">
                             <strong>Step 2</strong>
                         </p>
                         <p class="mb-4 d-none d-md-block text-white">
-                            <strong>Click the play button to start the camera and timer. You have 30 seconds for each image.</strong>
+                            <strong>Click the play button to start the camera and timer. You have 30 seconds for each
+                                image.</strong>
                         </p>
-                    <p class="mb-4 d-none d-md-block text-white">
-                            <p class="text-white">
+                        <p class="mb-4 d-none d-md-block text-white">
+                            <p class="text-white font-weight-bold">
                                 <strong>Step 3</strong>
                             </p>
                             <p class="mb-4 d-none d-md-block text-white">
@@ -149,44 +159,14 @@
                 <div class="row wow fadeIn">
                     <!--Grid column-->
                     <div class="col-md-8">
-                        <!-- The Splat in HTML Beginning Test ----->
-                        <!-- <img class="d-none" id="myImg" src="https://clip2art.com/images/splatter-clipart-cartoon-14.png"
-                            alt="Winner" style="width:90%;max-width:300px">
-                        <img class="d-none" id="myImg2" src="http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png"
-                            alt="Winner" style="width:90%;max-width:300px">
-                        <img class="d-none" id="myImg3" src="https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png"
-                            alt="Winner" style="width:90%;max-width:300px">
-                        <img class="d-none" id="myImg4" src="http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg"
-                            alt="Winner" style="width:90%;max-width:300px"> -->
-
-                        <!-- The Splat in TimeOut HTML Beginning Test ----->
-                            <img class="d-none" id="myImg5" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
-                            alt="Winner" style="width:90%;max-width:300px">
-                        <img class="d-none"  id="myImg6" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
-                            alt="Winner" style="width:90%;max-width:300px">
-                        <img class="d-none"  id="myImg7" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
-                            alt="Winner" style="width:90%;max-width:300px">
-                        <img class="d-none"  id="myImg8" src="http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png"
-                            alt="Winner" style="width:90%;max-width:300px">
-                        
                         <!-- The Modal -->
-
                         <div id="myModal" class="modal">
                             <img class="modal-content" id="img01">
                             <img class="modal-content" id="img02">
                             <img class="modal-content" id="img03">
                             <img class="modal-content" id="img04">
                             <div class="modal-content" id="giphyImage"></div>
-
-                            <!-- The time out modal -->
-                            <!-- <img class="modal-content" id="img05">
-                            <img class="modal-content" id="img06">
-                            <img class="modal-content" id="img07">
-                            <img class="modal-content" id="img08"> -->
                         </div>
-
-                        
-
                     </div>
                     <!--Grid column-->
                     <div class="col-md-4">
@@ -194,40 +174,15 @@
                         <div class="card">
                             <!--Card content-->
                             <div class="card-body">
-                                <!-- Form -->
-                                <form name="" class="margin">
                                 <!-- video from camera will render on HTML -->
                                 <div class="container bg-transparent padding-15px-right padding-10px-tb" id="camera-box">
+                                    Colors Matched: <span id="wins"></span>
                                     <div class="text-white text-medium padding-10px-bottom alt-font"></div>
-                                    <!-- <button type="button" id="enable-camera" class="btn btn-deep-pink btn-small text-white">Start
-                                        Game</button>
-                                    <button type="button" id="pause-game" class="btn btn-deep-pink btn-small text-white">Pause
-                                        Game</button>
-                                    <button type="button" id="reset-game" class="btn btn-deep-pink btn-small text-white">Reset
-                                        Game</button> -->
                                     <div id="videoBox">
                                         <video id="video" width="400" height="300" preload autoplay loop muted></video>
-                                        <!-- <canvas id="canvas" width="400" height="300"></canvas> -->
                                     </div>
                                 </div>
-                                <div class="md-form">
-                                    <!-- chat box  -->
-                                    <!-- <div id="name_prompt_parent" class="container">
-                                        <div id="name_prompt">
-                                            <p class="title padding-20px-top text-medium alt-font">What's your name?</p>
-                                            <input type="text" id="name" class="form-control">
-                                            <button id="name_submit" class=" submit btn btn-deep-pink btn-small text-white">Submit</button>
-                                        </div>
-                                    </div> -->
-
-                                    <!-- Input form -->
-                                    <!-- <div id="input">
-                                    <textarea id="msg" class="form-control" id="message"></textarea>
-                                    <button id="send_button" class=" submit btn btn-deep-pink btn-small text-white">Send</button>
-                                </div> -->
-                                </div>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -237,14 +192,14 @@
     </div>
     </div>
 
-        <!-- Footer -->
-        <footer class="page-footer text-center font-small wow fadeIn">
-            <!--Copyright-->
-            <div class="footer-copyright py-3">
-                © 2018 Copyright:
-                <a href="index.html" target="_blank"> COLOR FUN </a>
-            </div>
-        </footer>
+    <!-- Footer -->
+    <footer class="page-footer text-center font-small wow fadeIn">
+        <!--Copyright-->
+        <div class="footer-copyright py-3">
+            © 2018 Copyright:
+            <a href="index.html" target="_blank"> COLOR FUN </a>
+        </div>
+    </footer>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>

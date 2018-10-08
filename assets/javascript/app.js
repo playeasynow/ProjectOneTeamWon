@@ -13,14 +13,13 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// --- start chat box -----------------------------------------------------------------------------------------------------------------//
+// --- start name box -----------------------------------------------------------------------------------------------------------------//
 var name = "";
 
 firebase.database().ref('chat/').on('child_added',
   function (snapshot) {
     var data = "<div id='m'><p class ='name'>" +
-      snapshot.child('name').val() + "</p><p class='message'>Hi: " +
-      snapshot.child('message').val() + "</p><div>";
+      snapshot.child('name').val().trim()
 
 
     $("#messages").html($("#messages").html() + data);
@@ -29,8 +28,6 @@ firebase.database().ref('chat/').on('child_added',
 
 $("#name_submit").on("click", function () {
   name = $("#name").val().trim("");
-
-
 });
 
 $("#send_button").on('click', function () {
@@ -83,7 +80,7 @@ $(document).ready(function () {
   });
 
   // tracking.js initial color tracker - tracking seen in console
-  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'green']);
+  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple']);
 
   // --- start game sequence -----------------------------------------------------------------------------------------------------------------//
   var theTimer;
@@ -93,8 +90,8 @@ $(document).ready(function () {
   var timeOutTally = 0;
   var timerStatus = "";
 
-  var colorArray = ["magenta", "cyan", "yellow", "red", "green"];
-  var unsplashArray = ["pink", "blue", "yellow", "red", "green"];
+  var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
+  var unsplashArray = ["pink", "blue", "yellow", "red", "purple"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down"];
 
@@ -149,7 +146,6 @@ $(document).ready(function () {
   }
 
   var colorID = 0;
-
   // function to ask camera to find unsplash color and look for match
   function matchColor() {
 
@@ -176,6 +172,7 @@ $(document).ready(function () {
     colorID = 0;
     correctTally++;
     console.log(correctTally);
+    $("#wins").html(correctTally);
     getCorrectGif();
     // $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
 
@@ -284,6 +281,7 @@ $(document).ready(function () {
   function resetGame() {
     colorCounter = 0;
     correctTally = 0;
+    $("#wins").html(correctTally);
     timeOutTally = 0;
     counter = 30;
     generateColor();

@@ -90,8 +90,8 @@ $(document).ready(function () {
   var timeOutTally = 0;
   var timerStatus = "";
 
-  var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
-  var unsplashArray = ["magenta", "blue", "yellow", "red", "purple"];
+  var colorArray = ["magenta", "cyan", "red", "purple", "yellow"];
+  var unsplashArray = ["pink", "blue", "red", "purple", "yellow"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down"];
 
@@ -102,7 +102,7 @@ $(document).ready(function () {
     $.ajax({ url: queryURL, method: "GET" })
       .done(function (response) {
         console.log(response.results);
-        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[4].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
+        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
       })
   }
   generateUnsplash();

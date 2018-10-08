@@ -50,6 +50,10 @@ body,
 .navbar {
   background-color: rgba(0, 0, 0, 0.3); }
 
+#pauseBtnAnimate {
+    margin-left: 20px;
+}
+
 .top-nav-collapse {
   background-color: #1C2331; }
 
@@ -60,7 +64,8 @@ body,
 
 /* Footer color for sake of consistency with Navbar */
 .page-footer {
-  background-color: #1C2331; }
+  background-color: #1C2331; 
+}
 
 
   html,
@@ -96,6 +101,15 @@ body,
       }
     }
 
+.canvas {
+    position:absolute;
+    background-color:#1C2331;
+    z-index:1;
+    top: 95px;
+    left: 70px;
+    text-align:center;
+}
+
 .alt-font {
   font-family: 'Permanent Marker', cursive;
 }
@@ -108,6 +122,7 @@ body,
 .text-extra-large {font-size: 30px; line-height:26px}
 .title-large {font-size: 100px; line-height:95px}
 .title-extra-large {font-size: 130px; line-height:120px}
+.title-large-timer {font-size: 300px;}
 
 /* text color */
 .text-white {color:#FFF}
@@ -333,6 +348,16 @@ body,
 .margin-75px-tb {margin-top:75px; margin-bottom:75px;}
 .margin-100px-tb {margin-top:100px; margin-bottom:100px;}
 
+/* Opacity */
+.opacity1 {opacity:.1}
+.opacity2 {opacity:.2}
+.opacity3 {opacity:.3}
+.opacity4 {opacity:.4}
+.opacity5 {opacity:.5}
+.opacity6 {opacity:.6}
+.opacity7 {opacity:.7}
+.opacity8 {opacity:.8}
+.opacity9 {opacity:.9}
 
 #unsplash-bg {
     width: 100%;
@@ -345,6 +370,10 @@ Down section
 .down-section {position: absolute; width: 100%; bottom:50px; left: 0; right: 0}
 
 header nav .nav-header-container {display: table-cell; vertical-align: middle; position: relative;}
+
+#playBtnAnimate {
+    padding-top: 30px;
+}
 
 /* Card body */
 .card {
@@ -365,6 +394,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
+  padding-bottom: 4rem;
   background-color: transparent !important;
 }
 
@@ -416,14 +446,14 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   z-index: -100;
 }
 
-#navbarFixed {
+/* #navbarFixed {
     z-index: 1;
-}
+} */
 
 /* modal */
-#myModal {
+/* #myModal {
     z-index: 2;
-}
+} */
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -437,19 +467,23 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.733); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.726); /* Black w/ opacity */
+    outline:none;
   }
   
 #giphyImage {
     position: relative;
     bottom: 500px;
-    left: 675px;
-}
-
-  #img01 {
+    left: 685px;
     
+}
+ /* Win Giphy */
+  #img01 {
     position: center;
     repeat: no-repeat;
     size: cover;
+    outline:none;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
    
   }
   
@@ -459,6 +493,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     top: 0px;
     z-index: -1;
     margin-left: 900px;
+    outline:none;
    
   }
   
@@ -467,13 +502,53 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     left: 0px;
     top: 0px;
     z-index: -1;
+    outline:none;
   }
+
   #img04 {
     position: absolute;
     left: 0px;
     top: 0px;
     z-index: -1;
     margin-left: 400px;
+    outline:none;
+  }
+
+  /* /Time Out Giphy Images */
+
+  /* Lose Giphy */
+  #img05 {
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+    outline:none;
+   
+  }
+  
+  #img06 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    margin-left: 900px;
+    outline:none;
+   
+  }
+  
+  #img07 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    outline:none;
+  }
+  #img08 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    margin-left: 400px;
+    outline:none;
   }
   
   /* Modal Content (image) */
@@ -485,8 +560,8 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     height: 100%;
     background-color: rgba(0, 0, 0, 0);
     border-width:50px;  
-    border-style:hidden;
-   
+    border-style: none;
+    outline:none;
   }
   
   /* Caption of Modal Image */
@@ -507,6 +582,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
     animation-duration: 0.6s;
+    outline:none;
   }
   
   @-webkit-keyframes zoom {
@@ -520,7 +596,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   }
   
   /* The Close Button */
-  .close {
+  /* .close {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -528,14 +604,14 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
-  }
+  } */
   
-  .close:hover,
+  /* .close:hover,
   .close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
-  }
+  } */
   
   /* 100% Image Width on Smaller Screens */
   @media only screen and (max-width: 700px){
@@ -543,3 +619,95 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
         width: 100%;
     }
   }
+<<<<<<< HEAD
+=======
+
+  /* Instructions slide out panel */
+  .slide-out-div {
+    padding: 20px;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.5)!important; 
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    z-index: 10;
+}
+
+/* Play button */
+
+.play-btn {
+  background-image: url("../images/play-btn.png");
+  background-repeat: no-repeat;
+  height: 99px;
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/* Giphys  */
+img {
+  height: 45%;
+  width: 45%;
+  /* border-style: solid; */
+  /* border-width: 2px; */
+  border-radius: 100%;
+  /* border-color:rgb(211, 211, 211); */
+  /* line-height: 1cm; */
+}
+#timer {
+  position: absolute;
+  top: auto;
+  left: 30%;
+}
+
+.pause-btn {
+  background-image: url("../images/pause_button.png");
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 31px;
+  display: block;
+}
+
+.play {
+  background-image: url("../images/play-button.png");
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 31px;
+  display: block;
+}
+
+.reset-btn {
+  background-image: url("../images/reset_button.png");
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 31px;
+  display: block;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#enable-camera {
+  display: none;
+}
+
+#pause-game {
+  display: none;
+}
+#reset-game {
+  display: none;
+}
+
+#myVideo {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}
+>>>>>>> 3ac709854f6556cd8c3508cb0bc9747270d61d46

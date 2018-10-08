@@ -81,7 +81,7 @@ $(document).ready(function () {
   var timeOutTally = 0;
   
   var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
-  var unsplashArray = ["purple", "blue", "yellow", "red", "purple"];
+  var unsplashArray = ["pink", "blue", "yellow", "red", "purple"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down"];
 

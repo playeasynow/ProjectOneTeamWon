@@ -2,60 +2,60 @@
 // 1 Tracking JS new colors
 
 // --- firebase -----------------------------------------------------------------------------------------------------------------//
-  // didi's firebase
-  var config = {
-    apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
-    authDomain: "color-game-chat.firebaseapp.com",
-    databaseURL: "https://color-game-chat.firebaseio.com",
-    projectId: "color-game-chat",
-    storageBucket: "color-game-chat.appspot.com",
-    messagingSenderId: "440942527592"
-  };
-  firebase.initializeApp(config);
+// didi's firebase
+var config = {
+  apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
+  authDomain: "color-game-chat.firebaseapp.com",
+  databaseURL: "https://color-game-chat.firebaseio.com",
+  projectId: "color-game-chat",
+  storageBucket: "color-game-chat.appspot.com",
+  messagingSenderId: "440942527592"
+};
+firebase.initializeApp(config);
 
-  // --- start chat box -----------------------------------------------------------------------------------------------------------------//
-  var name = "";
+// --- start chat box -----------------------------------------------------------------------------------------------------------------//
+var name = "";
 
-  firebase.database().ref('chat/').on('child_added',
-    function (snapshot) {
-      var data = "<div id='m'><p class ='name'>" +
-        snapshot.child('name').val() + "</p><p class='message'>Hi: " +
-        snapshot.child('message').val() + "</p><div>";
-         
-
-      $("#messages").html($("#messages").html() + data);
-    });
+firebase.database().ref('chat/').on('child_added',
+  function (snapshot) {
+    var data = "<div id='m'><p class ='name'>" +
+      snapshot.child('name').val() + "</p><p class='message'>Hi: " +
+      snapshot.child('message').val() + "</p><div>";
 
 
-  $("#name_submit").on("click", function () {
-    name = $("#name").val().trim("");
-   
-    
+    $("#messages").html($("#messages").html() + data);
   });
 
-  $("#send_button").on('click', function () {
-    var mess = $("#msg").val().trim("");
-    $("#msg").fadeOut();
-    $(".msg").fadeOut();
-    $("#send_button").fadeOut();
-    $(".send_button").fadeOut();
-    $(".name_display").fadeOut();
-    $("#name_display").fadeOut();
+
+$("#name_submit").on("click", function () {
+  name = $("#name").val().trim("");
 
 
-    name_display
-    // alert(mess);
+});
 
-    firebase.database().ref('chat/' + Date.now()).set({
-      
-      name: name,
-      message: mess
-    });
+$("#send_button").on('click', function () {
+  var mess = $("#msg").val().trim("");
+  $("#msg").fadeOut();
+  $(".msg").fadeOut();
+  $("#send_button").fadeOut();
+  $(".send_button").fadeOut();
+  $(".name_display").fadeOut();
+  $("#name_display").fadeOut();
+
+
+  name_display
+  // alert(mess);
+
+  firebase.database().ref('chat/' + Date.now()).set({
+
+    name: name,
+    message: mess
   });
+});
 
 
 $(document).ready(function () {
-  
+
 
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
   tracking.ColorTracker.registerColor('purple', function (r, g, b) {
@@ -91,7 +91,8 @@ $(document).ready(function () {
   var colorCounter = 0;
   var correctTally = 0;
   var timeOutTally = 0;
-  
+  var timerStatus = "";
+
   var colorArray = ["magenta", "cyan", "yellow", "red", "green"];
   var unsplashArray = ["pink", "blue", "yellow", "red", "green"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up"];
@@ -107,7 +108,7 @@ $(document).ready(function () {
       })
   }
   generateUnsplash();
-  
+
   // click on start game to enable camera and timer
   $("body").on("click touch", "#enable-camera", function () {
     // starts camera
@@ -133,6 +134,7 @@ $(document).ready(function () {
   // --- start JS functions ----------------------------------------------//
   // function to set timer to 30 seconds. If timer runs out, generate timeout loss
   function timerWrapper() {
+    timerStatus = "on";
     theTimer = setInterval(thirtySeconds, 1000);
     function thirtySeconds() {
       if (counter === 0) {
@@ -158,7 +160,7 @@ $(document).ready(function () {
       if (event.data.length === 0) {
         // no colors were detected in this frame
       } else if (colorID % 50 === 0) {
-        
+
         console.log(event.data[0].color);
         if (event.data[0].color === colorArray[colorCounter]) {
           generateWin();
@@ -185,7 +187,7 @@ $(document).ready(function () {
     $("#img02").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
     $("#img03").attr("src", "https://clip2art.com/images/splatter-clipart-cartoon-14.png");
     $("#img04").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
-    
+
 
   }
 
@@ -208,25 +210,6 @@ $(document).ready(function () {
     $("#img04").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
 
   }
-
-  //   var modal = document.getElementById('myModal');
-
-  //   var img5 = document.getElementById('myImg5')
-  //   var img6 = document.getElementById('myImg6')
-  //   var img7 = document.getElementById('myImg7')
-  //   var img8 = document.getElementById('myImg8')
-
-  //   var modalImg5 = document.getElementById("img05");
-  //   var modalImg6 = document.getElementById("img06");
-  //   var modalImg7 = document.getElementById("img07");
-  //   var modalImg8 = document.getElementById("img08");
-
-  //   modal.style.display = "block";
-  //   modalImg5.src = img5.src;
-  //   modalImg6.src = img6.src;
-  //   modalImg7.src = img7.src;
-  //   modalImg8.src = img8.src;
-  // }
 
   // --- API CALL functions ----------------------------------------------//
   // giphy ajax call for correct gifs
@@ -308,9 +291,24 @@ $(document).ready(function () {
   }
 
   function pauseGame() {
-    //
+    if (timerStatus === "on") {
+      clearInterval(theTimer);
+      timerStatus = "off";
+      console.log(timerStatus);
+    } else if (timerStatus === "off") {
+      setInterval(thirtySeconds, 1000);
+      function thirtySeconds() {
+        if (counter === 0) {
+          clearInterval(theTimer);
+          timeOutLoss();
+        }
+        if (counter > 0) {
+          counter--;
+        }
+        $("#timer").html("<span class='timer'>" + counter + "</span>");
+      }
+    }
   }
-
   // closing tags of (document).ready below
 });
 
@@ -353,47 +351,47 @@ $(function () {
     fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
   });
 
-  });
+});
 
-  var scrollY = 0;
-  var distance = 40;
-  var speed = 24;
-  function autoScrollTo(el) {
-    var currentY = window.pageYOffset;
-    var targetY = document.getElementById(el).offsetTop;
-    var bodyHeight = document.body.offsetHeight;
-    var yPos = currentY + window.innerHeight;
-    var animator = setTimeout('autoScrollTo(\''+el+'\')',24);
-    if(yPos > bodyHeight){
-      clearTimeout(animator);
-    } else {
-      if(currentY < targetY-distance){
-          scrollY = currentY+distance;
-          window.scroll(0, scrollY);
-        } else {
-          clearTimeout(animator);
-        }
-    }
-  }
-  function resetScroller(el){
-    var currentY = window.pageYOffset;
-      var targetY = document.getElementById(el).offsetTop;
-    var animator = setTimeout('resetScroller(\''+el+'\')',speed);
-    if(currentY > targetY){
-      scrollY = currentY-distance;
+var scrollY = 0;
+var distance = 40;
+var speed = 24;
+function autoScrollTo(el) {
+  var currentY = window.pageYOffset;
+  var targetY = document.getElementById(el).offsetTop;
+  var bodyHeight = document.body.offsetHeight;
+  var yPos = currentY + window.innerHeight;
+  var animator = setTimeout('autoScrollTo(\'' + el + '\')', 24);
+  if (yPos > bodyHeight) {
+    clearTimeout(animator);
+  } else {
+    if (currentY < targetY - distance) {
+      scrollY = currentY + distance;
       window.scroll(0, scrollY);
     } else {
       clearTimeout(animator);
     }
   }
+}
+function resetScroller(el) {
+  var currentY = window.pageYOffset;
+  var targetY = document.getElementById(el).offsetTop;
+  var animator = setTimeout('resetScroller(\'' + el + '\')', speed);
+  if (currentY > targetY) {
+    scrollY = currentY - distance;
+    window.scroll(0, scrollY);
+  } else {
+    clearTimeout(animator);
+  }
+}
 
-  // Hide and Show buttons
-  $(document).ready(function(){
-    
-    $(".show-btns").click(function(){
-      $("#enable-camera").show();
-      $("#pause-game").show();
-      $("#myVideo").show();
-    });
+// Hide and Show buttons
+$(document).ready(function () {
+
+  $(".show-btns").click(function () {
+    $("#enable-camera").show();
+    $("#pause-game").show();
+    $("#myVideo").show();
   });
+});
 

@@ -75,7 +75,7 @@ $(document).ready(function () {
 
   // --- start game sequence -----------------------------------------------------------------------------------------------------------------//
   var theTimer;
-  var counter = 10;
+  var counter = 30;
   var colorCounter = 0;
   var correctTally = 0;
   var timeOutTally = 0;
@@ -363,3 +363,14 @@ $(function () {
       clearTimeout(animator);
     }
   }
+
+  // Hide and Show buttons
+  $(document).ready(function(){
+    
+    $(".show-btns").click(function(){
+      $("#enable-camera").show();
+      $("#pause-game").show();
+      $("#myVideo").show();
+    });
+  });
+

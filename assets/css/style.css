@@ -1,3 +1,27 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.alt-font {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    width: 100%;
+    z-index: 99;
+}
+
+/* Headings */
+h1 {font-size:40px; line-height:45px; }
+h2 {font-size:35px; line-height:40px;}
+h3 {font-size:28px; line-height:24px;}
+h4 {font-size:40px; line-height:46px;}
+h5 {font-size:32px; line-height:40px;}
+h6 {font-size:25px; line-height:30px;}
+
 /* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
 html,
 body,
@@ -111,6 +135,8 @@ body,
 .text-light-gray {color:#d6d5d5}
 .text-very-light-gray {color:#ededed}
 .text-deep-pink {color:#ff214f}
+
+
 .text-orange {color:#f05444;}
 .text-yellow {color:#e1ca1c;}
 .text-teal {color:#4aaaa5;}
@@ -593,6 +619,8 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
         width: 100%;
     }
   }
+<<<<<<< HEAD
+=======
 
   /* Instructions slide out panel */
   .slide-out-div {
@@ -682,3 +710,4 @@ img {
     min-width: 100%; 
     min-height: 100%;
 }
+>>>>>>> 3ac709854f6556cd8c3508cb0bc9747270d61d46

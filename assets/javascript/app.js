@@ -53,7 +53,81 @@ $("#send_button").on('click', function () {
 
 $(document).ready(function () {
 
+  // --- firebase -----------------------------------------------------------------------------------------------------------------//
+  // didi's firebase
+  var config = {
+    apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
+    authDomain: "color-game-chat.firebaseapp.com",
+    databaseURL: "https://color-game-chat.firebaseio.com",
+    projectId: "color-game-chat",
+    storageBucket: "color-game-chat.appspot.com",
+    messagingSenderId: "440942527592"
+  };
+  firebase.initializeApp(config);
 
+  // --- start chat box -----------------------------------------------------------------------------------------------------------------//
+  var name = "";
+
+  firebase.database().ref('chat/').on('child_added',
+    function (snapshot) {
+      var data = "<div id='m'><p class ='name'>" +
+        snapshot.child('name').val() + "</p><p class='message'>" +
+        snapshot.child('message').val() + "</p><div>";
+
+      $("#messages").html($("#messages").html() + data);
+    });
+
+
+  $("#name_submit").on("click", function () {
+    name = $("#name").val();
+    // alert(name)
+    $("#name_prompt_parent").fadeOut();
+  });
+
+  $("#send_button").on('click', function () {
+    var mess = $("#msg").val();
+    // alert(mess);
+
+    firebase.database().ref('chat/' + Date.now()).set({
+      name: name,
+      message: mess
+    });
+  });
+
+  // --- giphy ajax call -----------------------------------------------------------------------------------------------------------------//
+  var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=awesome&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=1&rating";
+
+  $.ajax({ url: queryURL2, method: 'GET' })
+    .done(function (response) {
+      console.log(response);
+
+    });
+
+  // --- start unsplash api and button -----------------------------------------------------------------------------------------------------------------//
+  $('hello').on('click', function () {
+    var x = $(this).data("splashy");
+    console.log (x);
+    var queryURL = "https://api.unsplash.com/search/photos?page=1&query="+x+"&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+
+    $.ajax({ url: queryURL, method: "GET" })
+      .done(function (response) {
+        console.log(response);
+        for (var i = 0; i < response.results.length; i++) {
+          var splashyDiv = $('<div>');
+          var splashyImage = $('<img>');
+          splashyImage.attr('src', response.results[i].urls.small);
+          splashyDiv.append(splashyImage);
+          $('#unsplashGoHere').append(splashyDiv);
+        }
+      })
+  })
+
+  //unsplash Didi api key 5ace9ae75b4aa61e764fad786dfcbd3cfdb1f398ad35b93828b8f12157b2de77
+  //unsplash ezequiel api 30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81
+
+  // $.getJSON('');
+
+  // --- start tracking.js -----------------------------------------------------------------------------------------------------------------//
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
   tracking.ColorTracker.registerColor('purple', function (r, g, b) {
     var dx = r - 120;

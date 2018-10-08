@@ -438,7 +438,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
 #giphyImage {
     position: relative;
     bottom: 500px;
-    left: 675px;
+    left: 685px;
     
 }
  /* Win Giphy */
@@ -447,6 +447,8 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     repeat: no-repeat;
     size: cover;
     outline:none;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
    
   }
   
@@ -610,13 +612,13 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
 
 /* Giphys  */
 img {
-  height: 168px;
-  width: 200px;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 70%;
+  height: 45%;
+  width: 45%;
+  /* border-style: solid; */
+  /* border-width: 2px; */
+  border-radius: 100%;
   /* border-color:rgb(211, 211, 211); */
-  line-height: 1cm;
+  /* line-height: 1cm; */
 }
 #timer {
   position: absolute;

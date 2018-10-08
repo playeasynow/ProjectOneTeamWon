@@ -261,7 +261,7 @@ $(document).ready(function () {
       generateColor();
       // matchColor();
       $("#myModal").hide();
-      counter = 10;
+      counter = 30;
       timerWrapper();
       // $(".canvas").fadeOut();
 
@@ -278,7 +278,7 @@ $(document).ready(function () {
     colorCounter = 0;
     correctTally = 0;
     timeOutTally = 0;
-    counter = 10;
+    counter = 30;
     generateColor();
     // matchColor()
     timerWrapper();
@@ -374,3 +374,7 @@ $(function () {
     });
   });
 
+  // Reset button
+  // $( "button" ).click(function() {
+  //   $("#msg").removeAttr(attribute);
+  // });

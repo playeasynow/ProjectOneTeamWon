@@ -94,8 +94,8 @@ $(document).ready(function () {
   
   var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
   var unsplashArray = ["pink", "blue", "yellow", "red", "purple"];
-  var correctGifsArray = ["transparent yes", "transparent yay", "transparent great job", "transparent winner", "transparent thumbs up", "transparent awesome"];
-  var wrongGifsArray = ["transparent try again", "crying baby", "transaparent sad", "transparent crying baby", "transparent thumbs down", "transparent crying adult"];
+  var correctGifsArray = ["transparent poshbear", "transparent yay", "transparent great job", "transparent cute animal ", "transparent thumbs up", "transparent awesome"];
+  var wrongGifsArray = ["transparent shaking head", "transparent gg", "transaparent crying gg", "transparent crying bug", "transparent thumbs down", "transparent crying adult"];
 
   // --- start JS event listeners ----------------------------------------------//
   // start first unsplash api background 
@@ -181,10 +181,11 @@ $(document).ready(function () {
 
     modal.style.display = "block";
 
-    $("#img01").attr("src", "https://melbournechapter.net/images/coupon-clipart-green-2.png");
-    $("#img02").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
-    $("#img03").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
-    $("#img04").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
+    $("#img01").attr("src", "https://cdn131.picsart.com/261355432014212.png?r1024x1024");
+    $("#img02").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
+    $("#img03").attr("src", "https://clip2art.com/images/splatter-clipart-cartoon-14.png");
+    $("#img04").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
+    
 
   }
 
@@ -201,9 +202,9 @@ $(document).ready(function () {
 
     modal.style.display = "block";
 
-    $("#img01").attr("src", "http://www.westfield.ma.edu/personalpages/draker/edcom/final/webprojects/sp18/sectiona/solarq/xtryagain.png.pagespeed.ic.5ekpeb7ycg.png");
-    $("#img02").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
-    $("#img03").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
+    $("#img01").attr("src", "https://cdn140.picsart.com/252937043020212.png?r240x240");
+    $("#img02").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
+    $("#img03").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
     $("#img04").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
 
   }

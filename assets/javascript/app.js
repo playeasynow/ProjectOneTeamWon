@@ -21,6 +21,7 @@
       var data = "<div id='m'><p class ='name'>" +
         snapshot.child('name').val() + "</p><p class='message'>Hi: " +
         snapshot.child('message').val() + "</p><div>";
+         
 
       $("#messages").html($("#messages").html() + data);
     });
@@ -28,15 +29,25 @@
 
   $("#name_submit").on("click", function () {
     name = $("#name").val().trim("");
-    // alert(name)
-    $("#name_prompt_parent").fadeOut();
+   
+    
   });
 
   $("#send_button").on('click', function () {
     var mess = $("#msg").val().trim("");
+    $("#msg").fadeOut();
+    $(".msg").fadeOut();
+    $("#send_button").fadeOut();
+    $(".send_button").fadeOut();
+    $(".name_display").fadeOut();
+    $("#name_display").fadeOut();
+
+
+    name_display
     // alert(mess);
 
     firebase.database().ref('chat/' + Date.now()).set({
+      
       name: name,
       message: mess
     });
@@ -44,6 +55,7 @@
 
 
 $(document).ready(function () {
+  
 
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
   tracking.ColorTracker.registerColor('purple', function (r, g, b) {
@@ -169,10 +181,11 @@ $(document).ready(function () {
 
     modal.style.display = "block";
 
-    $("#img01").attr("src", "https://clip2art.com/images/splatter-clipart-cartoon-14.png");
-    $("#img02").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
-    $("#img03").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
-    $("#img04").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
+    $("#img01").attr("src", "https://cdn131.picsart.com/261355432014212.png?r1024x1024");
+    $("#img02").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
+    $("#img03").attr("src", "https://clip2art.com/images/splatter-clipart-cartoon-14.png");
+    $("#img04").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
+    
 
   }
 
@@ -189,9 +202,9 @@ $(document).ready(function () {
 
     modal.style.display = "block";
 
-    $("#img01").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
-    $("#img02").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
-    $("#img03").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
+    $("#img01").attr("src", "https://cdn140.picsart.com/252937043020212.png?r240x240");
+    $("#img02").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
+    $("#img03").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
     $("#img04").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
 
   }

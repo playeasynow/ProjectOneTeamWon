@@ -31,14 +31,17 @@ $("#name_submit").on("click", function () {
   name = $("#name").val().trim("");
 });
 
+$(document).ready(function(){
 $("#send_button").on('click', function () {
   var mess = $("#msg").val().trim("");
   $("#msg").fadeOut();
-  $(".msg").fadeOut();
   $("#send_button").fadeOut();
-  $(".send_button").fadeOut();
   $(".name_display").fadeOut();
-  $("#name_display").fadeOut();
+  $(".play-large").fadeOut();
+  $("#play-large").fadeIn(5000);
+  
+
+});
 
 
   name_display

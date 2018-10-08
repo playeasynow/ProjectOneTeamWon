@@ -21,6 +21,7 @@
       var data = "<div id='m'><p class ='name'>" +
         snapshot.child('name').val() + "</p><p class='message'>Hi: " +
         snapshot.child('message').val() + "</p><div>";
+         
 
       $("#messages").html($("#messages").html() + data);
     });
@@ -28,15 +29,25 @@
 
   $("#name_submit").on("click", function () {
     name = $("#name").val().trim("");
-    // alert(name)
-    $("#name_prompt_parent").fadeOut();
+   
+    
   });
 
   $("#send_button").on('click', function () {
     var mess = $("#msg").val().trim("");
+    $("#msg").fadeOut();
+    $(".msg").fadeOut();
+    $("#send_button").fadeOut();
+    $(".send_button").fadeOut();
+    $(".name_display").fadeOut();
+    $("#name_display").fadeOut();
+
+
+    name_display
     // alert(mess);
 
     firebase.database().ref('chat/' + Date.now()).set({
+      
       name: name,
       message: mess
     });
@@ -44,6 +55,7 @@
 
 
 $(document).ready(function () {
+  
 
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
   tracking.ColorTracker.registerColor('purple', function (r, g, b) {
@@ -75,7 +87,7 @@ $(document).ready(function () {
 
   // --- start game sequence -----------------------------------------------------------------------------------------------------------------//
   var theTimer;
-  var counter = 10;
+  var counter = 30;
   var colorCounter = 0;
   var correctTally = 0;
   var timeOutTally = 0;
@@ -83,8 +95,8 @@ $(document).ready(function () {
 
   var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
   var unsplashArray = ["purple", "blue", "yellow", "red", "purple"];
-  var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
-  var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down", "crying adult"];
+  var correctGifsArray = ["transparent yes", "transparent yay", "transparent great job", "transparent winner", "transparent thumbs up", "transparent awesome"];
+  var wrongGifsArray = ["transparent try again", "crying baby", "transaparent sad", "transparent crying baby", "transparent thumbs down", "transparent crying adult"];
 
   // --- start JS event listeners ----------------------------------------------//
   // start first unsplash api background 
@@ -170,7 +182,7 @@ $(document).ready(function () {
 
     modal.style.display = "block";
 
-    $("#img01").attr("src", "https://clip2art.com/images/splatter-clipart-cartoon-14.png");
+    $("#img01").attr("src", "https://melbournechapter.net/images/coupon-clipart-green-2.png");
     $("#img02").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
     $("#img03").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
     $("#img04").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
@@ -190,7 +202,7 @@ $(document).ready(function () {
 
     modal.style.display = "block";
 
-    $("#img01").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
+    $("#img01").attr("src", "http://www.westfield.ma.edu/personalpages/draker/edcom/final/webprojects/sp18/sectiona/solarq/xtryagain.png.pagespeed.ic.5ekpeb7ycg.png");
     $("#img02").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
     $("#img03").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
     $("#img04").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
@@ -375,3 +387,14 @@ $(function () {
       clearTimeout(animator);
     }
   }
+
+  // Hide and Show buttons
+  $(document).ready(function(){
+    
+    $(".show-btns").click(function(){
+      $("#enable-camera").show();
+      $("#pause-game").show();
+      $("#myVideo").show();
+    });
+  });
+

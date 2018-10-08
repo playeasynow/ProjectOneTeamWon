@@ -652,3 +652,14 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+
+#enable-camera {
+  display: none;
+}
+
+#pause-game {
+  display: none;
+}
+#myVideo {
+  display: none;
+}

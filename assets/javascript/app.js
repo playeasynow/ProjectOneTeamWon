@@ -1,7 +1,122 @@
-// Table of Contents
-// 1 Tracking JS new colors
-
 // --- firebase -----------------------------------------------------------------------------------------------------------------//
+// eze's firebase 
+// var config = {
+//   apiKey: "AIzaSyBEmP4AL9JPm4kmdXHjG5pEft6IPDlDyzY",
+//   authDomain: "color-fun-auth.firebaseapp.com",
+//   databaseURL: "https://color-fun-auth.firebaseio.com",
+//   projectId: "color-fun-auth",
+//   storageBucket: "",
+//   messagingSenderId: "932445426388"
+// };
+
+// firebase.initializeApp(config);
+
+// var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+// ui.start('#firebaseui-auth-container', {
+//   signInOptions: [
+//     firebase.auth.EmailAuthProvider.PROVIDER_ID
+//   ],
+//   // Other config options...
+// });
+
+// ui.start('#firebaseui-auth-container', {
+//   signInOptions: [
+//     {
+//       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+//       requireDisplayName: false
+//     }
+//   ]
+// });
+
+// firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // [START_EXCLUDE]
+//   if (errorCode === 'auth/wrong-password') {
+//     alert('Wrong password.');
+//   } else {
+//     alert(errorMessage);
+//   }
+//   console.log(error);
+//   document.getElementById('quickstart-sign-in').disabled = false;
+//   // [END_EXCLUDE]
+// });
+
+// firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // [START_EXCLUDE]
+//   if (errorCode == 'auth/weak-password') {
+//     alert('The password is too weak.');
+//   } else {
+//     alert(errorMessage);
+//   }
+//   console.log(error);
+//   // [END_EXCLUDE]
+// });
+
+// // var uiConfig = {
+// //   callbacks: {
+// //     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+// //       // User successfully signed in.
+// //       // Return type determines whether we continue the redirect automatically
+// //       // or whether we leave that to developer to handle.
+// //       return true;
+// //     },
+// //     uiShown: function() {
+// //       // The widget is rendered.
+// //       // Hide the loader.
+// //       document.getElementById('loader').style.display = 'none';
+// //     }
+// //   },
+// //   // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+// //   signInFlow: 'popup',
+// //   signInSuccessUrl: '<url-to-redirect-to-on-success>',
+// //   signInOptions: [
+// //     // Leave the lines as is for the providers you want to offer your users.
+// //     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+// //     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+// //     firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+// //     firebase.auth.GithubAuthProvider.PROVIDER_ID,
+// //     firebase.auth.EmailAuthProvider.PROVIDER_ID,
+// //     firebase.auth.PhoneAuthProvider.PROVIDER_ID
+// //   ],
+// //   // Terms of service url.
+// //   tosUrl: '<your-tos-url>',
+// //   // Privacy policy url.
+// //   privacyPolicyUrl: '<your-privacy-policy-url>'
+// // };
+
+// // FirebaseUI config.
+// var uiConfig = {
+//   signInSuccessUrl: 'index.html',
+//   signInOptions: [
+//     // Leave the lines as is for the providers you want to offer your users.
+//     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+//     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+//     firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+//     firebase.auth.GithubAuthProvider.PROVIDER_ID,
+//     firebase.auth.EmailAuthProvider.PROVIDER_ID,
+//     firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+//     firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+//   ],
+//   // tosUrl and privacyPolicyUrl accept either url string or a callback
+//   // function.
+//   // Terms of service url/callback.
+//   tosUrl: '<your-tos-url>',
+//   // Privacy policy url/callback.
+//   privacyPolicyUrl: function () {
+//     window.location.assign('<your-privacy-policy-url>');
+//   }
+// };
+
+// // The start method will wait until the DOM is loaded.
+// ui.start('#firebaseui-auth-container', uiConfig);
+
+
 // didi's firebase
 var config = {
   apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
@@ -14,24 +129,25 @@ var config = {
 firebase.initializeApp(config);
 
 // --- start name box -----------------------------------------------------------------------------------------------------------------//
-var name = "";
+// var name = "";
 
-firebase.database().ref('chat/').on('child_added',
-  function (snapshot) {
-    var data = "<div id='m'><p class ='name'>" +
-      snapshot.child('name').val().trim() + snapshot.child('message').val();
-
-
-    $("#messages").html($("#messages").html() + data);
-  });
+// firebase.database().ref('chat/').on('child_added',
+//   function (snapshot) {
+//     var data = "<div id='m'><p class ='name'>" +
+//       snapshot.child('name').val().trim() + snapshot.child('message').val();
 
 
-$("#name_submit").on("click", function () {
-  name = $("#name").val().trim("");
-});
+//     $("#messages").html($("#messages").html() + data);
+//   });
+
+
+// $("#name_submit").on("click", function () {
+//   name = $("#name").val().trim("");
+// });
 
 $("#send_button").on('click', function () {
-  var mess = $("#msg").val().trim("");
+  var name = $("#msg").val().trim("");
+  $("#m").html("Hi, " + name + "!");
   $("#msg").fadeOut();
   $(".msg").fadeOut();
   $("#send_button").fadeOut();
@@ -39,21 +155,18 @@ $("#send_button").on('click', function () {
   $(".name_display").fadeOut();
   $("#name_display").fadeOut();
 
-
-  name_display
+  // name_display
   // alert(mess);
 
-  firebase.database().ref('chat/' + Date.now()).set({
+  //   firebase.database().ref('chat/' + Date.now()).set({
 
-    name: name,
-    message: mess
-  });
+  //     name: name,
+  //     message: mess
+  //   });
 });
 
 
 $(document).ready(function () {
-
-
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
   tracking.ColorTracker.registerColor('purple', function (r, g, b) {
     var dx = r - 120;

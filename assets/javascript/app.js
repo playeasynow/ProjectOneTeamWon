@@ -19,7 +19,8 @@ var name = "";
 firebase.database().ref('chat/').on('child_added',
   function (snapshot) {
     var data = "<div id='m'><p class ='name'>" +
-      snapshot.child('name').val().trim() + snapshot.child('message').val();
+      snapshot.child('name').val().trim();
+      // + snapshot.child('message').val()  
 
 
     $("#messages").html($("#messages").html() + data);
@@ -91,17 +92,18 @@ $(document).ready(function () {
   var timerStatus = "";
 
   var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
-  var unsplashArray = ["pink", "blue", "yellow", "red", "purple"];
+  var unsplashArray = ["magenta", "blue", "yellow", "red", "purple"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down"];
 
   // --- start JS event listeners ----------------------------------------------//
   // start first unsplash api background 
   function generateUnsplash() {
-    var queryURL = "https://api.unsplash.com/search/photos?page=1&per_page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+    var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
     $.ajax({ url: queryURL, method: "GET" })
       .done(function (response) {
-        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
+        console.log(response.results);
+        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[4].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
       })
   }
   generateUnsplash();
@@ -184,8 +186,6 @@ $(document).ready(function () {
     $("#img02").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
     $("#img03").attr("src", "https://clip2art.com/images/splatter-clipart-cartoon-14.png");
     $("#img04").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
-
-
   }
 
   // display losing GIF, hold screen for 3 seconds

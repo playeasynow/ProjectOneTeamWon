@@ -80,11 +80,10 @@ $(document).ready(function () {
   var correctTally = 0;
   var timeOutTally = 0;
   
-
   var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
   var unsplashArray = ["purple", "blue", "yellow", "red", "purple"];
-  var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up", "awesome"];
-  var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down", "crying adult"];
+  var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up"];
+  var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down"];
 
   // --- start JS event listeners ----------------------------------------------//
   // start first unsplash api background 
@@ -147,7 +146,7 @@ $(document).ready(function () {
 
       if (event.data.length === 0) {
         // no colors were detected in this frame
-      } else if (colorID % 50 === 0) {
+      } else if (colorID % 70 === 0) {
 
         if (event.data[0].color = colorArray[colorCounter]) {
           generateWin();
@@ -261,7 +260,7 @@ $(document).ready(function () {
       generateColor();
       // matchColor();
       $("#myModal").hide();
-      counter = 10;
+      counter = 30;
       timerWrapper();
       // $(".canvas").fadeOut();
 
@@ -278,9 +277,8 @@ $(document).ready(function () {
     colorCounter = 0;
     correctTally = 0;
     timeOutTally = 0;
-    counter = 10;
+    counter = 30;
     generateColor();
-    // matchColor()
     timerWrapper();
   }
 

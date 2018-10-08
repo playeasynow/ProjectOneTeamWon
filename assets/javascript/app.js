@@ -184,24 +184,36 @@ $(document).ready(function () {
     getWrongGif();
     // $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
 
+
     var modal = document.getElementById('myModal');
 
-    var img5 = document.getElementById('myImg5')
-    var img6 = document.getElementById('myImg6')
-    var img7 = document.getElementById('myImg7')
-    var img8 = document.getElementById('myImg8')
-
-    var modalImg5 = document.getElementById("img05");
-    var modalImg6 = document.getElementById("img06");
-    var modalImg7 = document.getElementById("img07");
-    var modalImg8 = document.getElementById("img08");
-
     modal.style.display = "block";
-    modalImg5.src = img5.src;
-    modalImg6.src = img6.src;
-    modalImg7.src = img7.src;
-    modalImg8.src = img8.src;
+
+    $("#img01").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
+    $("#img02").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
+    $("#img03").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
+    $("#img04").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
+
   }
+
+  //   var modal = document.getElementById('myModal');
+
+  //   var img5 = document.getElementById('myImg5')
+  //   var img6 = document.getElementById('myImg6')
+  //   var img7 = document.getElementById('myImg7')
+  //   var img8 = document.getElementById('myImg8')
+
+  //   var modalImg5 = document.getElementById("img05");
+  //   var modalImg6 = document.getElementById("img06");
+  //   var modalImg7 = document.getElementById("img07");
+  //   var modalImg8 = document.getElementById("img08");
+
+  //   modal.style.display = "block";
+  //   modalImg5.src = img5.src;
+  //   modalImg6.src = img6.src;
+  //   modalImg7.src = img7.src;
+  //   modalImg8.src = img8.src;
+  // }
 
   // --- API CALL functions ----------------------------------------------//
   // giphy ajax call for correct gifs

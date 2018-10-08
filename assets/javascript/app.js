@@ -1,6 +1,3 @@
-// Table of Contents
-// 1 Tracking JS new colors
-
 // --- firebase -----------------------------------------------------------------------------------------------------------------//
 // didi's firebase
 // var config = {
@@ -99,7 +96,7 @@ $(document).ready(function () {
 
   $.ajax({ url: queryURL2, method: 'GET' })
     .done(function (response) {
-      console.log(response);
+      // console.log(response);
 
     });
 
@@ -111,7 +108,7 @@ $(document).ready(function () {
 
     $.ajax({ url: queryURL, method: "GET" })
       .done(function (response) {
-        console.log(response);
+        // console.log(response);
         for (var i = 0; i < response.results.length; i++) {
           var splashyDiv = $('<div>');
           var splashyImage = $('<img>');
@@ -175,7 +172,7 @@ $(document).ready(function () {
     var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
     $.ajax({ url: queryURL, method: "GET" })
       .done(function (response) {
-        console.log(response.results);
+        // console.log(response.results);
         $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
       })
   }

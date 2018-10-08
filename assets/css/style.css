@@ -671,6 +671,11 @@ img {
 #pause-game {
   display: none;
 }
+
+#pauseText {
+    margin-right: 15px;
+}
+
 #reset-game {
   display: none;
 }

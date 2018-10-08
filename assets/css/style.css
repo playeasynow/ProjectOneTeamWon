@@ -26,6 +26,10 @@ body,
 .navbar {
   background-color: rgba(0, 0, 0, 0.3); }
 
+#pauseBtnAnimate {
+    margin-left: 20px;
+}
+
 .top-nav-collapse {
   background-color: #1C2331; }
 
@@ -341,6 +345,10 @@ Down section
 
 header nav .nav-header-container {display: table-cell; vertical-align: middle; position: relative;}
 
+#playBtnAnimate {
+    padding-top: 30px;
+}
+
 /* Card body */
 .card {
   position: relative;
@@ -360,6 +368,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
+  padding-bottom: 4rem;
   background-color: transparent !important;
 }
 
@@ -432,12 +441,13 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.733); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.726); /* Black w/ opacity */
+    outline:none;
   }
   
 #giphyImage {
     position: relative;
     bottom: 500px;
-    left: 675px;
+    left: 685px;
     
 }
  /* Win Giphy */
@@ -445,6 +455,9 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     position: center;
     repeat: no-repeat;
     size: cover;
+    outline:none;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
    
   }
   
@@ -454,6 +467,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     top: 0px;
     z-index: -1;
     margin-left: 900px;
+    outline:none;
    
   }
   
@@ -462,13 +476,16 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     left: 0px;
     top: 0px;
     z-index: -1;
+    outline:none;
   }
+
   #img04 {
     position: absolute;
     left: 0px;
     top: 0px;
     z-index: -1;
     margin-left: 400px;
+    outline:none;
   }
 
   /* /Time Out Giphy Images */
@@ -478,6 +495,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     position: center;
     repeat: no-repeat;
     size: cover;
+    outline:none;
    
   }
   
@@ -487,6 +505,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     top: 0px;
     z-index: -1;
     margin-left: 900px;
+    outline:none;
    
   }
   
@@ -495,6 +514,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     left: 0px;
     top: 0px;
     z-index: -1;
+    outline:none;
   }
   #img08 {
     position: absolute;
@@ -502,6 +522,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     top: 0px;
     z-index: -1;
     margin-left: 400px;
+    outline:none;
   }
   
   /* Modal Content (image) */
@@ -514,6 +535,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     background-color: rgba(0, 0, 0, 0);
     border-width:50px;  
     border-style: none;
+    outline:none;
   }
   
   /* Caption of Modal Image */
@@ -534,6 +556,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
     animation-duration: 0.6s;
+    outline:none;
   }
   
   @-webkit-keyframes zoom {
@@ -598,13 +621,13 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
 
 /* Giphys  */
 img {
-  height: 168px;
-  width: 200px;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 70%;
-  border-color:rgb(211, 211, 211);
-  line-height: 1cm;
+  height: 45%;
+  width: 45%;
+  /* border-style: solid; */
+  /* border-width: 2px; */
+  border-radius: 100%;
+  /* border-color:rgb(211, 211, 211); */
+  /* line-height: 1cm; */
 }
 #timer {
   position: absolute;
@@ -648,6 +671,14 @@ img {
 #pause-game {
   display: none;
 }
-#myVideo {
+#reset-game {
   display: none;
+}
+
+#myVideo {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
 }

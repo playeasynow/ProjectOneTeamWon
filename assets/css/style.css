@@ -432,6 +432,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.733); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.726); /* Black w/ opacity */
+    outline:none;
   }
   
 #giphyImage {
@@ -445,6 +446,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     position: center;
     repeat: no-repeat;
     size: cover;
+    outline:none;
    
   }
   
@@ -454,6 +456,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     top: 0px;
     z-index: -1;
     margin-left: 900px;
+    outline:none;
    
   }
   
@@ -462,13 +465,16 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     left: 0px;
     top: 0px;
     z-index: -1;
+    outline:none;
   }
+
   #img04 {
     position: absolute;
     left: 0px;
     top: 0px;
     z-index: -1;
     margin-left: 400px;
+    outline:none;
   }
 
   /* /Time Out Giphy Images */
@@ -478,6 +484,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     position: center;
     repeat: no-repeat;
     size: cover;
+    outline:none;
    
   }
   
@@ -487,6 +494,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     top: 0px;
     z-index: -1;
     margin-left: 900px;
+    outline:none;
    
   }
   
@@ -495,6 +503,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     left: 0px;
     top: 0px;
     z-index: -1;
+    outline:none;
   }
   #img08 {
     position: absolute;
@@ -502,6 +511,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     top: 0px;
     z-index: -1;
     margin-left: 400px;
+    outline:none;
   }
   
   /* Modal Content (image) */
@@ -514,6 +524,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     background-color: rgba(0, 0, 0, 0);
     border-width:50px;  
     border-style: none;
+    outline:none;
   }
   
   /* Caption of Modal Image */
@@ -534,6 +545,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
     animation-duration: 0.6s;
+    outline:none;
   }
   
   @-webkit-keyframes zoom {
@@ -603,7 +615,7 @@ img {
   border-style: solid;
   border-width: 2px;
   border-radius: 70%;
-  border-color:rgb(211, 211, 211);
+  /* border-color:rgb(211, 211, 211); */
   line-height: 1cm;
 }
 #timer {

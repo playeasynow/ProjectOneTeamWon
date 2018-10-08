@@ -26,6 +26,10 @@ body,
 .navbar {
   background-color: rgba(0, 0, 0, 0.3); }
 
+#pauseBtnAnimate {
+    margin-left: 20px;
+}
+
 .top-nav-collapse {
   background-color: #1C2331; }
 
@@ -341,6 +345,10 @@ Down section
 
 header nav .nav-header-container {display: table-cell; vertical-align: middle; position: relative;}
 
+#playBtnAnimate {
+    padding-top: 30px;
+}
+
 /* Card body */
 .card {
   position: relative;
@@ -360,6 +368,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
+  padding-bottom: 4rem;
   background-color: transparent !important;
 }
 
@@ -662,6 +671,14 @@ img {
 #pause-game {
   display: none;
 }
-#myVideo {
+#reset-game {
   display: none;
+}
+
+#myVideo {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
 }

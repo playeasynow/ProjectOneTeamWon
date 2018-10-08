@@ -13,14 +13,14 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// --- start chat box -----------------------------------------------------------------------------------------------------------------//
+// --- start name box -----------------------------------------------------------------------------------------------------------------//
 var name = "";
 
 firebase.database().ref('chat/').on('child_added',
   function (snapshot) {
     var data = "<div id='m'><p class ='name'>" +
-      snapshot.child('name').val() + "</p><p class='message'>Hi: " +
-      snapshot.child('message').val() + "</p><div>";
+      snapshot.child('name').val().trim();
+      // + snapshot.child('message').val()  
 
 
     $("#messages").html($("#messages").html() + data);
@@ -29,8 +29,6 @@ firebase.database().ref('chat/').on('child_added',
 
 $("#name_submit").on("click", function () {
   name = $("#name").val().trim("");
-
-
 });
 
 $("#send_button").on('click', function () {
@@ -83,7 +81,7 @@ $(document).ready(function () {
   });
 
   // tracking.js initial color tracker - tracking seen in console
-  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'green']);
+  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple']);
 
   // --- start game sequence -----------------------------------------------------------------------------------------------------------------//
   var theTimer;
@@ -93,18 +91,19 @@ $(document).ready(function () {
   var timeOutTally = 0;
   var timerStatus = "";
 
-  var colorArray = ["magenta", "cyan", "yellow", "red", "green"];
-  var unsplashArray = ["pink", "blue", "yellow", "red", "green"];
+  var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
+  var unsplashArray = ["magenta", "blue", "yellow", "red", "purple"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down"];
 
   // --- start JS event listeners ----------------------------------------------//
   // start first unsplash api background 
   function generateUnsplash() {
-    var queryURL = "https://api.unsplash.com/search/photos?page=1&per_page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
+    var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
     $.ajax({ url: queryURL, method: "GET" })
       .done(function (response) {
-        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
+        console.log(response.results);
+        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[4].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
       })
   }
   generateUnsplash();
@@ -149,7 +148,6 @@ $(document).ready(function () {
   }
 
   var colorID = 0;
-
   // function to ask camera to find unsplash color and look for match
   function matchColor() {
 
@@ -176,6 +174,7 @@ $(document).ready(function () {
     colorID = 0;
     correctTally++;
     console.log(correctTally);
+    $("#wins").html(correctTally);
     getCorrectGif();
     // $("#videoBox").append("<canvas class='canvas' width='400' height='300'></canvas>");
 
@@ -187,8 +186,6 @@ $(document).ready(function () {
     $("#img02").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
     $("#img03").attr("src", "https://clip2art.com/images/splatter-clipart-cartoon-14.png");
     $("#img04").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
-
-
   }
 
   // display losing GIF, hold screen for 3 seconds
@@ -284,10 +281,10 @@ $(document).ready(function () {
   function resetGame() {
     colorCounter = 0;
     correctTally = 0;
+    $("#wins").html(correctTally);
     timeOutTally = 0;
     counter = 30;
     generateColor();
-    timerWrapper();
   }
 
   function pauseGame() {
@@ -391,7 +388,7 @@ $(document).ready(function () {
   $(".show-btns").click(function () {
     $("#enable-camera").show();
     $("#pause-game").show();
-    $("#myVideo").show();
+    $("#reset-game").show();
   });
 });
 

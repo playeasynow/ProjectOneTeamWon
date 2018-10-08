@@ -287,7 +287,6 @@ $(document).ready(function () {
     timeOutTally = 0;
     counter = 30;
     generateColor();
-    timerWrapper();
   }
 
   function pauseGame() {
@@ -391,7 +390,7 @@ $(document).ready(function () {
   $(".show-btns").click(function () {
     $("#enable-camera").show();
     $("#pause-game").show();
-    $("#myVideo").show();
+    $("#reset-game").show();
   });
 });
 

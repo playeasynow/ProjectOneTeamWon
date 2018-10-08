@@ -63,15 +63,15 @@ $(document).ready(function () {
     return false;
   });
 
-  // tracking.ColorTracker.registerColor('green', function (r, g, b) {
-  //   if (r < 25 && g > 128 && b < 73) {
-  //     return true;
-  //   }
-  //   return false;
-  // });
+  tracking.ColorTracker.registerColor('green', function (r, g, b) {
+    if (r < 50 && g > 200 && b < 50) {
+      return true;
+    }
+    return false;
+  });
 
   // tracking.js initial color tracker - tracking seen in console
-  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'purple']);
+  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'red', 'green']);
 
   // --- start game sequence -----------------------------------------------------------------------------------------------------------------//
   var theTimer;
@@ -80,8 +80,8 @@ $(document).ready(function () {
   var correctTally = 0;
   var timeOutTally = 0;
   
-  var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
-  var unsplashArray = ["pink", "blue", "yellow", "red", "purple"];
+  var colorArray = ["magenta", "cyan", "yellow", "red", "green"];
+  var unsplashArray = ["pink", "blue", "yellow", "red", "green"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down"];
 
@@ -95,7 +95,6 @@ $(document).ready(function () {
       })
   }
   generateUnsplash();
-
   
   // click on start game to enable camera and timer
   $("body").on("click touch", "#enable-camera", function () {
@@ -146,9 +145,10 @@ $(document).ready(function () {
 
       if (event.data.length === 0) {
         // no colors were detected in this frame
-      } else if (colorID % 70 === 0) {
-
-        if (event.data[0].color = colorArray[colorCounter]) {
+      } else if (colorID % 50 === 0) {
+        
+        console.log(event.data[0].color);
+        if (event.data[0].color === colorArray[colorCounter]) {
           generateWin();
           clearInterval(theTimer);
         }

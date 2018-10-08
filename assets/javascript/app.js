@@ -92,9 +92,8 @@ $(document).ready(function () {
   var correctTally = 0;
   var timeOutTally = 0;
   
-
   var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
-  var unsplashArray = ["purple", "blue", "yellow", "red", "purple"];
+  var unsplashArray = ["pink", "blue", "yellow", "red", "purple"];
   var correctGifsArray = ["transparent yes", "transparent yay", "transparent great job", "transparent winner", "transparent thumbs up", "transparent awesome"];
   var wrongGifsArray = ["transparent try again", "crying baby", "transaparent sad", "transparent crying baby", "transparent thumbs down", "transparent crying adult"];
 
@@ -159,7 +158,7 @@ $(document).ready(function () {
 
       if (event.data.length === 0) {
         // no colors were detected in this frame
-      } else if (colorID % 50 === 0) {
+      } else if (colorID % 70 === 0) {
 
         if (event.data[0].color = colorArray[colorCounter]) {
           generateWin();
@@ -285,7 +284,7 @@ $(document).ready(function () {
       generateColor();
       // matchColor();
       $("#myModal").hide();
-      counter = 10;
+      counter = 30;
       timerWrapper();
       // $(".canvas").fadeOut();
 
@@ -302,9 +301,8 @@ $(document).ready(function () {
     colorCounter = 0;
     correctTally = 0;
     timeOutTally = 0;
-    counter = 10;
+    counter = 30;
     generateColor();
-    // matchColor()
     timerWrapper();
   }
 

@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- favicon on tab bar -->
+    <link rel="icon" type="image/png" href="assets/images/favIconColor.png">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Color Fun</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <!-- bootstrap core CSS -->
+    <!-- bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <!-- material design bootstrap -->
@@ -32,7 +34,7 @@
                         class="text-yellow">L</span><span class="text-deep-pink">O</span><span class="text-indigo">R</span>
                     FUN</strong>
             </a>
-            <!-- Collapse -->
+            <!-- Collapse responsive -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,22 +45,13 @@
                 <!-- Left -->
                 <ul class="navbar-nav mr-auto">
                     <!-- Chat room container -->
-                    <div id="chatroom" class="container text-white alt-font text-medium">
-                        <div id="messages">
-                            <span class="message"></span>
-                            <div id="m"></div>
-                            <!-- <p class="name"></p> -->
-                            <p></p>
-                        </div>
+                    <div class="container text-white alt-font text-medium">
+                        <div id="name"></div>
                     </div>
                 </ul>
+
                 <!-- Right -->
                 <ul class="navbar-nav navbar-top navbar-scroll-top">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a id="enable-camera" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span
                                 class="play animated infinite pulse">
@@ -69,7 +62,8 @@
                     <li class="nav-item" id="pauseBtnAnimate">
                         <a id="pause-game" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span
                                 class="pause-btn"></span>
-                            <p id="pauseText">Pause</p> </a>
+                            <p id="pauseText">Pause</p>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a id="reset-game" class="nav-link inner-link alt-font" href="#unsplash-bg" title="Show"><span
@@ -97,33 +91,21 @@
                         <h1 id="name_display" class="name_display display-4 font-weight-bold alt-font text-center title-extra-large animated pulse">Your
                             Name?</h1>
                         <div class="container">
-<!-- 
-                                <div id="firebaseui-auth-container"></div>
-                                <div id="loader">Loading...</div> -->
-
                             <div class="row justify-content-md-center">
                                 <div class="col-md-auto margin-50px-tb">
                                     <div id="input">
-                                        <input id="msg" class="form-control animated pulse" id="message"/>
+                                        <input id="nameInput" class="form-control animated pulse" />
                                         <button id="send_button" class="submit btn btn-deep-pink btn-small text-white show-btns animated pulse"
-                                            href="#unsplash-bg">Send</button>
+                                            href="#unsplash-bg">Submit</button>
                                     </div>
-                    
-                                    <!-- <input class="form-control form-control-lg col-auto" type="text" placeholder="What's your name?"> -->
                                 </div>
                             </div>
-                            <div id = "play-large" class = "play-large" href="#unsplash-bg"></div>
                         </div>
-                       
-                        <!-- <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 play-btn nav-link inner-link"></div> -->
-                        <!-- <button id="send_button" class=" submit btn btn-deep-pink btn-small text-white">Play</button> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Landing Page -->
-
 
     <!-- Full Page Intro -->
     <!-- Unsplash pictures generate in this div  -->
@@ -144,26 +126,35 @@
                         <strong>Step 1</strong>
                     </p>
                     <p class="mb-4 d-none d-md-block text-white">
-                        <strong>It's a color matching game. The objective of the game is to match the color of the
-                            image that displays on the screen.
-                            find an object with the same color of the image and place it infront of the camera!
-                        </strong>
-                    </p>
+                        It's a color matching game! The objective of the game is to match the color of
+                        the image that displays on the screen. You have 30 seconds to match the color for each image.</p>
                     <p class="mb-4 d-none d-md-block text-white">
                         <p class="text-white font-weight-bold">
                             <strong>Step 2</strong>
                         </p>
+
                         <p class="mb-4 d-none d-md-block text-white">
-                            <strong>Click the play button to start the camera and timer. You have 30 seconds for each
-                                image.</strong>
+                            Type your name, and click the play button to start the camera and timer.
                         </p>
+
                         <p class="mb-4 d-none d-md-block text-white">
                             <p class="text-white font-weight-bold">
                                 <strong>Step 3</strong>
                             </p>
+
                             <p class="mb-4 d-none d-md-block text-white">
-                                <strong>Enjoy the game!</strong>
+                                Find an object with the same color of the image displayed in the background and
+                                place the object infront of the camera!
                             </p>
+
+                            <p class="mb-4 d-none d-md-block text-white">
+                                <p class="text-white font-weight-bold">
+                                    <strong>Step 4</strong>
+                                </p>
+
+                                <p class="mb-4 d-none d-md-block text-white">
+                                    <strong>Enjoy the Game!</strong>
+                                </p>
                 </div>
                 <!--Grid row-->
                 <div class="row wow fadeIn">
@@ -185,7 +176,8 @@
                             <!--Card content-->
                             <div class="card-body">
                                 <!-- video from camera will render on HTML -->
-                                <div class="container bg-transparent padding-15px-right padding-10px-tb" id="camera-box">
+                                <div class="container bg-transparent padding-15px-right padding-10px-tb alt-font text-medium"
+                                    id="camera-box">
                                     Colors Matched: <span id="wins"></span>
                                     <div class="text-white text-medium padding-10px-bottom alt-font"></div>
                                     <div id="videoBox">
@@ -199,8 +191,6 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
 
     <!-- Footer -->
     <footer class="page-footer text-center font-small wow fadeIn">
@@ -213,10 +203,6 @@
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script> -->
-    <!-- firebase authentication -->
-    <!-- <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" /> -->
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

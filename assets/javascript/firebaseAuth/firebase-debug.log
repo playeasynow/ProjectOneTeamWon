@@ -1,0 +1,25 @@
+[debug] [2018-10-08T22:06:10.026Z] ----------------------------------------------------------------------
+[debug] [2018-10-08T22:06:10.028Z] Command:       /usr/local/Cellar/node/10.5.0_1/bin/node /usr/local/bin/firebase serve
+[debug] [2018-10-08T22:06:10.028Z] CLI Version:   5.0.1
+[debug] [2018-10-08T22:06:10.028Z] Platform:      darwin
+[debug] [2018-10-08T22:06:10.028Z] Node Version:  v10.5.0
+[debug] [2018-10-08T22:06:10.029Z] Time:          Mon Oct 08 2018 17:06:10 GMT-0500 (Central Daylight Time)
+[debug] [2018-10-08T22:06:10.029Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-08T22:06:10.037Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-08T22:06:10.037Z] > authorizing via signed-in user
+[debug] [2018-10-08T22:06:10.037Z] [iam] checking project color-fun-auth for permissions ["firebase.projects.get"]
+[debug] [2018-10-08T22:06:10.039Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/color-fun-auth:testIamPermissions  
+
+[debug] [2018-10-08T22:06:10.361Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-08T22:06:10.362Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/color-fun-auth  
+ 
+[debug] [2018-10-08T22:06:10.608Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/ezequiel/Projects/ProjectOneTeamWon/assets/javascript/firebaseAuth'...
+[info] 
+[debug] [2018-10-08T22:06:10.610Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/932445426388/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-08T22:06:10.952Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: colorFun
+[info] ✔  hosting: Local server: http://localhost:5000

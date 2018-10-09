@@ -1,6 +1,3 @@
-// Table of Contents
-// 1 Tracking JS new colors
-
 // --- firebase -----------------------------------------------------------------------------------------------------------------//
 // didi's firebase
 var config = {
@@ -14,26 +11,9 @@ var config = {
 firebase.initializeApp(config);
 
 // --- start name box -----------------------------------------------------------------------------------------------------------------//
-var name = "";
-
-firebase.database().ref('chat/').on('child_added',
-  function (snapshot) {
-    var data = "<div id='m'><p class ='name'>" +
-      snapshot.child('name').val().trim();
-      // + snapshot.child('message').val()  
-
-
-    $("#messages").html($("#messages").html() + data);
-  });
-
-
-$("#name_submit").on("click", function () {
-  name = $("#name").val().trim("");
-});
-
-$(document).ready(function(){
 $("#send_button").on('click', function () {
-  var mess = $("#msg").val().trim("");
+  var name = $("#msg").val().trim("");
+  $("#m").html("Hi, " + name + "!");
   $("#msg").fadeOut();
   $("#send_button").fadeOut();
   $(".name_display").fadeOut();
@@ -56,8 +36,6 @@ $("#send_button").on('click', function () {
 
 
 $(document).ready(function () {
-
-
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
   tracking.ColorTracker.registerColor('purple', function (r, g, b) {
     var dx = r - 120;
@@ -94,8 +72,8 @@ $(document).ready(function () {
   var timeOutTally = 0;
   var timerStatus = "";
 
-  var colorArray = ["magenta", "cyan", "yellow", "red", "purple"];
-  var unsplashArray = ["magenta", "blue", "yellow", "red", "purple"];
+  var colorArray = ["magenta", "cyan", "red", "purple", "yellow"];
+  var unsplashArray = ["pink", "blue", "red", "purple", "yellow"];
   var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up"];
   var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down"];
 
@@ -106,7 +84,7 @@ $(document).ready(function () {
     $.ajax({ url: queryURL, method: "GET" })
       .done(function (response) {
         console.log(response.results);
-        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[4].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
+        $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
       })
   }
   generateUnsplash();
@@ -270,32 +248,34 @@ $(document).ready(function () {
       $("#myModal").hide();
       counter = 30;
       timerWrapper();
-      // $(".canvas").fadeOut();
-
     }
     else {
       $("#myModal").hide();
-      // $(".canvas").fadeOut();
       resetGame();
     }
   }
 
   // reset the counters and start over game
   function resetGame() {
+    clearInterval(theTimer);
     colorCounter = 0;
     correctTally = 0;
     $("#wins").html(correctTally);
     timeOutTally = 0;
     counter = 30;
     generateColor();
+    timerWrapper();
   }
 
   function pauseGame() {
     if (timerStatus === "on") {
+      $("#pauseText").text("Play");
       clearInterval(theTimer);
       timerStatus = "off";
       console.log(timerStatus);
+
     } else if (timerStatus === "off") {
+      $("#pauseText").text("Pause");
       setInterval(thirtySeconds, 1000);
       function thirtySeconds() {
         if (counter === 0) {

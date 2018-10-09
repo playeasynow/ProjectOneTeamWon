@@ -597,6 +597,12 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     .modal-content {
         width: 100%;
     }
+    
+    #timer {
+        position: relative;
+        left: 30%;
+      }
+
   }
 
   /* Instructions slide out panel */

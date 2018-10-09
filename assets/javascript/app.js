@@ -15,11 +15,23 @@ $("#send_button").on('click', function () {
   var name = $("#msg").val().trim("");
   $("#m").html("Hi, " + name + "!");
   $("#msg").fadeOut();
-  $(".msg").fadeOut();
   $("#send_button").fadeOut();
-  $(".send_button").fadeOut();
   $(".name_display").fadeOut();
-  $("#name_display").fadeOut();
+  $(".play-large").fadeOut();
+  $("#play-large").fadeIn(5000);
+  
+
+});
+
+
+  name_display
+  // alert(mess);
+
+  firebase.database().ref('chat/' + Date.now()).set({
+
+    name: name,
+    message: mess
+  });
 });
 
 

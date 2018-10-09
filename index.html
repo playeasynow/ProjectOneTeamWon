@@ -133,10 +133,10 @@
             <!-- Content -->
             <div class="container-lr">
                 <!-- Timer section -->
-                <div id="timer" class="alt-font title-large-timer text-white opacity6"></div>
+                <div id="timer" class="alt-font title-large-timer text-white opacity6 padding-20px-bottom"></div>
 
                 <!-- Pullout instructions panel -->
-                <div class="slide-out-div">
+                <div class="slide-out-div animated pulse">
                     <a class="handle" href="#">Content</a>
                     <h3 class="alt-font text-white">Instructions</h3>
                     <hr class="hr-light">
@@ -144,26 +144,30 @@
                         <strong>Step 1</strong>
                     </p>
                     <p class="mb-4 d-none d-md-block text-white">
-                        <strong>It's a color matching game. The objective of the game is to match the color of the
-                            image that displays on the screen.
-                            find an object with the same color of the image and place it infront of the camera!
-                        </strong>
-                    </p>
+                        <strong>It's a color matching game.</strong> The objective of the game is to match the color of the
+                            image that displays on the screen. You have 30 seconds to match the color for each image.</p>
                     <p class="mb-4 d-none d-md-block text-white">
                         <p class="text-white font-weight-bold">
                             <strong>Step 2</strong>
                         </p>
                         <p class="mb-4 d-none d-md-block text-white">
-                            <strong>Click the play button to start the camera and timer. You have 30 seconds for each
-                                image.</strong>
+                            <strong>Type your name, and click the play button to start the camera and timer. 
+                                </strong>
                         </p>
                         <p class="mb-4 d-none d-md-block text-white">
                             <p class="text-white font-weight-bold">
                                 <strong>Step 3</strong>
                             </p>
                             <p class="mb-4 d-none d-md-block text-white">
-                                <strong>Enjoy the game!</strong>
+                                <strong>Find an object with the same color of the image displayed in the background and place the object infront of the camera!</strong>
                             </p>
+                            <p class="mb-4 d-none d-md-block text-white">
+                                    <p class="text-white font-weight-bold">
+                                        <strong>Step 4</strong>
+                                    </p>
+                                    <p class="mb-4 d-none d-md-block text-white">
+                                        <strong>Enjoy the Game!</strong>
+                                    </p>
                 </div>
                 <!--Grid row-->
                 <div class="row wow fadeIn">
@@ -186,7 +190,7 @@
                             <div class="card-body">
                                 <!-- video from camera will render on HTML -->
                                 <div class="container bg-transparent padding-15px-right padding-10px-tb" id="camera-box">
-                                    Colors Matched: <span id="wins"></span>
+                                    <p class="alt-font text-medium">Colors Matched: </p><span id="wins"></span>
                                     <div class="text-white text-medium padding-10px-bottom alt-font"></div>
                                     <div id="videoBox">
                                         <video id="video" width="400" height="300" preload autoplay loop muted></video>

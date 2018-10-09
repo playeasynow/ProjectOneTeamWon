@@ -1,14 +1,14 @@
 // --- firebase -----------------------------------------------------------------------------------------------------------------//
 // didi's firebase
-var config = {
-  apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
-  authDomain: "color-game-chat.firebaseapp.com",
-  databaseURL: "https://color-game-chat.firebaseio.com",
-  projectId: "color-game-chat",
-  storageBucket: "color-game-chat.appspot.com",
-  messagingSenderId: "440942527592"
-};
-firebase.initializeApp(config);
+// var config = {
+//   apiKey: "AIzaSyDHwC2WNJYHYaVe-Qj3sOP-X3GLhgV_0Ps",
+//   authDomain: "color-game-chat.firebaseapp.com",
+//   databaseURL: "https://color-game-chat.firebaseio.com",
+//   projectId: "color-game-chat",
+//   storageBucket: "color-game-chat.appspot.com",
+//   messagingSenderId: "440942527592"
+// };
+// firebase.initializeApp(config);
 
 // --- start name box -----------------------------------------------------------------------------------------------------------------//
 $("#send_button").on('click', function () {
@@ -24,15 +24,15 @@ $("#send_button").on('click', function () {
 });
 
 
-  name_display
-  // alert(mess);
+//   name_display
+//   // alert(mess);
 
-  firebase.database().ref('chat/' + Date.now()).set({
+//   firebase.database().ref('chat/' + Date.now()).set({
 
-    name: name,
-    message: mess
-  });
-});
+//     name: name,
+//     message: mess
+//   });
+// });
 
 
 $(document).ready(function () {
@@ -83,7 +83,7 @@ $(document).ready(function () {
     var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + unsplashArray[colorCounter] + "&client_id=30259e37b562fe39e3b5bba56d859745082308358092456f9be492a159f8fb81";
     $.ajax({ url: queryURL, method: "GET" })
       .done(function (response) {
-        console.log(response.results);
+        // console.log(response.results);
         $('#unsplash-bg').attr('style', "background-image: url('" + response.results[0].urls.regular + "'); background-repeat: no-repeat; background-size: cover;");
       })
   }
@@ -328,7 +328,7 @@ $(function () {
     action: 'click',                          //options: 'click' or 'hover', action to trigger animation
     topPos: '200px',                          //position from the top/ use if tabLocation is left or right
     leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
-    fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+    fixedPosition: true                        //options: true makes it stick(fixed position) on scroll
   });
 
 });
@@ -375,3 +375,7 @@ $(document).ready(function () {
   });
 });
 
+  // Reset button
+  // $( "button" ).click(function() {
+  //   $("#msg").removeAttr(attribute);
+  // });

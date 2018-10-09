@@ -349,6 +349,11 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     padding-top: 30px;
 }
 
+#send_button {
+    margin-left: 3rem;
+    margin-right: 2rem;
+}
+
 /* Card body */
 .card {
   position: relative;

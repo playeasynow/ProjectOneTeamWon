@@ -245,11 +245,11 @@ $(document).ready(function () {
   // reset the counters and start over game
   function resetGame() {
     clearInterval(theTimer);
+    counter = 30;
     colorCounter = 0;
     correctTally = 0;
     $("#wins").html(correctTally);
     timeOutTally = 0;
-    counter = 30;
     generateColor();
     timerWrapper();
   }
@@ -315,7 +315,7 @@ $(function () {
     action: 'click',                          //options: 'click' or 'hover', action to trigger animation
     topPos: '200px',                          //position from the top/ use if tabLocation is left or right
     leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
-    fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+    fixedPosition: true                      //options: true makes it stick(fixed position) on scroll
   });
 
 });

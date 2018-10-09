@@ -32,8 +32,6 @@ $("#send_button").on('click', function () {
     name: name,
     message: mess
   });
-});
-
 
 $(document).ready(function () {
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//

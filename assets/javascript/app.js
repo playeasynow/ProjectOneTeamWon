@@ -24,15 +24,15 @@ $("#send_button").on('click', function () {
 });
 
 
-  name_display
-  // alert(mess);
+//   name_display
+//   // alert(mess);
 
-  firebase.database().ref('chat/' + Date.now()).set({
+//   firebase.database().ref('chat/' + Date.now()).set({
 
-    name: name,
-    message: mess
-  });
-});
+//     name: name,
+//     message: mess
+//   });
+// });
 
 
 $(document).ready(function () {

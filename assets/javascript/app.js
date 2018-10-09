@@ -12,26 +12,15 @@ firebase.initializeApp(config);
 
 // --- start name box -----------------------------------------------------------------------------------------------------------------//
 $("#send_button").on('click', function () {
-  var name = $("#msg").val().trim("");
-  $("#m").html("Hi, " + name + "!");
-  $("#msg").fadeOut();
+  var name = $("#nameInput").val().trim("");
+  $("#name").html("Hi, " + name + "!");
+  $("#nameInput").fadeOut();
   $("#send_button").fadeOut();
   $(".name_display").fadeOut();
   $(".play-large").fadeOut();
   $("#play-large").fadeIn(5000);
-  
-
 });
 
-
-  name_display
-  // alert(mess);
-
-  firebase.database().ref('chat/' + Date.now()).set({
-
-    name: name,
-    message: mess
-  });
 
 $(document).ready(function () {
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
@@ -162,9 +151,9 @@ $(document).ready(function () {
     modal.style.display = "block";
 
     $("#img01").attr("src", "https://cdn131.picsart.com/261355432014212.png?r1024x1024");
-    $("#img02").attr("src", "http://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
+    $("#img02").attr("src", "https://www.clker.com/cliparts/u/3/t/X/s/s/splash-green.svg");
     $("#img03").attr("src", "https://clip2art.com/images/splatter-clipart-cartoon-14.png");
-    $("#img04").attr("src", "http://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
+    $("#img04").attr("src", "https://www.clker.com/cliparts/P/4/r/f/b/g/light-blue-splash-ink-for-graffiti-logo-hi.png");
   }
 
   // display losing GIF, hold screen for 3 seconds
@@ -183,14 +172,14 @@ $(document).ready(function () {
     $("#img01").attr("src", "https://cdn140.picsart.com/252937043020212.png?r240x240");
     $("#img02").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
     $("#img03").attr("src", "https://openclipart.org/image/2400px/svg_to_png/223945/Spot-of-Ink-2015073002.png");
-    $("#img04").attr("src", "http://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
+    $("#img04").attr("src", "https://www.clker.com/cliparts/h/k/g/c/p/e/black-splash-hi.png");
 
   }
 
   // --- API CALL functions ----------------------------------------------//
   // giphy ajax call for correct gifs
   function getCorrectGif() {
-    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=5&rating";
+    var queryURL2 = "https://api.giphy.com/v1/gifs/search?q=" + correctGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=5&rating";
 
     $.ajax({ url: queryURL2, method: 'GET' })
       .done(function (response) {
@@ -206,7 +195,7 @@ $(document).ready(function () {
 
   // giphy ajax call wrong giphy
   function getWrongGif() {
-    var queryURL2 = "http://api.giphy.com/v1/gifs/search?q=" + wrongGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=5&rating";
+    var queryURL2 = "https://api.giphy.com/v1/gifs/search?q=" + wrongGifsArray[colorCounter] + "&api_key=T3bTJBKugMxVT3yX9ddzafzVAJTHEZtk&limit=5&rating";
 
     $.ajax({ url: queryURL2, method: 'GET' })
       .done(function (response) {

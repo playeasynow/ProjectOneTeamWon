@@ -61,8 +61,8 @@ $(document).ready(function () {
 
   var colorArray = ["magenta", "cyan", "red", "purple", "yellow"];
   var unsplashArray = ["pink", "blue", "red", "purple", "yellow"];
-  var correctGifsArray = ["good job", "winning", "great job", "winner", "thumbs up"];
-  var wrongGifsArray = ["try again", "crying baby", "sad", "crying baby", "thumbs down"];
+  var correctGifsArray = ["transparent yay", "transparent winning", "transparent great job", "transparent winner", "transparent thumbs up"];
+  var wrongGifsArray = ["transparent poshbear", "transparent gg", "transparent thumbs down", "transparent crying", "transparent nope"];
 
   // --- start JS event listeners ----------------------------------------------//
   // start first unsplash api background 

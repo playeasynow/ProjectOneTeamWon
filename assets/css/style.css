@@ -373,7 +373,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
   background-color: transparent !important;
 }
 
@@ -615,6 +615,17 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     border-radius: .25rem;
     z-index: 10;
 }
+
+  /* Instructions slide out panel */
+  /* .chat-box-handle {
+    padding: 20px;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.5)!important; 
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    z-index: 150;
+} */
 
 /* Play button */
 

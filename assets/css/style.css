@@ -715,7 +715,6 @@ img {
 }
 
 .play-large {
-
 background-image: url("../images/play-btn.png");
 width: 230x;
 height: 130px;
@@ -724,6 +723,4 @@ background-repeat: no-repeat;
 display: block;
 margin-left: 35%;
 display:none;
-
-
 }

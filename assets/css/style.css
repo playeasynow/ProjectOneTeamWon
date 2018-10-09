@@ -687,3 +687,17 @@ img {
     min-width: 100%; 
     min-height: 100%;
 }
+
+.play-large {
+
+background-image: url("../images/play-btn.png");
+width: 230x;
+height: 130px;
+padding-top: 50px;
+background-repeat: no-repeat;
+display: block;
+margin-left: 35%;
+display:none;
+
+
+}

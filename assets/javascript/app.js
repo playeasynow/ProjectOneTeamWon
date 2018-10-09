@@ -11,9 +11,13 @@ var config = {
 firebase.initializeApp(config);
 
 // --- start name box -----------------------------------------------------------------------------------------------------------------//
-$("#send_button").on('click', function () {
-  var name = $("#nameInput").val().trim("");
-  $("#name").html("Hi, " + name + "!");
+var name = "";
+
+$("#send_button").on('click', function (event) {
+  event.preventDefault();
+
+  name = $("#nameInput").val().trim("");
+  $(".name").html("Hi, " + name + "!");
   $("#nameInput").fadeOut();
   $("#send_button").fadeOut();
   $(".name_display").fadeOut();
@@ -21,6 +25,28 @@ $("#send_button").on('click', function () {
   $("#play-large").fadeIn(5000);
 });
 
+// --- start chat box -----------------------------------------------------------------------------------------------------------------//
+
+firebase.database().ref('chat/').on('child_added',
+  function (snapshot) {
+    var data = "<p class='message'>" +
+      snapshot.child('message').val().trim() + "</p>";
+
+    $("#messages").append(data);
+  });
+
+$("#send_message").on('click', function (event) {
+  event.preventDefault();
+
+  var mess = $("#msg").val().trim();
+  name = $("#nameInput").val().trim();
+
+  firebase.database().ref('chat/' + Date.now()).set({
+    name: name,
+    message: mess
+  });
+  $("#msg").val("");
+});
 
 $(document).ready(function () {
   // --- start tracking.js new colors -----------------------------------------------------------------------------------------------------------------//
@@ -75,6 +101,12 @@ $(document).ready(function () {
       })
   }
   generateUnsplash();
+
+  $(".show-btns").click(function () {
+    $("#enable-camera").show();
+    $("#pause-game").show();
+    $("#reset-game").show();
+  });
 
   // click on start game to enable camera and timer
   $("body").on("click touch", "#enable-camera", function () {
@@ -245,11 +277,11 @@ $(document).ready(function () {
   // reset the counters and start over game
   function resetGame() {
     clearInterval(theTimer);
+    counter = 30;
     colorCounter = 0;
     correctTally = 0;
     $("#wins").html(correctTally);
     timeOutTally = 0;
-    counter = 30;
     generateColor();
     timerWrapper();
   }
@@ -315,50 +347,57 @@ $(function () {
     action: 'click',                          //options: 'click' or 'hover', action to trigger animation
     topPos: '200px',                          //position from the top/ use if tabLocation is left or right
     leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
-    fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+    fixedPosition: true                      //options: true makes it stick(fixed position) on scroll
   });
 
 });
 
-var scrollY = 0;
-var distance = 40;
-var speed = 24;
-function autoScrollTo(el) {
-  var currentY = window.pageYOffset;
-  var targetY = document.getElementById(el).offsetTop;
-  var bodyHeight = document.body.offsetHeight;
-  var yPos = currentY + window.innerHeight;
-  var animator = setTimeout('autoScrollTo(\'' + el + '\')', 24);
-  if (yPos > bodyHeight) {
-    clearTimeout(animator);
-  } else {
-    if (currentY < targetY - distance) {
-      scrollY = currentY + distance;
-      window.scroll(0, scrollY);
-    } else {
-      clearTimeout(animator);
-    }
-  }
-}
-function resetScroller(el) {
-  var currentY = window.pageYOffset;
-  var targetY = document.getElementById(el).offsetTop;
-  var animator = setTimeout('resetScroller(\'' + el + '\')', speed);
-  if (currentY > targetY) {
-    scrollY = currentY - distance;
-    window.scroll(0, scrollY);
-  } else {
-    clearTimeout(animator);
-  }
-}
+// chatbox pullout tab ------------------------------------------------------------ //
+// $(function () {
+//   $('.chatBox').tabSlideOut({
+//     tabHandle: '.chat-box-handle',                     //class of the element that will become your tab
+//     pathToTabImage: './assets/images/chat.png', //path to the image for the tab //Optionally can be set using css
+//     imageHeight: '25px',                     //height of tab image           //Optionally can be set using css
+//     imageWidth: '74px',                       //width of tab image            //Optionally can be set using css
+//     tabLocation: 'bottom',                      //side of screen where tab lives, top, right, bottom, or left
+//     speed: 300,                               //speed of animation
+//     action: 'click',                          //options: 'click' or 'hover', action to trigger animation
+//     topPos: '400px',                          //position from the top/ use if tabLocation is left or right
+//     leftPos: '100px',                          //position from left/ use if tabLocation is bottom or top
+//     fixedPosition: true                      //options: true makes it stick(fixed position) on scroll
+//   });
 
-// Hide and Show buttons
-$(document).ready(function () {
+// });
 
-  $(".show-btns").click(function () {
-    $("#enable-camera").show();
-    $("#pause-game").show();
-    $("#reset-game").show();
-  });
-});
+// var scrollY = 0;
+// var distance = 40;
+// var speed = 24;
+// function autoScrollTo(el) {
+//   var currentY = window.pageYOffset;
+//   var targetY = document.getElementById(el).offsetTop;
+//   var bodyHeight = document.body.offsetHeight;
+//   var yPos = currentY + window.innerHeight;
+//   var animator = setTimeout('autoScrollTo(\'' + el + '\')', 24);
+//   if (yPos > bodyHeight) {
+//     clearTimeout(animator);
+//   } else {
+//     if (currentY < targetY - distance) {
+//       scrollY = currentY + distance;
+//       window.scroll(0, scrollY);
+//     } else {
+//       clearTimeout(animator);
+//     }
+//   }
+// }
+// function resetScroller(el) {
+//   var currentY = window.pageYOffset;
+//   var targetY = document.getElementById(el).offsetTop;
+//   var animator = setTimeout('resetScroller(\'' + el + '\')', speed);
+//   if (currentY > targetY) {
+//     scrollY = currentY - distance;
+//     window.scroll(0, scrollY);
+//   } else {
+//     clearTimeout(animator);
+//   }
+// }
 

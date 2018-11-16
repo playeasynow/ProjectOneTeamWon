@@ -1,4 +1,4 @@
-# Color Fun :art:  :art:
+# Color Fun :art:  :art:  :art:
 UT Austin Coding Bootcamp | Project 1 \
 [https://playeasynow.github.io/ProjectWonTeamWon/](https://playeasynow.github.io/ProjectOneTeamWon/) \
 v1.0 \
@@ -30,8 +30,8 @@ jQuery 3.x - <http://code.jquery.com/jquery-3.3.1.min.js>
 trackingJS - <https://trackingjs.com/>
 
 # Original Contributors:
-Didi Ramsamooj - <https://github.com/DiDi1081>
-Efren Cavazos - <https://github.com/EfrenCav>
+Didi Ramsamooj - <https://github.com/DiDi1081> \
+Efren Cavazos - <https://github.com/EfrenCav> \
 Ezequiel Calderon - <https://github.com/playeasynow>
 
 # Get Involved!

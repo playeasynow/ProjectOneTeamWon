@@ -451,8 +451,8 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
   
 #giphyImage {
     position: relative;
-    bottom: 500px;
-    left: 685px;
+    bottom: 680px;
+    left: 600px;
     
 }
  /* Win Giphy */
@@ -463,6 +463,7 @@ header nav .nav-header-container {display: table-cell; vertical-align: middle; p
     outline:none;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
+    margin-bottom: 50px;
    
   }
   
